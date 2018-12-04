@@ -1,0 +1,64 @@
+// Perdidas parciales
+.pp{
+  min-width: 136px;
+  font-weight: 300;
+  i{
+    font-size: 2em;
+  }
+  div {
+    font-size: 0.8em;
+  }
+}
+
+// Daños a terceros
+.rce{
+  min-width: 100px;
+}
+
+.btn-check{
+  color: #05ae0e;
+}
+
+// Perdidas totales
+.pt{
+  min-width: 126px;
+  i{
+    font-size: 2em;
+  }
+}
+
+// Conductor Elegido
+.ce{
+  min-width: 70px; // No funciona!!!!
+  font-size: 1em;
+}
+
+// Carro taller y grua
+.ct_g{
+  font-size: 1em;
+  min-width: 100px;
+}
+
+// Gastos transporte perdida total
+.gtpt{
+  min-width: 100px;
+  font-size: 1em;
+}
+
+// Vehículo de reemplazo
+.vr{
+  min-width: 100px;
+  font-size: 1em;
+}
+
+// Accidentes personales
+.ap{
+  min-width: 100px;
+  font-size: 1em;
+}
+
+// Prima
+.prima{
+  min-width: 100px;
+  font-size: 1.2em;
+}
