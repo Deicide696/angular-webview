@@ -43,12 +43,12 @@ export class AutosListComponent implements OnInit {
 
   constructor(private dataService: DataService) { }
   
-	response: Response[];
-	resp: Response[];
+	response: Response;
+	resp: Response;
 	data: DataResponse;
 	internal_message: Cotizacion;
-	insurances: Aseguradora[];
-	typeplan: Plan[];
+	insurances: Aseguradora;
+	typeplan: Plan;
 	amparos: Amparo;
 	asistencia: Asistencia;
 	vehiculo: Vehiculo;
@@ -60,12 +60,12 @@ export class AutosListComponent implements OnInit {
 				this.response = response;
 				console.log(this.response[0]);
 				this.response.data = response[0].data;				
-				this.response.data.internal_message = this.data.internal_message;				
+				this.response.data.internal_message = this.response.data.internal_message;				
 				this.response.data.internal_message.vehiculo = this.response.data.internal_message.vehiculo;
 				this.response.data.internal_message.insurances = this.response.data.internal_message.insurances;
 				this.response.data.internal_message.insurances.typeplan = this.response.data.internal_message.insurances.typeplan;
-				this.response.data.internal_message.insurances.typeplan.amparos = this.response.data.internal_message.typeplan.amparos;
-				this.response.data.internal_message.insurances.typeplan.asistencia = this.response.data.internal_message.typeplan.asistencia;
+				//this.response.data.internal_message.insurances.typeplan.amparos = this.response.data.internal_message.typeplan.amparos;
+				//this.response.data.internal_message.insurances.typeplan.asistencia = this.response.data.internal_message.typeplan.asistencia;
 				console.log(this.response);
 			}
 		);
@@ -75,18 +75,18 @@ export class AutosListComponent implements OnInit {
     this.dataService.getResponseWeb()
 		.subscribe(resp => {
 				this.resp = resp;
+				console.log(this.resp[0]);
+				this.resp.data = resp[0].data;				
+				this.resp.data.internal_message = this.resp.data.internal_message;				
+				this.resp.data.internal_message.vehiculo = this.resp.data.internal_message.vehiculo;
+				this.resp.data.internal_message.insurances = this.resp.data.internal_message.insurances;
+				this.resp.data.internal_message.insurances.typeplan = this.resp.data.internal_message.insurances.typeplan;
+				//this.response.data.internal_message.insurances.typeplan.amparos = this.response.data.internal_message.typeplan.amparos;
+				//this.response.data.internal_message.insurances.typeplan.asistencia = this.response.data.internal_message.typeplan.asistencia;
 				console.log(this.resp);
-				this.response.data = response[0].data;				
-				this.response.data.internal_message = this.data.internal_message;				
-				this.response.data.internal_message.vehiculo = this.response.data.internal_message.vehiculo;
-				this.response.data.internal_message.insurances = this.response.data.internal_message.insurances;
-				this.response.data.internal_message.insurances.typeplan = this.response.data.internal_message.insurances.typeplan;
-				this.response.data.internal_message.insurances.typeplan.amparos = this.response.data.internal_message.typeplan.amparos;
-				this.response.data.internal_message.insurances.typeplan.asistencia = this.response.data.internal_message.typeplan.asistencia;
-				console.log(this.response);
 			}
 		);
-	}	
+	}
 	
 
   ngOnInit() {

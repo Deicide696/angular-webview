@@ -15,12 +15,12 @@ export class DataService {
      * Returns the Observable object containing the list of quote
      * @returns The list of quotes in real time
      */
-    getResponse(): Observable<Response[]> {
-        console.log('Mis datos json: ' + this.http.get<Response[]>( '../assets/json/autos.json' ));
-        return this.http.get<Response[]>( '../assets/json/autos.json' );    
+    getResponse(): Observable<Response> {
+        console.log('Mis datos json: ' + this.http.get<Response>( '../assets/json/autos.json' ));
+        return this.http.get<Response>( '../assets/json/autos.json' );    
 	}	
 	
-	getResponseWeb(): Observable<Response[]> {
+	getResponseWeb(): Observable<Response> {
 		let names = "ALGUIEN";
 		let document = 1;
 		let identify = 52696276;
@@ -48,7 +48,7 @@ export class DataService {
 		headers = headers.append('partner_id','4');
 		let params = JSON.stringify({names, document, identify, first_surname, gender, idCity, address, cellphone, code_fasecolda, birthDate, model, nuevo, idCityAuto, placa, email, valor, value_accessorio, second_surname, document_driver, name_company});		
 		
-		console.log(this.http.post<Response[]>(this.url, params, {headers: headers}));		
-        return this.http.post<Response[]>(this.url, params, {headers: headers});    
+		console.log(this.http.post<Response>(this.url, params, {headers: headers}));		
+        return this.http.post<Response>(this.url, params, {headers: headers});    
 	}	
 }

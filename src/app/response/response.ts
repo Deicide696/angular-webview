@@ -2,5 +2,5 @@ import { DataResponse } from '../../../../webview/src/app/data-response/data-res
 
 export class Response{
   status: boolean;
-  data: DataResponse[];
+  data: DataResponse;
 }

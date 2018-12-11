@@ -1,5 +1,5 @@
-import {Vehiculo} from '../../../../webview/src/app/vehiculo/vehiculo';
-import {Aseguradora} from '../../../../webview/src/app/aseguradora/aseguradora';
+import { Vehiculo } from '../../../../webview/src/app/vehiculo/vehiculo';
+import { Aseguradora } from '../../../../webview/src/app/aseguradora/aseguradora';
 
 
 export class Cotizacion {
@@ -11,5 +11,5 @@ export class Cotizacion {
     address: string;
     telephone: string;
     vehiculo: Vehiculo;
-    insurances: Aseguradora[];
+    insurances: Aseguradora;
 }
