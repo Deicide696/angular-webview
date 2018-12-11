@@ -222,44 +222,85 @@
                   <th class="text-center">{{ tableData3.headerRow[8] }}</th>
                   <th class="text-center">{{ tableData3.headerRow[9] }}</th>
                 </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let row of tableData3.dataRows">
-                  <td>
+                </thead>				
+                <tbody *ngFor="let row of response.data.internal_message.insurances">
+							
+                <tr *ngFor="let row2 of row.typeplan" >				
+				  
+                  <td *ngIf = "row2.status == true">
                     <div class="img-container">
-                      <img src="assets/img/{{row[0]}}" alt="...">
+                      <img src="{{row.logo}}" alt="{{row.name}}">
                     </div>
                     <br />
-                    <small>Plan Basico</small>
+				  	
+                    <small>{{row2.plan_name}}</small>
                   </td>
-                  <td class="td-number rce">
+                  <td *ngIf = "row2.status == true" class="td-number rce">
                     <small>Máximo</small>
                     <br />
-                    <small>$</small>{{row[1]}}
+                    <small >{{(row2.limitedbt)/1000000}}</small>
                     <br />
                     <small>Millones</small>
                     <br />
                     <small>Sin deducible</small>
                   </td>
-                  <td class="td-actions text-center pt">
-                    <button type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+				  <td *ngIf = "row2.status == true" class="td-number text-center ce">{{row2.amparos.ptd}}</td>
+				  <td *ngIf = "row2.status == true" class="td-number text-center ct_g">{{row2.amparos.ppd}} / {{row2.amparos.pph}}</td>
+                  <td *ngIf = "row2.status == true" class="td-actions text-center pt">
+                    <button *ngIf = "row2.asistencia.conductor_elegido == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
                       <i class="now-ui-icons ui-1_simple-remove"></i>
                     </button>
-                  </td>
-                  <td class="td-actions text-center pp">
-                    <button type="button" placement="top" ngbTooltip="Check item" class="btn btn-neutral btn-check">
+					<button *ngIf = "row2.asistencia.conductor_elegido == true" type="button" placement="top" ngbTooltip="Check item" class="btn btn-neutral btn-check">
                       <i class="now-ui-icons ui-1_check"></i>
                     </button>
-                    <div class="col">10% | 1 SMMLV</div>
                   </td>
-                  <td class="td-number text-center ce">{{row[4]}}</td>
-                  <td class="td-number text-center ct_g">{{row[5]}}</td>
-                  <td class="td-number text-center gtpt"><small>$</small>{{row[6]}}</td>
-                  <td class="td-number text-center vr"> 10 días / 15 días</td>
-                  <td class="td-number text-center ap"><small>$</small>{{row[6]}}</td>
-                  <td class="td-actions text-center prima"><small>$</small>{{row[6]}}</td>
-                </tr>
+                  <td *ngIf = "row2.status == true" class="td-actions text-center pp">
+                    <button *ngIf = "row2.asistencia.carro_taller == true" type="button" placement="top" ngbTooltip="Check item" class="btn btn-neutral btn-check">
+                      <i class="now-ui-icons ui-1_check"></i>
+                    </button>
+					<button *ngIf = "row2.asistencia.carro_taller == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+                      <i class="now-ui-icons ui-1_simple-remove"></i>
+                    </button>
+                    <div class="col">
+					<button *ngIf = "row2.asistencia.grua == true" type="button" placement="top" ngbTooltip="Check item" class="btn btn-neutral btn-check">
+                      <i class="now-ui-icons ui-1_check"></i>
+                    </button>
+					<button *ngIf = "row2.asistencia.grua == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+                      <i class="now-ui-icons ui-1_simple-remove"></i>
+                    </button>
+					</div>
+                  </td>
+                  
+                  
+                  <td *ngIf = "row2.status == true" class="td-actions text-center pt">
+                    <button *ngIf = "row2.amparos.gtpt == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+                      <i class="now-ui-icons ui-1_simple-remove"></i>
+                    </button>
+					<button *ngIf = "row2.amparos.gtpt == true" type="button" placement="top" ngbTooltip="Check item" class="btn btn-neutral btn-check">
+                      <i class="now-ui-icons ui-1_check"></i>
+                    </button>
+                  </td>
+                  <td *ngIf = "row2.status == true" class="td-actions text-center pp">
+                    <button *ngIf = "row2.asistencia.vehiculo_remplazo == true" type="button" placement="top" ngbTooltip="Check item" class="btn btn-neutral btn-check">
+                      <i class="now-ui-icons ui-1_check"></i>
+                    </button>
+					<button *ngIf = "row2.asistencia.vehiculo_remplazo == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+                      <i class="now-ui-icons ui-1_simple-remove"></i>
+                    </button>                    
+                  </td>
+                  <td *ngIf = "row2.status == true" class="td-actions text-center pp">
+					<div *ngIf = "row2.amparos.accidentes_personales == false" class="col">
+						<button *ngIf = "row2.amparos.accidentes_personales == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+						  <i class="now-ui-icons ui-1_simple-remove"></i>
+						</button>
+					</div>
+					<small *ngIf = "row2.amparos.accidentes_personales != false">$ {{row2.amparos.accidentes_personales}}</small>
+				  </td>
+                  <td *ngIf = "row2.status == true" class="td-actions text-center prima"><small>$</small>{{row2.prima_total}}</td>				  
+                </tr>	
+				
                 </tbody>
+				
               </table>
             </div>
           </div>

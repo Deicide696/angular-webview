@@ -1,0 +1,364 @@
+[{ 
+  "status": true,
+  "data": {
+        "internal_message": {
+            "id": 3238,
+            "name_user": "erica vanesa  orioene guarin ",
+            "email_user": "correo@mail.com",
+            "identify": "52696276",
+            "gender": "femenino",
+            "address": "cra 19 a # 84 82 ofic 201",
+            "telephone": "3186233871",
+            "pdf_cotizacion": " ",
+            "vehiculo": {
+                "codigo_fasecolda": "801311",
+                "clase": "automovil",
+                "servicio": "particular",
+                "placa": "ndr856",
+                "marca": "bmw",
+                "tipo": "520i",
+                "cilindrage": "tp 2000cc",
+                "model": "2013",
+                "valor": "96500000",
+                "valor_accesorios": "0"
+            },
+            "insurances": [
+                    {
+                        "name": "sbs",
+                        "statusinsurance": true,
+						"logo" : "https://s3.amazonaws.com/dev.vivoo/img/logos_aseguradoras/sbs.jpg", 
+                        "typeplan": [
+                            {
+								"plan_name": "plan básico",
+                                "status": true,
+                                "no_cotizacion": "10925187",
+                                "mensaje_validacion": "cotización exitosa",
+                                "prima_total": "4157925",
+                                "limite": 1000,
+                                "limitedbt": 1000000000,
+                                "limitemup": 1000000000,
+                                "limitemdp": 2000000000,
+                                "amparos": {
+                                    "ptd": "0% min 0.0 smmlv",
+                                    "ppd": "0% min 1.0 smmlv",
+                                    "pth": "0% min 0.0 smmlv",
+                                    "pph": "0% min 1.0 smmlv",
+                                    "terremoto": "10% min 1.0 smmlv",
+                                    "accidentes_personales": 25000000,
+                                    "amparo_patrimonial": true,
+                                    "gtpp": true,
+                                    "gtpt": true
+                                },
+                                "asistencia": {
+                                    "asistencia_pena_civil": true,
+                                    "asistencia_viaje": true,
+                                    "conductor_elegido": true,
+                                    "vehiculo_remplazo": true,
+                                    "grua": true,
+                                    "carro_taller": true
+                                },
+                                "rc_exceso": 0,
+                                "gastos_expedicion": "18000",
+                                "saltarinspeccion": "false",
+                                "mensaje_saltarinspeccion": []
+                            },
+                            {
+								"plan_name": "plan medio",
+                                "status": true,
+                                "no_cotizacion": "10925210",
+                                "mensaje_validacion": "cotización exitosa",
+                                "prima_total": "3753121",
+                                "limite": 700,
+                                "limitedbt": 700000000,
+                                "limitemup": 700000000,
+                                "limitemdp": 1400000000,
+                                "amparos": {
+                                    "ptd": "10% min 0.0 smmlv",
+                                    "ppd": "10% min 1.0 smmlv",
+                                    "pth": "10% min 0.0 smmlv",
+                                    "pph": "10% min 1.0 smmlv",
+                                    "terremoto": "10% min 1.0 smmlv",
+                                    "accidentes_personales": 25000000,
+                                    "amparo_patrimonial": true,
+                                    "gtpp": true,
+                                    "gtpt": true
+                                },
+                                "asistencia": {
+                                    "asistencia_pena_civil": true,
+                                    "asistencia_viaje": true,
+                                    "conductor_elegido": true,
+                                    "vehiculo_remplazo": true,
+                                    "grua": true,
+                                    "carro_taller": true
+                                },
+                                "rc_exceso": 0,
+                                "gastos_expedicion": "18000",
+                                "saltarinspeccion": "false",
+                                "mensaje_saltarinspeccion": []
+                            },
+                            {
+								"plan_name": "plan full",
+                                "status": true,
+                                "no_cotizacion": "10925215",
+                                "mensaje_validacion": "cotización exitosa",
+                                "prima_total": "449386",
+                                "limite": 300,
+                                "limitedbt": 300000000,
+                                "limitemup": 300000000,
+                                "limitemdp": 600000000,
+                                "amparos": {
+                                    "ptd": false,
+                                    "ppd": false,
+                                    "pth": false,
+                                    "pph": false,
+                                    "terremoto": false,
+                                    "accidentes_personales": "",
+                                    "amparo_patrimonial": true,
+                                    "gtpp": false,
+                                    "gtpt": false
+                                },
+                                "asistencia": {
+                                    "asistencia_pena_civil": true,
+                                    "asistencia_viaje": true,
+                                    "conductor_elegido": false,
+                                    "vehiculo_remplazo": false,
+                                    "grua": true,
+                                    "carro_taller": true
+                                },
+                                "rc_exceso": 0,
+                                "gastos_expedicion": "18000",
+                                "saltarinspeccion": "false",
+                                "mensaje_saltarinspeccion": []
+                            }
+                        ]
+                    },
+                    {
+                        "name": "sura",
+                        "statusinsurance": true,
+						"logo" : "https://s3.amazonaws.com/dev.vivoo/img/logos_aseguradoras/sura.jpg",
+                        "typeplan": [
+                            {
+								"plan_name": "plan basico",
+                                "status": true,
+                                "no_cotizacion": "5c0461f5e600003f1b20c190",
+                                "mensaje_validacion": false,
+                                "prima_total": 3754000,
+                                "limite": 2040000000,
+                                "limitedbt": 2040000000000000,
+                                "limitemup": false,
+                                "limitemdp": false,
+                                "amparos": {
+                                    "ptd": "0 %",
+                                    "ppd": 1780000,
+                                    "pth": "0 %",
+                                    "pph": 1780000,
+                                    "terremoto": 1780000,
+                                    "accidentes_personales": 35000000,
+                                    "amparo_patrimonial": true,
+                                    "gtpp": false,
+                                    "gtpt": true
+                                },
+                                "asistencia": {
+                                    "asistencia_pena_civil": true,
+                                    "asistencia_viaje": true,
+                                    "conductor_elegido": true,
+                                    "vehiculo_remplazo": true,
+                                    "grua": true,
+                                    "carro_taller": true
+                                },
+                                "rc_exceso": false,
+                                "gastos_expedicion": false,
+                                "saltarinspeccion": false,
+                                "mensaje_saltarinspeccion": false
+                            },
+                            {
+                                "plan_name": "plan medio",
+                                "status": true,
+                                "no_cotizacion": "5c046220e60000fe0020c196",
+                                "mensaje_validacion": false,
+                                "prima_total": 3353394,
+                                "limite": 1440000000,
+                                "limitedbt": 1440000000000000,
+                                "limitemup": false,
+                                "limitemdp": false,
+                                "amparos": {
+                                    "ptd": "0 %",
+                                    "ppd": 880000,
+                                    "pth": "0 %",
+                                    "pph": 880000,
+                                    "terremoto": 880000,
+                                    "accidentes_personales": false,
+                                    "amparo_patrimonial": true,
+                                    "gtpp": false,
+                                    "gtpt": true
+                                },
+                                "asistencia": {
+                                    "asistencia_pena_civil": true,
+                                    "asistencia_viaje": true,
+                                    "conductor_elegido": true,
+                                    "vehiculo_remplazo": true,
+                                    "grua": true,
+                                    "carro_taller": true
+                                },
+                                "rc_exceso": false,
+                                "gastos_expedicion": false,
+                                "saltarinspeccion": false,
+                                "mensaje_saltarinspeccion": false
+                            },
+                            {
+								"plan_name": "plan full",
+                                "status": true,
+                                "no_cotizacion": "5c046244e600004c0120c199",
+                                "mensaje_validacion": false,
+                                "prima_total": 462875,
+                                "limite": 640000000,
+                                "limitedbt": 640000000000000,
+                                "limitemup": false,
+                                "limitemdp": false,
+                                "amparos": {
+                                    "ptd": false,
+                                    "ppd": false,
+                                    "pth": false,
+                                    "pph": false,
+                                    "terremoto": false,
+                                    "accidentes_personales": false,
+                                    "amparo_patrimonial": true,
+                                    "gtpp": false,
+                                    "gtpt": false
+                                },
+                                "asistencia": {
+                                    "asistencia_pena_civil": true,
+                                    "asistencia_viaje": false,
+                                    "conductor_elegido": false,
+                                    "vehiculo_remplazo": false,
+                                    "grua": true,
+                                    "carro_taller": true
+                                },
+                                "rc_exceso": false,
+                                "gastos_expedicion": false,
+                                "saltarinspeccion": false,
+                                "mensaje_saltarinspeccion": false
+                            }
+                        ]
+                    },
+                    {
+                        "name": "mapfre",
+                        "statusinsurance": true,
+						"logo" : "https://s3.amazonaws.com/dev.vivoo/img/logos_aseguradoras/mapfre.jpg",
+                        "typeplan": [
+                            {
+								"plan_name": "plan basico",
+                                "status": true,
+                                "no_cotizacion": "2115181057320",
+                                "mensaje_validacion": "(fecha de nacimiento) no coincide con nuestros registros.",
+                                "prima_total": "5766884",
+                                "limite": 3000000000,
+                                "limitedbt": 3000000000000000,
+                                "limitemup": false,
+                                "limitemdp": false,
+                                "amparos": {
+                                    "ptd": "0%",
+                                    "ppd": "10% min 1(smmlv)",
+                                    "pth": 0,
+                                    "pph": "10% min 1(smmlv)",
+                                    "terremoto": "10% min 1(smmlv)",
+                                    "accidentes_personales": 10000000,
+                                    "amparo_patrimonial": true,
+                                    "gtpp": false,
+                                    "gtpt": false
+                                },
+                                "asistencia": {
+                                    "asistencia_pena_civil": true,
+                                    "asistencia_viaje": true,
+                                    "conductor_elegido": true,
+                                    "vehiculo_remplazo": true,
+                                    "grua": true,
+                                    "carro_taller": true
+                                },
+                                "rc_exceso": false,
+                                "gastos_expedicion": false,
+                                "saltarinspeccion": false,
+                                "mensaje_saltarinspeccion": false
+                            },
+                            {
+								"plan_name": "plan medio",
+                                "status": true,
+                                "no_cotizacion": "2115181057321",
+                                "mensaje_validacion": "(fecha de nacimiento) no coincide con nuestros registros.",
+                                "prima_total": "5739695",
+                                "limite": 2000000000,
+                                "limitedbt": 2000000000000000,
+                                "limitemup": false,
+                                "limitemdp": false,
+                                "amparos": {
+                                    "ptd": "0%",
+                                    "ppd": "10% min 1(smmlv)",
+                                    "pth": 0,
+                                    "pph": "10% min 1(smmlv)",
+                                    "terremoto": "10% min 1(smmlv)",
+                                    "accidentes_personales": 10000000,
+                                    "amparo_patrimonial": true,
+                                    "gtpp": false,
+                                    "gtpt": false
+                                },
+                                "asistencia": {
+                                    "asistencia_pena_civil": true,
+                                    "asistencia_viaje": true,
+                                    "conductor_elegido": true,
+                                    "vehiculo_remplazo": true,
+                                    "grua": true,
+                                    "carro_taller": true
+                                },
+                                "rc_exceso": false,
+                                "gastos_expedicion": false,
+                                "saltarinspeccion": false,
+                                "mensaje_saltarinspeccion": false
+                            },
+                            {
+								
+                                "plan_name": "plan full",
+                                "status": false,
+                                "errors": [
+                                    "error en el request:error cotiza light 2115918106265 - error message: csgmodelointermedio.emision.svc:svcejecutarbatch - [cod_2102]: error funcional\ntrn-20001: trn-20001:codigo inexistente (pk p2000030)"
+                                ],
+                                "no_cotizacion": false
+                            }
+                        ]
+                    },
+                    {
+                        "name": "allianz",
+                        "statusinsurance": true,
+						"logo": "https://s3.amazonaws.com/dev.vivoo/img/logos_aseguradoras/allianz.jpg",
+                        "typeplan": [
+                            {
+								"plan_name": "plan basico",
+                                "status": false,
+                                "errors": [
+                                    "'712 - error: 768, valor asegurado no se encuentra entre los limites del 15%'"
+                                ],
+                                "no_cotizacion": false
+                            },
+                            {
+								"plan_name": "plan medio",
+                                "status": false,
+                                "errors": [
+                                    "'712 - error: 768, valor asegurado no se encuentra entre los limites del 15%'"
+                                ],
+                                "no_cotizacion": false
+                            },
+                            {
+								"plan_name": "plan full",
+                                "status": false,
+                                "errors": [
+                                    "'712 - error: 768, valor asegurado no se encuentra entre los limites del 15%'"
+                                ],
+                                "no_cotizacion": false
+                            }
+                        ]
+                    }
+            ]
+        },
+        "status_code": 0,
+        "user_message": "transacción éxitosa"
+    }
+}]

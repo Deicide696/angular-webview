@@ -1,5 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 
+
+import { DataService } from '../../../../../webview/src/app/data.service';
+import { Response } from '../../../../../webview/src/app/response/response';
+import { Cotizacion } from '../../../../../webview/src/app/cotizacion/cotizacion';
+import { Aseguradora } from '../../../../../webview/src/app/aseguradora/aseguradora';
+import { Plan } from '../../../../../webview/src/app/plan/plan';
+import { Amparo } from '../../../../../webview/src/app/amparo/amparo';
+import { Asistencia } from '../../../../../webview/src/app/asistencia/asistencia';
+import { Vehiculo } from '../../../../../webview/src/app/vehiculo/vehiculo';
+
+import { DataResponse } from '../../../../../webview/src/app/data-response/data-response';
+
 declare interface Table_With_Checkboxes {
   id?: number;
   check: boolean;
@@ -29,9 +41,55 @@ export class AutosListComponent implements OnInit {
   public tableData2: TableData2;
   public tableData3: TableData;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
+  
+	response: Response;
+	resp: Response;
+	data: DataResponse;
+	internal_message: Cotizacion;
+	insurances: Aseguradora[];
+	typeplan: Plan[];
+	amparos: Amparo;
+	asistencia: Asistencia;
+	vehiculo: Vehiculo;
+	
+	  
+	getResponse(): void {
+    this.dataService.getResponse()
+		.subscribe(response => {
+				this.response = response;
+				this.response.data = response[0].data;				
+				this.response.data.internal_message = this.data.internal_message;				
+				this.response.data.internal_message.vehiculo = this.response.data.internal_message.vehiculo;
+				this.response.data.internal_message.insurances = this.response.data.internal_message.insurances;
+				this.response.data.internal_message.insurances.typeplan = this.response.data.internal_message.insurances.typeplan;
+				this.response.data.internal_message.insurances.typeplan.amparos = this.response.data.internal_message.typeplan.amparos;
+				this.response.data.internal_message.insurances.typeplan.asistencia = this.response.data.internal_message.typeplan.asistencia;
+				console.log(this.response.data.internal_message);
+			}
+		);
+	}
+	
+	getResponseWeb(): void {
+    this.dataService.getResponseWeb()
+		.subscribe(resp => {
+				this.resp = resp;
+				/*this.response.data = response[0].data;				
+				this.response.data.internal_message = this.data.internal_message;				
+				this.response.data.internal_message.vehiculo = this.response.data.internal_message.vehiculo;
+				this.response.data.internal_message.insurances = this.response.data.internal_message.insurances;
+				this.response.data.internal_message.insurances.typeplan = this.response.data.internal_message.insurances.typeplan;
+				this.response.data.internal_message.insurances.typeplan.amparos = this.response.data.internal_message.typeplan.amparos;
+				this.response.data.internal_message.insurances.typeplan.asistencia = this.response.data.internal_message.typeplan.asistencia;*/				
+				console.log(this.resp);
+		};	
+	}
 
   ngOnInit() {
+	  
+	this.getResponse();
+	this.getResponseWeb();
+	  
     this.tableData1 = {
       headerRow: [ '#', 'Name', 'Job Position', 'Since', 'Salary', 'Actions'],
       dataRows: [
@@ -44,7 +102,9 @@ export class AutosListComponent implements OnInit {
       ]
     };
     this.tableData2 = {
-      headerRow: [ '#', 'Product Name', 'Type', 'Qty', 'Price', 'Amount'],
+       headerRow: [ 'Daños a Terceros', 'Pérdidas Totales', 'Pérdidas Parciales', 'Conductor Elegido',
+        'Carro Taller / GRUA', 'Gastos de Transporte Perdida Total', 'Vehículo Reemplazo Totales / Parciales', 'Accidentes Personales', 'Prima'],
+     
       dataRows: [
         {id: 1, product_name: 'Moleskine Agenda', type: 'Office', qty: 25, price: '49', amount: '1225',  check: false},
         {id: 2, product_name: 'Stabilo Pen', type: 'Office', qty: 30, price: '10', amount: '300',  check: true},
@@ -54,11 +114,11 @@ export class AutosListComponent implements OnInit {
       ]
     };
     this.tableData3 = {
-      // headerRow: [ '', '', 'Product', 'Color', 'Size', 'Price', 'QTY', 'Amount'],
+      
       headerRow: [ 'Daños a Terceros', 'Pérdidas Totales', 'Pérdidas Parciales', 'Conductor Elegido',
         'Carro Taller / GRUA', 'Gastos de Transporte Perdida Total', 'Vehículo Reemplazo Totales / Parciales', 'Accidentes Personales', 'Prima'],
       dataRows: [
-        ['logo-sbs.png', '3.000', 'by Saint Laurent', 'Black', '5 Servicios', '5 Servicios / 330 Km', '1.999.999', '3390'],
+        ['https://s3.amazonaws.com/dev.vivoo/img/logos_aseguradoras/sbs.jpg', '3.000', 'by Saint Laurent', 'Black', '5 Servicios', '5 Servicios / 330 Km', '1.999.999', '3390'],
         ['logo-allianz.png', '800',  'by Balmain', 'Black', 'M', '499', '2', '998'],
         ['logo-axa.jpeg', '1.000', 'by Prada', 'Red', 'M', '200', '1', '200']
       ]
