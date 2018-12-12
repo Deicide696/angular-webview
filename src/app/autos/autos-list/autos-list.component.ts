@@ -56,34 +56,34 @@ export class AutosListComponent implements OnInit {
 	  
 	getResponse(): void {
     this.dataService.getResponse()
-		.subscribe(response => {
-				this.response = response;
-				console.log(this.response[0]);
-				this.response.data = response[0].data;				
-				this.response.data.internal_message = this.response.data.internal_message;				
-				this.response.data.internal_message.vehiculo = this.response.data.internal_message.vehiculo;
-				this.response.data.internal_message.insurances = this.response.data.internal_message.insurances;
-				this.response.data.internal_message.insurances.typeplan = this.response.data.internal_message.insurances.typeplan;
+		.subscribe(resp => {
+				this.resp = resp;
+				console.log(this.resp[0]);
+				//this.response.data = response[0].data;				
+				//this.response.data.internal_message = this.response.data.internal_message;				
+				//this.response.data.internal_message.vehiculo = this.response.data.internal_message.vehiculo;
+				//this.response.data.internal_message.insurances = this.response.data.internal_message.insurances;
+				//this.response.data.internal_message.insurances.typeplan = this.response.data.internal_message.insurances.typeplan;
 				//this.response.data.internal_message.insurances.typeplan.amparos = this.response.data.internal_message.typeplan.amparos;
 				//this.response.data.internal_message.insurances.typeplan.asistencia = this.response.data.internal_message.typeplan.asistencia;
-				console.log(this.response);
+				//console.log(this.response);
 			}
 		);
 	}
 
 	getResponseWeb(): void {
     this.dataService.getResponseWeb()
-		.subscribe(resp => {
-				this.resp = resp;
-				console.log(this.resp[0]);
-				this.resp.data = resp[0].data;				
-				this.resp.data.internal_message = this.resp.data.internal_message;				
-				this.resp.data.internal_message.vehiculo = this.resp.data.internal_message.vehiculo;
-				this.resp.data.internal_message.insurances = this.resp.data.internal_message.insurances;
-				this.resp.data.internal_message.insurances.typeplan = this.resp.data.internal_message.insurances.typeplan;
+		.subscribe(response => {
+				this.response = response;
+				console.log(this.response);
+				this.response.data = response.data;				
+				this.response.data.internal_message = this.response.data.internal_message;				
+				this.response.data.internal_message.vehiculo = this.response.data.internal_message.vehiculo;
+				this.response.data.internal_message.insurances = this.response.data.internal_message.insurances[0];
+				this.response.data.internal_message.insurances.typeplan = this.response.data.internal_message.insurances[0].typeplan;
 				//this.response.data.internal_message.insurances.typeplan.amparos = this.response.data.internal_message.typeplan.amparos;
 				//this.response.data.internal_message.insurances.typeplan.asistencia = this.response.data.internal_message.typeplan.asistencia;
-				console.log(this.resp);
+				//console.log(this.response);
 			}
 		);
 	}

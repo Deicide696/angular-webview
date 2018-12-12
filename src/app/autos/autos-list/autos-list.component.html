@@ -255,16 +255,16 @@
                     </button>
                   </td>
                   <td *ngIf = "row2.status == true" class="td-actions text-center pp">
-                    <button *ngIf = "row2.asistencia.carro_taller == true" type="button" placement="top" ngbTooltip="Check item" class="btn btn-neutral btn-check">
-                      <i class="now-ui-icons ui-1_check"></i>
-                    </button>
+                    <div *ngIf = "row2.asistencia.carro_taller == true">
+                      <p>15 servicios</p>
+                    </div>
 					<button *ngIf = "row2.asistencia.carro_taller == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
                       <i class="now-ui-icons ui-1_simple-remove"></i>
                     </button>
                     <div class="col">
-					<button *ngIf = "row2.asistencia.grua == true" type="button" placement="top" ngbTooltip="Check item" class="btn btn-neutral btn-check">
-                      <i class="now-ui-icons ui-1_check"></i>
-                    </button>
+					<div *ngIf = "row2.asistencia.grua == true">
+                      <p>500 km</p>
+                    </div>
 					<button *ngIf = "row2.asistencia.grua == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
                       <i class="now-ui-icons ui-1_simple-remove"></i>
                     </button>
