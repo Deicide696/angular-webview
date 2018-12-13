@@ -7,8 +7,32 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
 </head>
 <body>
   <app-root></app-root>
+  <script>
+	<!--
+	  function HR (element) {
+		  var chk = element.checked;
+		  while (element.tagName.toUpperCase() != 'TR' && element != null)
+			  element = document.all ? element.parentElement : element.parentNode;
+
+		  if (element && chk) {
+			  element.bgColor = "#e9f2fb";
+		  } else {
+			  element.bgColor = "#FFF";
+		  }
+	  }
+	  function CA (element)
+	  {   
+		  for (var i=0;i<document.testform.elements.length;i++)
+		  {   
+			  var e = document.testform.elements[i];
+			  if (e.name != "allbox")
+			  e.checked = document.testform.allbox.checked;
+		  }
+	  }  //--> 
+  </script>
 </body>
 </html>

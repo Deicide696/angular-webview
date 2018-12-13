@@ -195,7 +195,7 @@
         <div class="card card-plain">
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-shopping">
+              <table class="table table-shopping" id="tabletest">
                 <thead>
                 <tr>
                   <th class="text-center"></th>
@@ -225,7 +225,7 @@
                 </thead>				
                 <tbody *ngFor="let row of response.data.internal_message.insurances">
 							
-                <tr *ngFor="let row2 of row.typeplan" >				
+                <tr *ngFor="let row2 of row.typeplan" [ngStyle]="{'background': color}">				
 				  
                   <td *ngIf = "row2.status == true">
                     <div class="img-container">
@@ -244,8 +244,22 @@
                     <br />
                     <small>Sin deducible</small>
                   </td>
-				  <td *ngIf = "row2.status == true" class="td-number text-center ce">{{row2.amparos.ptd}}</td>
-				  <td *ngIf = "row2.status == true" class="td-number text-center ct_g">{{row2.amparos.ppd}} / {{row2.amparos.pph}}</td>
+				  <td *ngIf = "row2.status == true" class="td-number text-center ce">
+				  <div *ngIf = "row2.amparos.ptd !=  false" >{{row2.amparos.ptd}}</div>
+				  <button *ngIf = "row2.amparos.ptd == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+                      <i class="now-ui-icons ui-1_simple-remove"></i>
+                    </button>
+				  </td>
+				  <td *ngIf = "row2.status == true" class="td-number text-center ct_g">
+				  <div *ngIf = "row2.amparos.ppd !=  false" >{{row2.amparos.ppd}}</div>
+				  <button *ngIf = "row2.amparos.ppd == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+                      <i class="now-ui-icons ui-1_simple-remove"></i>
+                  </button>
+				  <div *ngIf = "row2.amparos.pph !=  false" >{{row2.amparos.pph}}</div>
+				  <button *ngIf = "row2.amparos.pph == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+                      <i class="now-ui-icons ui-1_simple-remove"></i>
+                    </button>
+				  </td>
                   <td *ngIf = "row2.status == true" class="td-actions text-center pt">
                     <button *ngIf = "row2.asistencia.conductor_elegido == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
                       <i class="now-ui-icons ui-1_simple-remove"></i>
@@ -295,13 +309,45 @@
 						</button>
 					</div>
 					<small *ngIf = "row2.amparos.accidentes_personales != false">$ {{row2.amparos.accidentes_personales}}</small>
-				  </td>
-                  <td *ngIf = "row2.status == true" class="td-actions text-center prima"><small>$</small>{{row2.prima_total}}</td>				  
+				  </td >
+                  <td *ngIf = "row2.status == true" class="td-actions text-center prima"><small>$</small>{{row2.prima_total}}</td>
+				  <td *ngIf = "row2.status == true">
+                    <div [ngSwitch]="row2.check">
+                      <div *ngSwitchCase="true">
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="" checked>
+                            <span class="form-check-sign"></span>
+                          </label>
+                        </div>
+                      </div>
+                      <div *ngSwitchDefault>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="" onClick="HR(this);">
+                            <span class="form-check-sign"></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
                 </tr>	
+				 
 				
                 </tbody>
 				
               </table>
+			  <table  class="table">
+				<tbody>
+					<tr>
+					  <td colspan="3" class="text-right">
+						<button type="button" class="btn btn-info btn-round " (click)="showElements()">Cotizar<i class="now-ui-icons arrows-1_minimal-right"></i>
+						</button>
+                  
+						</td>
+					</tr>
+				</tbody>
+			  </table>
             </div>
           </div>
         </div>

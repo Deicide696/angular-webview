@@ -29,8 +29,10 @@
 						"logo" : "https://s3.amazonaws.com/dev.vivoo/img/logos_aseguradoras/sbs.jpg", 
                         "typeplan": [
                             {
+								"id":3401,
 								"plan_name": "plan básico",
                                 "status": true,
+								"check": false,
                                 "no_cotizacion": "10925187",
                                 "mensaje_validacion": "cotización exitosa",
                                 "prima_total": "4157925",
@@ -63,8 +65,10 @@
                                 "mensaje_saltarinspeccion": []
                             },
                             {
+								"id":3401,
 								"plan_name": "plan medio",
                                 "status": true,
+								"check": false,
                                 "no_cotizacion": "10925210",
                                 "mensaje_validacion": "cotización exitosa",
                                 "prima_total": "3753121",
@@ -97,8 +101,10 @@
                                 "mensaje_saltarinspeccion": []
                             },
                             {
+								"id":3401,
 								"plan_name": "plan full",
                                 "status": true,
+								"check": false,
                                 "no_cotizacion": "10925215",
                                 "mensaje_validacion": "cotización exitosa",
                                 "prima_total": "449386",
@@ -138,8 +144,10 @@
 						"logo" : "https://s3.amazonaws.com/dev.vivoo/img/logos_aseguradoras/sura.jpg",
                         "typeplan": [
                             {
+								"id":3401,
 								"plan_name": "plan basico",
                                 "status": true,
+								"check": false,
                                 "no_cotizacion": "5c0461f5e600003f1b20c190",
                                 "mensaje_validacion": false,
                                 "prima_total": 3754000,
@@ -172,8 +180,10 @@
                                 "mensaje_saltarinspeccion": false
                             },
                             {
+								"id":3401,
                                 "plan_name": "plan medio",
                                 "status": true,
+								"check": false,
                                 "no_cotizacion": "5c046220e60000fe0020c196",
                                 "mensaje_validacion": false,
                                 "prima_total": 3353394,
@@ -206,8 +216,10 @@
                                 "mensaje_saltarinspeccion": false
                             },
                             {
+								"id":3401,
 								"plan_name": "plan full",
                                 "status": true,
+								"check": false,
                                 "no_cotizacion": "5c046244e600004c0120c199",
                                 "mensaje_validacion": false,
                                 "prima_total": 462875,
@@ -247,8 +259,10 @@
 						"logo" : "https://s3.amazonaws.com/dev.vivoo/img/logos_aseguradoras/mapfre.jpg",
                         "typeplan": [
                             {
+								"id":3401,
 								"plan_name": "plan basico",
                                 "status": true,
+								"check": false,
                                 "no_cotizacion": "2115181057320",
                                 "mensaje_validacion": "(fecha de nacimiento) no coincide con nuestros registros.",
                                 "prima_total": "5766884",
@@ -281,8 +295,10 @@
                                 "mensaje_saltarinspeccion": false
                             },
                             {
+								"id":3401,
 								"plan_name": "plan medio",
                                 "status": true,
+								"check": false,
                                 "no_cotizacion": "2115181057321",
                                 "mensaje_validacion": "(fecha de nacimiento) no coincide con nuestros registros.",
                                 "prima_total": "5739695",
@@ -315,9 +331,10 @@
                                 "mensaje_saltarinspeccion": false
                             },
                             {
-								
+								"id":3401,
                                 "plan_name": "plan full",
                                 "status": false,
+								"check": false,
                                 "errors": [
                                     "error en el request:error cotiza light 2115918106265 - error message: csgmodelointermedio.emision.svc:svcejecutarbatch - [cod_2102]: error funcional\ntrn-20001: trn-20001:codigo inexistente (pk p2000030)"
                                 ],
@@ -330,25 +347,31 @@
                         "statusinsurance": true,
 						"logo": "https://s3.amazonaws.com/dev.vivoo/img/logos_aseguradoras/allianz.jpg",
                         "typeplan": [
-                            {
+                            {	
+								"id":3401,
 								"plan_name": "plan basico",
                                 "status": false,
+								"check": false,
                                 "errors": [
                                     "'712 - error: 768, valor asegurado no se encuentra entre los limites del 15%'"
                                 ],
                                 "no_cotizacion": false
                             },
                             {
+								"id":3401,
 								"plan_name": "plan medio",
                                 "status": false,
+								"check": false,
                                 "errors": [
                                     "'712 - error: 768, valor asegurado no se encuentra entre los limites del 15%'"
                                 ],
                                 "no_cotizacion": false
                             },
                             {
+								"id":3401,
 								"plan_name": "plan full",
                                 "status": false,
+								"check": false,
                                 "errors": [
                                     "'712 - error: 768, valor asegurado no se encuentra entre los limites del 15%'"
                                 ],
