@@ -20,8 +20,9 @@ export class DataService {
         return this.http.get<Response>( '../assets/json/autos.json' );    
 	}	
 	
-	getResponseWeb(): Observable<Response> {
-		let names = "ALGUIEN";
+	getResponseWeb(cotizacion_id): Observable<Response> {
+		
+		/*let names = "ALGUIEN";
 		let document = 1;
 		let identify = 52696276;
 		let first_surname = "APELLIDO";
@@ -40,13 +41,14 @@ export class DataService {
 		let value_accessorio = 0;
 		let second_surname = "";
 		let document_driver = 1143964504;
-		let name_company = "";
+		let name_company = "";*/
 		
 		let headers: HttpHeaders = new HttpHeaders();
 		headers = headers.append('Content-Type','application/json');	
 		headers = headers.append('Authorization','Basic aG9sYUB2aXZvby5jbzoxMjM0NTY=');
 		headers = headers.append('partner_id','4');
-		let params = JSON.stringify({names, document, identify, first_surname, gender, idCity, address, cellphone, code_fasecolda, birthDate, model, nuevo, idCityAuto, placa, email, valor, value_accessorio, second_surname, document_driver, name_company});		
+		let params = JSON.stringify({cotizacion_id});
+		//let params = JSON.stringify({names, document, identify, first_surname, gender, idCity, address, cellphone, code_fasecolda, birthDate, model, nuevo, idCityAuto, placa, email, valor, value_accessorio, second_surname, document_driver, name_company});		
 		
 		console.log(this.http.post<Response>(this.url, params, {headers: headers}));		
         return this.http.post<Response>(this.url, params, {headers: headers});    

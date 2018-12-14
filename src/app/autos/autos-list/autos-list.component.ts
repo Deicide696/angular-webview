@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute} from '@angular/router';  
 
 import { DataService } from '../../../../../webview/src/app/data.service';
 import { Response } from '../../../../../webview/src/app/response/response';
@@ -40,9 +40,10 @@ export class AutosListComponent implements OnInit {
   public tableData1: TableData;
   public tableData2: TableData2;
   public tableData3: TableData;
+  public color:string;
 
-  constructor(private dataService: DataService) { }
-  
+  constructor(private dataService: DataService, private route: ActivatedRoute) { }  
+	
 	response: Response;
 	resp: Response;
 	data: DataResponse;
@@ -51,28 +52,28 @@ export class AutosListComponent implements OnInit {
 	typeplan: Plan;
 	amparos: Amparo;
 	asistencia: Asistencia;
-	vehiculo: Vehiculo;
-	
-	  
-	getResponse(): void {
+	vehiculo: Vehiculo;	
+	inputs: string;
+		
+	/*getResponse(): void {
     this.dataService.getResponse()
-		.subscribe(resp => {
-				this.resp = resp;
-				console.log(this.resp[0]);
-				//this.response.data = response[0].data;				
-				//this.response.data.internal_message = this.response.data.internal_message;				
-				//this.response.data.internal_message.vehiculo = this.response.data.internal_message.vehiculo;
-				//this.response.data.internal_message.insurances = this.response.data.internal_message.insurances;
-				//this.response.data.internal_message.insurances.typeplan = this.response.data.internal_message.insurances.typeplan;
+		.subscribe(response => {
+				this.response = response;
+				console.log(this.response[0]);
+				this.response.data = response[0].data;				
+				this.response.data.internal_message = this.response.data.internal_message;				
+				this.response.data.internal_message.vehiculo = this.response.data.internal_message.vehiculo;
+				this.response.data.internal_message.insurances = this.response.data.internal_message.insurances;
+				this.response.data.internal_message.insurances.typeplan = this.response.data.internal_message.insurances.typeplan;
 				//this.response.data.internal_message.insurances.typeplan.amparos = this.response.data.internal_message.typeplan.amparos;
 				//this.response.data.internal_message.insurances.typeplan.asistencia = this.response.data.internal_message.typeplan.asistencia;
 				//console.log(this.response);
 			}
 		);
-	}
+	}*/
 
-	getResponseWeb(): void {
-    this.dataService.getResponseWeb()
+	getResponseWeb(cotizacion): void {
+    this.dataService.getResponseWeb(cotizacion)
 		.subscribe(response => {
 				this.response = response;
 				console.log(this.response);
@@ -90,9 +91,11 @@ export class AutosListComponent implements OnInit {
 	
 
   ngOnInit() {
+	this.inputs=this.route.snapshot.params['precotizacion'];
+	console.log(this.inputs);
 	  
-	this.getResponse();
-	this.getResponseWeb();
+	//this.getResponse();
+	this.getResponseWeb(this.inputs);
 	  
     this.tableData1 = {
       headerRow: [ '#', 'Name', 'Job Position', 'Since', 'Salary', 'Actions'],
@@ -149,5 +152,13 @@ export class AutosListComponent implements OnInit {
       console.log(this.tableData3.dataRows[i][1])
     }
   }
+  
+  escojido(obj){
+	  console.log(obj)
+	  this.color='red';
+	  
+  }
+  
+ 
 
 }
