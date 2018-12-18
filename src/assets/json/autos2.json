@@ -1,0 +1,349 @@
+{
+  "status": true,
+  "data": {
+    "id": 4041,
+    "name_user": "ERICA VANESA",
+    "last_name": "ORIOENE GUARIN",
+    "email": "alfonso.hugo@hotmail.com",
+    "identify": "52696276",
+    "gender": "femenino",
+    "telephone": "3186233871",
+    "vehiculo": {
+      "id": 537,
+      "codigo_fasecolda": 801311,
+      "servicio": "Particular",
+      "clase": "AUTOMOVIL",
+      "placa": "520i",
+      "marca": "BMW",
+      "model": "2013",
+      "valor": "96500000",
+      "value_accessorio": 0
+    },
+    "insurances": [
+      {
+        "aseguradora_id": 1,
+        "name": "SBS",
+        "statusinsurance": true,
+        "logo": "https://s3.amazonaws.com/dev.vivoo/img/logos_aseguradoras/sbs.jpg",
+        "typeplan": [
+          {
+            "plan_id": 1,
+            "plan_name": "plan básico",
+            "status": true,
+            "prima_total": 4157925,
+            "limite": "1000",
+            "limitedbt": "1000",
+            "limitemup": "1000000000",
+            "limitemdp": "1000000000",
+            "amparos": {
+              "ptd": "0% min 0.0 smmlv",
+              "ppd": "0% min 1.0 smmlv",
+              "pth": "0% min 0.0 smmlv",
+              "pph": "0% min 1.0 smmlv",
+              "terremoto": "10% min 1.0 smmlv",
+              "accidentes_personales": 25000000,
+              "amparo_patrimonial": true,
+              "gtpp": true,
+              "gtpt": 250000
+            },
+            "asistencia": {
+              "asistencia_pena_civil": true,
+              "asistencia_viaje": true,
+              "conductor_elegido": "5 Servicios",
+              "vehiculo_remplazo": true,
+              "vehiculo_remplazo_pp": "10 Días",
+              "vehiculo_remplazo_pt": "15 Días",
+              "grua": "300 Kms",
+              "carro_taller": "15 Servicios"
+            },
+            "rc_exceso": "",
+            "gastos_expedicion": "18000"
+          },
+          {
+            "plan_id": 2,
+            "plan_name": "plan medio",
+            "status": true,
+            "prima_total": 4157925,
+            "limite": "1000",
+            "limitedbt": "1000",
+            "limitemup": "1000000000",
+            "limitemdp": "1000000000",
+            "amparos": {
+              "ptd": "0% min 0.0 smmlv",
+              "ppd": "0% min 1.0 smmlv",
+              "pth": "0% min 0.0 smmlv",
+              "pph": "0% min 1.0 smmlv",
+              "terremoto": "10% min 1.0 smmlv",
+              "accidentes_personales": 25000000,
+              "amparo_patrimonial": true,
+              "gtpp": true,
+              "gtpt": 250000
+            },
+            "asistencia": {
+              "asistencia_pena_civil": true,
+              "asistencia_viaje": true,
+              "conductor_elegido": "5 Servicios",
+              "vehiculo_remplazo": true,
+              "vehiculo_remplazo_pp": "10 Días",
+              "vehiculo_remplazo_pt": "15 Días",
+              "grua": "300 Kms",
+              "carro_taller": "15 Servicios"
+            },
+            "rc_exceso": "",
+            "gastos_expedicion": "18000"
+          },
+          {
+            "plan_id": 3,
+            "plan_name": "plan full",
+            "status": true,
+            "prima_total": 449386,
+            "limite": "300",
+            "limitedbt": "300",
+            "limitemup": "300000000",
+            "limitemdp": "300000000",
+            "amparos": {
+              "ptd": false,
+              "ppd": false,
+              "pth": false,
+              "pph": false,
+              "terremoto": false,
+              "accidentes_personales": 25000000,
+              "amparo_patrimonial": true,
+              "gtpp": false,
+              "gtpt": false
+            },
+            "asistencia": {
+              "asistencia_pena_civil": true,
+              "asistencia_viaje": true,
+              "conductor_elegido": false,
+              "vehiculo_remplazo": false,
+              "vehiculo_remplazo_pp": false,
+              "vehiculo_remplazo_pt": false,
+              "grua": false,
+              "carro_taller": false
+            },
+            "rc_exceso": "",
+            "gastos_expedicion": "18000"
+          }
+        ]
+      },
+      {
+        "aseguradora_id": 21,
+        "name": "MAPFRE",
+        "statusinsurance": true,
+        "logo": "https://s3.amazonaws.com/dev.vivoo/img/logos_aseguradoras/mapfre.jpg",
+        "typeplan": [
+          {
+            "plan_id": 1,
+            "plan_name": "plan básico",
+            "status": true,
+            "prima_total": 4157925,
+            "limite": "1000",
+            "limitedbt": "1000",
+            "limitemup": "1000000000",
+            "limitemdp": "1000000000",
+            "amparos": {
+              "ptd": "0% min 0.0 smmlv",
+              "ppd": "0% min 1.0 smmlv",
+              "pth": "0% min 0.0 smmlv",
+              "pph": "0% min 1.0 smmlv",
+              "terremoto": "10% min 1.0 smmlv",
+              "accidentes_personales": 25000000,
+              "amparo_patrimonial": true,
+              "gtpp": true,
+              "gtpt": 250000
+            },
+            "asistencia": {
+              "asistencia_pena_civil": true,
+              "asistencia_viaje": true,
+              "conductor_elegido": "5 Servicios",
+              "vehiculo_remplazo": true,
+              "vehiculo_remplazo_pp": "10 Días",
+              "vehiculo_remplazo_pt": "15 Días",
+              "grua": "300 Kms",
+              "carro_taller": "15 Servicios"
+            },
+            "rc_exceso": "",
+            "gastos_expedicion": "18000"
+          },
+          {
+            "plan_id": 2,
+            "plan_name": "plan medio",
+            "status": true,
+            "prima_total": 4157925,
+            "limite": "1000",
+            "limitedbt": "1000",
+            "limitemup": "1000000000",
+            "limitemdp": "1000000000",
+            "amparos": {
+              "ptd": "0% min 0.0 smmlv",
+              "ppd": "0% min 1.0 smmlv",
+              "pth": "0% min 0.0 smmlv",
+              "pph": "0% min 1.0 smmlv",
+              "terremoto": "10% min 1.0 smmlv",
+              "accidentes_personales": 25000000,
+              "amparo_patrimonial": true,
+              "gtpp": true,
+              "gtpt": 250000
+            },
+            "asistencia": {
+              "asistencia_pena_civil": true,
+              "asistencia_viaje": true,
+              "conductor_elegido": "5 Servicios",
+              "vehiculo_remplazo": true,
+              "vehiculo_remplazo_pp": "10 Días",
+              "vehiculo_remplazo_pt": "15 Días",
+              "grua": "300 Kms",
+              "carro_taller": "15 Servicios"
+            },
+            "rc_exceso": "",
+            "gastos_expedicion": "18000"
+          },
+          {
+            "plan_id": 3,
+            "plan_name": "plan full",
+            "status": true,
+            "prima_total": 449386,
+            "limite": "300",
+            "limitedbt": "300",
+            "limitemup": "300000000",
+            "limitemdp": "300000000",
+            "amparos": {
+              "ptd": false,
+              "ppd": false,
+              "pth": false,
+              "pph": false,
+              "terremoto": false,
+              "accidentes_personales": 25000000,
+              "amparo_patrimonial": true,
+              "gtpp": false,
+              "gtpt": false
+            },
+            "asistencia": {
+              "asistencia_pena_civil": true,
+              "asistencia_viaje": true,
+              "conductor_elegido": false,
+              "vehiculo_remplazo": false,
+              "vehiculo_remplazo_pp": false,
+              "vehiculo_remplazo_pt": false,
+              "grua": false,
+              "carro_taller": false
+            },
+            "rc_exceso": "",
+            "gastos_expedicion": "18000"
+          }
+        ]
+      },
+      {
+        "aseguradora_id": 32,
+        "name": "SURA",
+        "statusinsurance": true,
+        "logo": "https://s3.amazonaws.com/dev.vivoo/img/logos_aseguradoras/sura.jpg",
+        "typeplan": [
+          {
+            "plan_id": 1,
+            "plan_name": "plan básico",
+            "status": true,
+            "prima_total": 4157925,
+            "limite": "1000",
+            "limitedbt": "1000",
+            "limitemup": "1000000000",
+            "limitemdp": "1000000000",
+            "amparos": {
+              "ptd": "0% min 0.0 smmlv",
+              "ppd": "0% min 1.0 smmlv",
+              "pth": "0% min 0.0 smmlv",
+              "pph": "0% min 1.0 smmlv",
+              "terremoto": "10% min 1.0 smmlv",
+              "accidentes_personales": 25000000,
+              "amparo_patrimonial": true,
+              "gtpp": true,
+              "gtpt": 250000
+            },
+            "asistencia": {
+              "asistencia_pena_civil": true,
+              "asistencia_viaje": true,
+              "conductor_elegido": "5 Servicios",
+              "vehiculo_remplazo": true,
+              "vehiculo_remplazo_pp": "10 Días",
+              "vehiculo_remplazo_pt": "15 Días",
+              "grua": "300 Kms",
+              "carro_taller": "15 Servicios"
+            },
+            "rc_exceso": "",
+            "gastos_expedicion": "18000"
+          },
+          {
+            "plan_id": 2,
+            "plan_name": "plan medio",
+            "status": true,
+            "prima_total": 4157925,
+            "limite": "1000",
+            "limitedbt": "1000",
+            "limitemup": "1000000000",
+            "limitemdp": "1000000000",
+            "amparos": {
+              "ptd": "0% min 0.0 smmlv",
+              "ppd": "0% min 1.0 smmlv",
+              "pth": "0% min 0.0 smmlv",
+              "pph": "0% min 1.0 smmlv",
+              "terremoto": "10% min 1.0 smmlv",
+              "accidentes_personales": 25000000,
+              "amparo_patrimonial": true,
+              "gtpp": true,
+              "gtpt": 250000
+            },
+            "asistencia": {
+              "asistencia_pena_civil": true,
+              "asistencia_viaje": true,
+              "conductor_elegido": "5 Servicios",
+              "vehiculo_remplazo": true,
+              "vehiculo_remplazo_pp": "10 Días",
+              "vehiculo_remplazo_pt": "15 Días",
+              "grua": "300 Kms",
+              "carro_taller": "15 Servicios"
+            },
+            "rc_exceso": "",
+            "gastos_expedicion": "18000"
+          },
+          {
+            "plan_id": 3,
+            "plan_name": "plan full",
+            "status": true,
+            "prima_total": 449386,
+            "limite": "300",
+            "limitedbt": "300",
+            "limitemup": "300000000",
+            "limitemdp": "300000000",
+            "amparos": {
+              "ptd": false,
+              "ppd": false,
+              "pth": false,
+              "pph": false,
+              "terremoto": false,
+              "accidentes_personales": 25000000,
+              "amparo_patrimonial": true,
+              "gtpp": false,
+              "gtpt": false
+            },
+            "asistencia": {
+              "asistencia_pena_civil": true,
+              "asistencia_viaje": true,
+              "conductor_elegido": false,
+              "vehiculo_remplazo": false,
+              "vehiculo_remplazo_pp": false,
+              "vehiculo_remplazo_pt": false,
+              "grua": false,
+              "carro_taller": false
+            },
+            "rc_exceso": "",
+            "gastos_expedicion": "18000"
+          }
+        ]
+      }
+    ],
+    "internal_message": "Transacción Éxitosa",
+    "status_code": 0,
+    "user_message": "Transacción Éxitosa"
+  }
+}

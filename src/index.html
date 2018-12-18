@@ -12,6 +12,8 @@
 <body>
   <app-root></app-root>
   <script>
+	   var counter = 0;	
+	
 	<!--
 	  function HR (element) {
 		  var chk = element.checked;
@@ -20,8 +22,25 @@
 
 		  if (element && chk) {
 			  element.bgColor = "#e9f2fb";
+			  counter = counter+1;
+			  if(counter>9 || counter==0){			  
+				console.log(counter);
+				document.getElementById("cotizar").disabled = true;
+				}
+			  else{
+				document.getElementById("cotizar").disabled = false;
+				}			  
 		  } else {
 			  element.bgColor = "#FFF";
+			  counter = counter-1;
+			  console.log(counter);
+			  if(counter>9 || counter==0){			  
+				console.log(counter);
+				document.getElementById("cotizar").disabled = true;
+				}
+			  else{
+				document.getElementById("cotizar").disabled = false;
+				}
 		  }
 	  }
 	  function CA (element)

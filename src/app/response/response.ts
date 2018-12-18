@@ -1,6 +1,6 @@
-import { DataResponse } from '../../../../webview/src/app/data-response/data-response';
+import { Cotizacion } from '../../../../webview/src/app/cotizacion/cotizacion';
 
 export class Response{
   status: boolean;
-  data: DataResponse;
+  data: Cotizacion;
 }
