@@ -1,0 +1,7 @@
+{
+	 "/vivoo-backend/*":{
+	   "target":"http://54.173.24.54",
+	   "secure": false,
+	   "changeOrigin":true
+	 }
+}

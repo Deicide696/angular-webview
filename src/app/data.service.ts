@@ -10,7 +10,7 @@ import { Request } from '../../../webview/src/app/request/request';
 export class DataService {
 	public url: string;
   constructor(private http: HttpClient){
-	  this.url = "http://54.173.24.54/vivoo-backend/api/web/v1/autos/";
+	  this.url = "vivoo-backend/api/web/v1/autos/";
   }
 
     /**
@@ -39,16 +39,17 @@ export class DataService {
         return this.http.post<Response>(this.url+"precotizacion-autos", params, {headers: headers});    
 	}	
 	
-	postQuote(Request): Observable<ResponsePdf> {
-		
+	postQuote(request): Observable<ResponsePdf> {		
 		let headers: HttpHeaders = new HttpHeaders();
 		headers = headers.append('Content-Type','application/json');	
 		headers = headers.append('Authorization','Basic aG9sYUB2aXZvby5jbzoxMjM0NTY=');
 		headers = headers.append('partner_id','4');
-		let params = JSON.stringify({Request});		
+		let params = request;
+		//JSON.stringify({request});		
+		console.log(params);
 		
 		console.log(this.http.post<ResponsePdf>(this.url+"precotizacion-pdf", params, {headers: headers}));		
-        //return this.http.post<ResponsePdf>(this.url+"precotizacion-pdf", params, {headers: headers});    
-		window.location.href = "https://s3.amazonaws.com/dev.vivoo/cotizacion/quote-4100.pdf";
+        return this.http.post<ResponsePdf>(this.url+"precotizacion-pdf", params, {headers: headers});    
+		
 	}
 }

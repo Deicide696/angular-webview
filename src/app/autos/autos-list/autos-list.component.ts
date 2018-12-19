@@ -128,9 +128,17 @@ export class AutosListComponent implements OnInit {
 			.subscribe(responsepdf => {
 				this.responsepdf = responsepdf;
 				console.log(this.responsepdf);
-				this.responsepdf.data = responsepdf.data;				
+				this.responsepdf.data = responsepdf.data;
+				console.log(this.responsepdf.data.internal_message);
+				if(this.responsepdf.status){
+					window.location.href = this.responsepdf.data.internal_message;				
+				}	
+				else{
+					console.log(this.responsepdf.data.internal_message);
+					alert(this.responsepdf.data.internal_message);		
 				}
-			);
+			}
+			);			
 	}
 	
 	
