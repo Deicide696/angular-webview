@@ -146,7 +146,7 @@ export class AutosListComponent implements OnInit {
   ngOnInit() {
 	
 	
-	//this.buttonStatus = true;
+	this.buttonStatus = true;
 	
 	console.log("Precotizacion: " + this.inputs);
 	
