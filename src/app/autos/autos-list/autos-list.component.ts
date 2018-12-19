@@ -60,7 +60,7 @@ export class AutosListComponent implements OnInit {
 	response: Response;
 	responsepdf: ResponsePdf;
 	resp: Response;
-	data: DataResponse;
+	data: Cotizacion;
 	datapdf: DataResponsePdf;
 	internal_message: Cotizacion;
 	insurances: Aseguradora;
@@ -70,8 +70,10 @@ export class AutosListComponent implements OnInit {
 	vehiculo: Vehiculo;	
 	buttonStatus: boolean;
 	request: Request;
+	cotizaciones: DataRequest;
 	datarequest: DataRequest;	
 	cotizacionesArray = [];
+	
 	
 	
 	/*getResponse(): void {
@@ -115,8 +117,11 @@ export class AutosListComponent implements OnInit {
 		.subscribe(response => {
 				this.response = response;
 				console.log(this.response);
+				this.data = response.data;								
 				this.response.data = response.data;								
 				this.response.data.vehiculo = this.response.data.vehiculo;
+				this.insurances = this.response.data.insurances;	
+				this.data.insurances = this.response.data.insurances;	
 				this.response.data.insurances = this.response.data.insurances;
 				this.response.data.insurances.typeplan = this.response.data.insurances.typeplan;				
 			}
