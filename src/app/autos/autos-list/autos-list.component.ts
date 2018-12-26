@@ -69,6 +69,7 @@ export class AutosListComponent implements OnInit {
 	asistencia: Asistencia;
 	vehiculo: Vehiculo;	
 	buttonStatus: boolean;
+	loading: boolean;
 	request: Request;
 	cotizaciones: DataRequest;
 	datarequest: DataRequest;	
@@ -152,11 +153,16 @@ export class AutosListComponent implements OnInit {
 	
 	
 	this.buttonStatus = true;
+	this.loading = true;
 	
 	console.log("Precotizacion: " + this.inputs);
 	
 	//this.getResponse();
 	this.getResponseWeb(this.inputs);
+	if(this.getResponseWeb){
+			this.loading = false;
+	}
+	
 	  
     /*this.tableData1 = {
       headerRow: [ '#', 'Name', 'Job Position', 'Since', 'Salary', 'Actions'],

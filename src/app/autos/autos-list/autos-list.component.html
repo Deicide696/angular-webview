@@ -190,7 +190,10 @@
     <!--</div>-->
 
     <!--  Pruebas de Webview Autos -->
-    <div class="row">
+	<div class="loading" *ngIf = "loading">
+		<img src="../../assets/img/loader2.gif"
+	</div>
+    <div class="row" *ngIf = "loading == false">
       <div class="col-md-12">
         <div class="card card-plain">
           <div class="card-body" style="width: 100%">
@@ -249,7 +252,7 @@
 					  <td *ngIf = "row2.status == true" class="td-number rce" data-label="DAÑOS A TERCEROS">
 						<small>Máximo</small>
 						<br />						
-						<div *ngIf = "row.name !=  'MAPFRE'" >{{row2.limitedbt/1000000  | currency:'USD':true:'1.0-2'}}</div>
+						<div *ngIf = "row.name !=  'SBS' " >{{row2.limitedbt/1000000  | currency:'USD':true:'1.0-2'}}</div>
 						<div *ngIf = "row.name == 'SBS' " >{{row2.limitedbt | currency:'USD':true:'1.0-2'}}</div>
 						<br />
 						<small>Millones</small>
@@ -257,17 +260,19 @@
 						<small>Sin deducible</small>
 					  </td>
 					  <td *ngIf = "row2.status == true" class="td-actions  text-center pp" data-label="PERDIDAS TOTALES (DAÑOS / HURTO)">
-					  <div *ngIf = "row2.amparos.ptd !=  false" >{{row2.amparos.ptd}}</div>
+					  <div *ngIf = "row2.amparos.ptd != false" >{{row2.amparos.ptd}}</div>
 					  <button *ngIf = "row2.amparos.ptd == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
 						  <i class="now-ui-icons ui-1_simple-remove"></i>
 					  </button>
 					  </td>
 					  <td *ngIf = "row2.status == true" class="td-actions  text-center pp" data-label="PERDIDAS PARCIALES (DAÑOS / HURTO)">
-					  <div *ngIf = "row2.amparos.ppd !=  false" >{{row2.amparos.ppd}}</div>
+					  <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'SURA'" >{{row2.amparos.ppd | currency:'USD':true:'1.0-2'}}</div>
+					  <div *ngIf = "row2.amparos.ppd !=  false && row.name != 'SURA'" >{{row2.amparos.ppd}}</div>
 					  <button *ngIf = "row2.amparos.ppd == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
 						  <i class="now-ui-icons ui-1_simple-remove"></i>
 					  </button>
-					  <div *ngIf = "row2.amparos.pph !=  false" >{{row2.amparos.pph}}</div>
+					  <div *ngIf = "row2.amparos.pph !=  false && row.name == 'SURA'" >{{row2.amparos.pph | currency:'USD':true:'1.0-2'}}</div>
+					  <div *ngIf = "row2.amparos.pph !=  false && row.name != 'SURA'" >{{row2.amparos.pph}}</div>
 					  <button *ngIf = "row2.amparos.pph == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
 						  <i class="now-ui-icons ui-1_simple-remove"></i>
 						</button>
@@ -289,14 +294,14 @@
 						<button *ngIf = "row2.asistencia.carro_taller == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
 						  <i class="now-ui-icons ui-1_simple-remove"></i>
 						</button>
-						<div class="col">
+						
 						<button *ngIf = "row2.asistencia.grua != false" type="button" placement="top" ngbTooltip="Check item" class="btn btn-neutral btn-check">
 						  <i class="now-ui-icons ui-1_check"></i>
 						</button>
 						<button *ngIf = "row2.asistencia.grua == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
 						  <i class="now-ui-icons ui-1_simple-remove"></i>
 						</button>
-						</div>
+						
 					  </td>					  
 					   
 					  <td *ngIf = "row2.status == true" class="td-actions text-center pp" data-label="GASTOS DE TRANSPORTE PERDIDA TOTAL">
