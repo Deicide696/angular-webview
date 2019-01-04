@@ -27,13 +27,13 @@ export class DataService {
         return this.http.get<Response>( '../assets/json/autos2.json' );    
 	}	
 	
-	getResponseWeb(cotizacion_id): Observable<Response> {
+	getResponseWeb(cotizacion_id, deployment): Observable<Response> {
 		
 		let headers: HttpHeaders = new HttpHeaders();
 		headers = headers.append('Content-Type','application/json');	
 		headers = headers.append('Authorization','Basic aG9sYUB2aXZvby5jbzoxMjM0NTY=');
 		headers = headers.append('partner_id','4');
-		let params = JSON.stringify({cotizacion_id});		
+		let params = JSON.stringify({cotizacion_id, deployment});		
 		
 		console.log(this.http.post<Response>(this.url+"precotizacion-autos", params, {headers: headers}));		
         return this.http.post<Response>(this.url+"precotizacion-autos", params, {headers: headers});    

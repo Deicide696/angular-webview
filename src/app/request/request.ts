@@ -2,5 +2,6 @@ import { DataRequest } from '../../../../webview/src/app/data-request/data-reque
 
 export class Request{
   cotizacion_id: number;
+  deployment: string;
   cotizaciones: DataRequest;
 }

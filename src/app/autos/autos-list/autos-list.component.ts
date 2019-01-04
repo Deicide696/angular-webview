@@ -46,12 +46,15 @@ export class AutosListComponent implements OnInit {
   public tableData3: TableData;
   public color:string;
   public inputs:string;
+  public deploy:string;
 
   constructor(private dataService: DataService, private route: ActivatedRoute) {
 	  this.inputs = this.route.snapshot.params['precotizacion'];
+	  this.deploy = this.route.snapshot.params['deployment'];
 	  
 	  this.request = {
-		  cotizacion_id : +this.inputs,		  
+		  cotizacion_id : +this.inputs,
+		  deployment : this.deploy,	
 		  cotizaciones : null
 	  };
 	  
@@ -113,8 +116,8 @@ export class AutosListComponent implements OnInit {
 		);
 	}*/
 
-	getResponseWeb(cotizacion): void {
-    this.dataService.getResponseWeb(cotizacion)
+	getResponseWeb(cotizacion, deploy): void {
+    this.dataService.getResponseWeb(cotizacion, deploy)
 		.subscribe(response => {
 				this.response = response;
 				console.log(this.response);
@@ -156,9 +159,10 @@ export class AutosListComponent implements OnInit {
 	this.loading = true;
 	
 	console.log("Precotizacion: " + this.inputs);
+	console.log("Deployment: " + this.deploy);
 	
 	//this.getResponse();
-	this.getResponseWeb(this.inputs);
+	this.getResponseWeb(this.inputs, this.deploy);
 	if(this.getResponseWeb){
 			this.loading = false;
 	}
