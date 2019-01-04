@@ -221,20 +221,19 @@
                   <th class="text-center" scope="col">
 					<div class="row">
                       <div class="col">CARRO TALLER</div>
-                      <div class="col"> / GRUA </div>
+                      <div class="col"> GRUA </div>
                     </div>
 				  </th>
                   <th class="text-center" scope="col"> {{ tableData3.headerRow[5] }}</th>
                   <th class="text-center" scope="col">
 					VEHÍCULO DE REMPLAZO
 					<div class="row">
-                      <div class="col">TOTALES</div>
-                      <div class="col">PARCIALES</div>
+                      <div class="col">total</div>
+                      <div class="col">parcial</div>
                     </div>
 				  </th>
                   <th class="text-center" scope="col">{{ tableData3.headerRow[7] }}</th>
-                  <th class="text-center" scope="col">{{ tableData3.headerRow[8] }}</th>
-                  <th class="text-center" scope="col">{{ tableData3.headerRow[9] }}</th>
+                  <th class="text-center" scope="col">{{ tableData3.headerRow[8] }}</th>                  			  
                 </tr>
                 </thead>				
                 <tbody *ngFor="let row of response.data.insurances">
@@ -260,22 +259,48 @@
 						<small>Sin deducible</small>
 					  </td>
 					  <td *ngIf = "row2.status == true" class="td-actions  text-center pp" data-label="PERDIDAS TOTALES (DAÑOS / HURTO)">
-					  <div *ngIf = "row2.amparos.ptd != false" >{{row2.amparos.ptd}}</div>
-					  <button *ngIf = "row2.amparos.ptd == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
-						  <i class="now-ui-icons ui-1_simple-remove"></i>
-					  </button>
+					  <div class="row">
+						<div class="col">
+						  <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'SURA'" >{{row2.amparos.ptd | currency:'USD':true:'1.0-2'}}</div>
+						  <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.ptd | currency:'USD':true:'1.0-2'}}</div>
+						  <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'SBS'" >{{row2.amparos.ptd}}</div>
+						  <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'MAPFRE'" >{{row2.amparos.ptd}}</div>
+						  <button *ngIf = "row2.amparos.ptd == false || row2.amparos.ptd == '0'" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+							  <i class="now-ui-icons ui-1_simple-remove"></i>
+						  </button>
+						</div>
+						<div class="col">
+						  <div *ngIf = "row2.amparos.pth !=  false && row.name == 'SURA'" >{{row2.amparos.pth | currency:'USD':true:'1.0-2'}}</div>
+						  <div *ngIf = "row2.amparos.pth !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.pth | currency:'USD':true:'1.0-2'}}</div>
+						  <div *ngIf = "row2.amparos.pth !=  false && row.name == 'SBS'" >{{row2.amparos.pth}}</div>
+						  <div *ngIf = "row2.amparos.pth !=  false && row.name == 'MAPFRE'" >{{row2.amparos.pth}}</div>
+						  <button *ngIf = "row2.amparos.pth == false || row2.amparos.pth == '0'" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+							  <i class="now-ui-icons ui-1_simple-remove"></i>
+							</button>
+						</div>	
+					  </div>	
 					  </td>
 					  <td *ngIf = "row2.status == true" class="td-actions  text-center pp" data-label="PERDIDAS PARCIALES (DAÑOS / HURTO)">
-					  <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'SURA'" >{{row2.amparos.ppd | currency:'USD':true:'1.0-2'}}</div>
-					  <div *ngIf = "row2.amparos.ppd !=  false && row.name != 'SURA'" >{{row2.amparos.ppd}}</div>
-					  <button *ngIf = "row2.amparos.ppd == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
-						  <i class="now-ui-icons ui-1_simple-remove"></i>
-					  </button>
-					  <div *ngIf = "row2.amparos.pph !=  false && row.name == 'SURA'" >{{row2.amparos.pph | currency:'USD':true:'1.0-2'}}</div>
-					  <div *ngIf = "row2.amparos.pph !=  false && row.name != 'SURA'" >{{row2.amparos.pph}}</div>
-					  <button *ngIf = "row2.amparos.pph == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
-						  <i class="now-ui-icons ui-1_simple-remove"></i>
-						</button>
+					  <div class="row">
+						<div class="col">
+						  <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'SURA'" >{{row2.amparos.ppd | currency:'USD':true:'1.0-2'}}</div>
+						  <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.ppd | currency:'USD':true:'1.0-2'}}</div>
+						  <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'SBS'" >{{row2.amparos.ppd}}</div>
+						  <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'MAPFRE'" >{{row2.amparos.ppd}}</div>
+						  <button *ngIf = "row2.amparos.ppd == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+							  <i class="now-ui-icons ui-1_simple-remove"></i>
+						  </button>
+						</div>
+						<div class="col">
+							<div *ngIf = "row2.amparos.pph !=  false && row.name == 'SURA'" >{{row2.amparos.pph | currency:'USD':true:'1.0-2'}}</div>
+							<div *ngIf = "row2.amparos.pph !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.pph | currency:'USD':true:'1.0-2'}}</div>
+						  <div *ngIf = "row2.amparos.pph !=  false && row.name == 'SBS'" >{{row2.amparos.pph}}</div>
+						  <div *ngIf = "row2.amparos.pph !=  false && row.name == 'MAPFRE'" >{{row2.amparos.pph}}</div>
+						  <button *ngIf = "row2.amparos.pph == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+							  <i class="now-ui-icons ui-1_simple-remove"></i>
+							</button>
+						</div>					  
+					  </div>
 					  </td>
 					  <td *ngIf = "row2.status == true" class="td-actions text-center pp" data-label="CONDUCTOR ELEGIDO">
 						<div *ngIf = "row2.asistencia.conductor_elegido !=  false" >{{row2.asistencia.conductor_elegido}}</div>
@@ -287,21 +312,25 @@
 						</div>
 					  </td>
 					  <td *ngIf = "row2.status == true" class="td-actions text-center pp" data-label="CARRO TALLER / GRUA">
-						
-						<button *ngIf = "row2.asistencia.carro_taller != false" type="button" placement="top" ngbTooltip="Check item" class="btn btn-neutral btn-check">
-						  <i class="now-ui-icons ui-1_check"></i>
-						</button>
-						<button *ngIf = "row2.asistencia.carro_taller == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
-						  <i class="now-ui-icons ui-1_simple-remove"></i>
-						</button>
-						
-						<button *ngIf = "row2.asistencia.grua != false" type="button" placement="top" ngbTooltip="Check item" class="btn btn-neutral btn-check">
-						  <i class="now-ui-icons ui-1_check"></i>
-						</button>
-						<button *ngIf = "row2.asistencia.grua == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
-						  <i class="now-ui-icons ui-1_simple-remove"></i>
-						</button>
-						
+						<div class="row">
+							<div class="col">
+								<button *ngIf = "row2.asistencia.carro_taller != false" type="button" placement="top" ngbTooltip="Check item" class="btn btn-neutral btn-check">
+								  <i class="now-ui-icons ui-1_check"></i>
+								</button>
+								<button *ngIf = "row2.asistencia.carro_taller == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+								  <i class="now-ui-icons ui-1_simple-remove"></i>
+								</button>
+							</div>
+							
+							<div class="col">
+								<button *ngIf = "row2.asistencia.grua != false" type="button" placement="top" ngbTooltip="Check item" class="btn btn-neutral btn-check">
+								  <i class="now-ui-icons ui-1_check"></i>
+								</button>
+								<button *ngIf = "row2.asistencia.grua == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+								  <i class="now-ui-icons ui-1_simple-remove"></i>
+								</button>
+							</div>	
+						</div>
 					  </td>					  
 					   
 					  <td *ngIf = "row2.status == true" class="td-actions text-center pp" data-label="GASTOS DE TRANSPORTE PERDIDA TOTAL">
@@ -314,11 +343,20 @@
 						</button>
 					  </td>
 					  <td *ngIf = "row2.status == true" class="td-actions text-center pp" data-label="VEHÍCULO REEMPLAZO (TOTALES / PARCIALES)">						
-						<button *ngIf = "row2.asistencia.vehiculo_remplazo_pp == false && row2.asistencia.vehiculo_remplazo_pt == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
-						  <i class="now-ui-icons ui-1_simple-remove"></i>
-						</button>  
-						<div *ngIf = "row2.asistencia.vehiculo_remplazo_pp !=  false" >{{row2.asistencia.vehiculo_remplazo_pp}}<p> / </p></div>						
-						<div *ngIf = "row2.asistencia.vehiculo_remplazo_pt !=  false" >{{row2.asistencia.vehiculo_remplazo_pt}}</div>
+						<div class="row">
+							<div class="col">
+							<button *ngIf = "row2.asistencia.vehiculo_remplazo_pp == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+							  <i class="now-ui-icons ui-1_simple-remove"></i>
+							</button>  
+							<div *ngIf = "row2.asistencia.vehiculo_remplazo_pp !=  false" >{{row2.asistencia.vehiculo_remplazo_pp}}</div>						
+							</div>
+							<div class="col">
+								<button *ngIf = "row2.asistencia.vehiculo_remplazo_pt == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+								  <i class="now-ui-icons ui-1_simple-remove"></i>
+								</button> 
+								<div *ngIf = "row2.asistencia.vehiculo_remplazo_pt !=  false" >{{row2.asistencia.vehiculo_remplazo_pt}}</div>
+							</div>	
+						</div>
 					  </td>
 					  <td *ngIf = "row2.status == true" class="td-actions text-center pp" data-label="ACCIDENTES PERSONALES">
 						<button *ngIf = "row2.amparos.accidentes_personales == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
@@ -326,15 +364,24 @@
 						</button>
 						<div *ngIf = "row2.amparos.accidentes_personales != false">{{row2.amparos.accidentes_personales | currency:'USD':true:'1.0-2'}}</div>
 					  </td >
-					  <td *ngIf = "row2.status == true" class="td-number text-center prima" data-label="PRIMA TOTAL">{{row2.prima_total | currency:'USD':true:'1.0-2'}}</td>
-					  <td *ngIf = "row2.status == true">
-						<div class="form-check">
-							  <label class="form-check-label">
-								<input class="form-check-input" ng-model="check" type="checkbox" value="" (click)="Select(row.aseguradora_id, row2.plan_id, $event.target.checked, row.name, row2.plan_id)" onClick="HR(this);" ng-true-value="YES" ng-false-value="NO">
-								<span class="form-check-sign"></span>
-							  </label>
+					  <td *ngIf = "row2.status == true" class="td-number text-center prima" data-label="PRIMA TOTAL">
+					  <div class="row">
+							<div class="col">
+								{{row2.prima_total | currency:'USD':true:'1.0-2'}}
+								
 							</div>
+							<div class="col">
+								<div class="form-check">
+									  <label class="form-check-label">
+										<input class="form-check-input" ng-model="check" type="checkbox" value="" (click)="Select(row.aseguradora_id, row2.plan_id, $event.target.checked, row.name, row2.plan_id)" onClick="HR(this);" ng-true-value="YES" ng-false-value="NO">
+										<span class="form-check-sign"></span>
+									  </label>
+							  </div>
+							</div>
+					  </div>				
 					  </td>
+					  
+					  
 					</tr>	
 				</tbody>				
               </table>

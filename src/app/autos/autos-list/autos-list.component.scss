@@ -1,6 +1,15 @@
-.text-center {
-    text-align: right !important;
+.col{	
+	padding-left: 2px;
 }
+
+.row {
+    display: flex;
+    flex-wrap: none;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+
 table {
   border: 1px solid #ccc;
   border-collapse: collapse;
@@ -16,7 +25,7 @@ table caption {
 }
 
 table tr {
-  background-color: #f8f8f8;
+  background-color: #fff;
   border: 1px solid #ddd;
   padding: .35em;
 }
@@ -25,6 +34,7 @@ table th,
 table td {
   padding: .625em;
   text-align: center;
+  min-width: 380px;
 }
 
 table th {
@@ -96,13 +106,14 @@ table th {
 }
 // Perdidas parciales
 .pp{
-  min-width: 180px;
+  min-width: 380px;
   font-weight: 300;
+  padding-right: 1px !important;
   i{
-    font-size: 2em;
+    font-size: 1.5em;
   }
   div {
-    font-size: 0.8em;
+    font-size: 0.889em;
   }
 }
 
@@ -110,7 +121,7 @@ table th {
   min-width: 180px;
   font-weight: 300;
   i{
-    font-size: 2em;
+    font-size: 1.5em;
   }
   div {
     font-size: 0.8em;
@@ -170,4 +181,5 @@ table th {
 .prima{
   min-width: 100px;
   font-size: 1.2em;
+  
 }
