@@ -265,7 +265,8 @@
 						  <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.ptd | currency:'USD':true:'1.0-2'}}</div>
 						  <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'SBS'" >{{row2.amparos.ptd}}</div>
 						  <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'MAPFRE'" >{{row2.amparos.ptd}}</div>
-						  <button *ngIf = "row2.amparos.ptd == false || row2.amparos.ptd == '0'" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+						  <div *ngIf = "row2.amparos.ptd === '0' || row2.amparos.ptd === 0 || row2.amparos.ptd === '0.00'" >0</div>
+						  <button *ngIf = "row2.amparos.ptd === false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
 							  <i class="now-ui-icons ui-1_simple-remove"></i>
 						  </button>
 						</div>
@@ -274,7 +275,8 @@
 						  <div *ngIf = "row2.amparos.pth !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.pth | currency:'USD':true:'1.0-2'}}</div>
 						  <div *ngIf = "row2.amparos.pth !=  false && row.name == 'SBS'" >{{row2.amparos.pth}}</div>
 						  <div *ngIf = "row2.amparos.pth !=  false && row.name == 'MAPFRE'" >{{row2.amparos.pth}}</div>
-						  <button *ngIf = "row2.amparos.pth == false || row2.amparos.pth == '0'" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+						  <div *ngIf = "row2.amparos.pth === '0' || row2.amparos.pth === 0 || row2.amparos.pth === '0.00'" >0</div>
+						  <button *ngIf = "row2.amparos.pth === false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
 							  <i class="now-ui-icons ui-1_simple-remove"></i>
 							</button>
 						</div>	
