@@ -46,14 +46,22 @@ export class AutosListComponent implements OnInit {
   public tableData3: TableData;
   public color:string;
   public inputs:string;
-  public deploy:string;
+	public deploy:string;
+	public errors:any;
 
   constructor(private dataService: DataService, private route: ActivatedRoute) {
 	  this.inputs = this.route.snapshot.params['precotizacion'];
 	  this.request = {
 		  cotizacion_id : +this.inputs,		  
 		  cotizaciones : null
-	  };
+		};
+		
+		this.route.queryParamMap.subscribe(params=>{			
+			this.errors=params;					
+			console.log(this.errors.params);
+		});
+	
+		
 	  
   }  
 		
@@ -75,49 +83,10 @@ export class AutosListComponent implements OnInit {
 	datarequest: DataRequest;	
 	cotizacionesArray = [];
 	
-	
-	
-	/*getResponse(): void {
-    this.dataService.getResponse2()
-		.subscribe(response => {
-				this.response = response;				
-				this.response.data = response.data;				
-				this.response.data.internal_message = this.response.data.internal_message;				
-				this.response.data.vehiculo = this.response.data.vehiculo;
-				this.response.data.insurances = this.response.data.insurances;
-				this.response.data.insurances.typeplan = this.response.data.insurances.typeplan;
-				console.log(this.response);
-				//this.response.data.internal_message.insurances.typeplan.amparos = this.response.data.internal_message.typeplan.amparos;
-				//this.response.data.internal_message.insurances.typeplan.asistencia = this.response.data.internal_message.typeplan.asistencia;
-				//console.log(this.response);
-			}
-		);
-		
-	}*/
-		
-	/*
-	getResponse(): void {
-    this.dataService.getResponse()
-		.subscribe(response => {
-				this.response = response;
-				console.log(this.response[0]);
-				this.response.data = response[0].data;				
-				this.response.data.internal_message = this.response.data.internal_message;				
-				this.response.data.internal_message.vehiculo = this.response.data.internal_message.vehiculo;
-				this.response.data.internal_message.insurances = this.response.data.internal_message.insurances;
-				this.response.data.internal_message.insurances.typeplan = this.response.data.internal_message.insurances.typeplan;
-				//this.response.data.internal_message.insurances.typeplan.amparos = this.response.data.internal_message.typeplan.amparos;
-				//this.response.data.internal_message.insurances.typeplan.asistencia = this.response.data.internal_message.typeplan.asistencia;
-				//console.log(this.response);
-			}
-		);
-	}*/
-
 	getResponseWeb(cotizacion): void {
     this.dataService.getResponseWeb(cotizacion)
 		.subscribe(response => {
-				this.response = response;
-				console.log(this.response);
+				this.response = response;		
 				this.data = response.data;								
 				this.response.data = response.data;								
 				this.response.data.vehiculo = this.response.data.vehiculo;
@@ -125,7 +94,8 @@ export class AutosListComponent implements OnInit {
 				this.data.insurances = this.response.data.insurances;	
 				this.response.data.insurances = this.response.data.insurances;
 				this.response.data.insurances.typeplan = this.response.data.insurances.typeplan;				
-			}
+
+			}			
 		);
 	}
 	
@@ -150,45 +120,18 @@ export class AutosListComponent implements OnInit {
 	
 
   ngOnInit() {
-	
-	
+
 	this.buttonStatus = true;
-	this.loading = true;
-	
+	this.loading = true;	
 	console.log("Precotizacion: " + this.inputs);	
 	
-	//this.getResponse();
 	this.getResponseWeb(this.inputs);
 	if(this.getResponseWeb){
 			this.loading = false;
 	}
 	
-	  
-    /*this.tableData1 = {
-      headerRow: [ '#', 'Name', 'Job Position', 'Since', 'Salary', 'Actions'],
-      dataRows: [
-        ['1', 'Andrew Mike', 'Develop', '2013', '99,225',''],
-        ['2', 'John Doe', 'Design', '2012', '89,241', ''],
-        ['3', 'Alex Mike', 'Design', '2010', '92,144', 'btn-neutral'],
-        ['4', 'Mike Monday', 'Marketing', '2013', '49,990', 'btn-neutral'],
-        ['5', 'Paul Dickens', 'Communication', '2015', '69,201', 'btn-round'],
-        ['6', 'Manuel Rico', 'Manager', '2012', '99,201', 'btn-round']
-      ]
-    };*/
-    /*this.tableData2 = {
-       headerRow: [ 'Daños a Terceros', 'Pérdidas Totales', 'Pérdidas Parciales', 'Conductor Elegido',
-        'Carro Taller / GRUA', 'Gastos de Transporte Perdida Total', 'Vehículo Reemplazo Totales / Parciales', 'Accidentes Personales', 'Prima'],
-     
-      dataRows: [
-        {id: 1, product_name: 'Moleskine Agenda', type: 'Office', qty: 25, price: '49', amount: '1225',  check: false},
-        {id: 2, product_name: 'Stabilo Pen', type: 'Office', qty: 30, price: '10', amount: '300',  check: true},
-        {id: 3, product_name: 'A4 Paper Pack', type: 'Office', qty: 50, price: '10.99', amount: '109',  check: true},
-        {id: 4, product_name: 'Apple iPad', type: 'Meeting', qty: 10, price: '499.00', amount: '4990',  check: false},
-        {id: 5, product_name: 'Apple iPhone', type: 'Communication', qty: 10, price: '599.00', amount: '5990',  check: false}
-      ]
-    };*/
-    this.tableData3 = {
-      
+
+	  this.tableData3 = {      
       headerRow: [ 'Daños a Terceros', 'Pérdidas Totales', 'Pérdidas Parciales', 'Conductor Elegido',
         'Carro Taller / GRUA', 'Gastos de Transporte Perdida Total', 'Vehículo Reemplazo Totales / Parciales', 'Accidentes Personales', 'Prima'],
       dataRows: [
