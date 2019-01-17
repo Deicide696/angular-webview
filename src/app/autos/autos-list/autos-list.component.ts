@@ -37,7 +37,14 @@ declare interface TableData2 {
 @Component({
   selector: 'app-autos-list',
   templateUrl: './autos-list.component.html',
-  styleUrls: ['./autos-list.component.scss']
+  styleUrls: ['./autos-list.component.scss'],
+  styles: [`
+    :host >>> .alert-custom {
+      color: #99004d;
+      background-color: #f169b470;
+      border-color: #800040;
+    }
+  `]
 })
 export class AutosListComponent implements OnInit {
 

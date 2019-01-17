@@ -1,12 +1,14 @@
 <div class="section">
   <div class="fluid-container">
     <h3 class="title">Webview Autos</h3>
-		<ul>
-			<li *ngFor="let error of errores">
-				{{ error }}
-			</li>
-		</ul>
-      
+		<ngb-alert type="custom" [dismissible]="false">
+			<strong>Atención! Algunas aseguradoras no pueden cotizar:</strong> 
+			<ul>
+				<li *ngFor="let error of errores">
+					{{ error }}
+				</li>
+			</ul>
+		</ngb-alert>
 	<div class="loading" *ngIf = "loading">
 		<img src="../../assets/img/loader2.gif">
 	</div>
