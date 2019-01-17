@@ -47,7 +47,7 @@ export class AutosListComponent implements OnInit {
   public color:string;
   public inputs:string;
 	public deploy:string;
-	public errors:any;
+	public errores:any;
 
   constructor(private dataService: DataService, private route: ActivatedRoute) {
 	  this.inputs = this.route.snapshot.params['precotizacion'];
@@ -57,12 +57,13 @@ export class AutosListComponent implements OnInit {
 		};
 		
 		this.route.queryParamMap.subscribe(params=>{			
-			this.errors=params;					
-			console.log(this.errors.params);
-		});
-	
-		
-	  
+			this.errores=params;						
+			let mensaje_errores=[];
+			for (let error_index in this.errores.params){				
+				mensaje_errores.push(this.errores.params[error_index])				
+			}
+			this.errores=mensaje_errores;			
+		});	  
   }  
 		
 	response: Response;
