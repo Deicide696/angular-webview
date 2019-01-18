@@ -59,7 +59,7 @@
 							
 					<tr *ngFor="let row2 of row.typeplan" [ngStyle]="{'background': color}" >				
 					  
-					  <td *ngIf = "row2.status == true" data-label="">
+					  <td *ngIf = "row2.plan_id" data-label="">
 						<div class="img-container">
 						  <img src="{{row.logo}}" alt="{{row.name}}">
 						</div>
@@ -67,7 +67,7 @@
 						
 						<small>{{row2.plan_name}}</small>
 					  </td>
-					  <td *ngIf = "row2.status == true" class="td-number rce" data-label="DAÑOS A TERCEROS">
+					  <td *ngIf = "row2.plan_id" class="td-number rce" data-label="DAÑOS A TERCEROS">
 						<small>Máximo</small>
 						<br />						
 						<div *ngIf = "row.name !=  'SBS' " >{{row2.limitedbt/1000000  | currency:'USD':true:'1.0-2'}}</div>
@@ -77,7 +77,7 @@
 						<br />
 						<small>Sin deducible</small>
 					  </td>
-					  <td *ngIf = "row2.status == true" class="td-actions  text-center pp" data-label="PERDIDAS TOTALES (DAÑOS / HURTO)">
+					  <td *ngIf = "row2.plan_id" class="td-actions  text-center pp" data-label="PERDIDAS TOTALES (DAÑOS / HURTO)">
 					  <div class="row">
 						<div class="col">
 						  <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'SURA'" >{{row2.amparos.ptd | currency:'USD':true:'1.0-2'}}</div>
@@ -101,7 +101,7 @@
 						</div>	
 					  </div>	
 					  </td>
-					  <td *ngIf = "row2.status == true" class="td-actions  text-center pp" data-label="PERDIDAS PARCIALES (DAÑOS / HURTO)">
+					  <td *ngIf = "row2.plan_id" class="td-actions  text-center pp" data-label="PERDIDAS PARCIALES (DAÑOS / HURTO)">
 					  <div class="row">
 						<div class="col">
 						  <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'SURA'" >{{row2.amparos.ppd | currency:'USD':true:'1.0-2'}}</div>
@@ -123,7 +123,7 @@
 						</div>					  
 					  </div>
 					  </td>
-					  <td *ngIf = "row2.status == true" class="td-actions text-center pp" data-label="CONDUCTOR ELEGIDO">
+					  <td *ngIf = "row2.plan_id" class="td-actions text-center pp" data-label="CONDUCTOR ELEGIDO">
 						<div *ngIf = "row2.asistencia.conductor_elegido !=  false" >{{row2.asistencia.conductor_elegido}}</div>
 						<button *ngIf = "row2.asistencia.conductor_elegido == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
 						  <i class="now-ui-icons ui-1_simple-remove"></i>
@@ -132,7 +132,7 @@
 						
 						</div>
 					  </td>
-					  <td *ngIf = "row2.status == true" class="td-actions text-center pp" data-label="CARRO TALLER / GRUA">
+					  <td *ngIf = "row2.plan_id" class="td-actions text-center pp" data-label="CARRO TALLER / GRUA">
 						<div class="row">
 							<div class="col">
 								<button *ngIf = "row2.asistencia.carro_taller != false" type="button" placement="top" ngbTooltip="Check item" class="btn btn-neutral btn-check">
@@ -154,7 +154,7 @@
 						</div>
 					  </td>					  
 					   
-					  <td *ngIf = "row2.status == true" class="td-actions text-center pp" data-label="GASTOS DE TRANSPORTE PERDIDA TOTAL">
+					  <td *ngIf = "row2.plan_id" class="td-actions text-center pp" data-label="GASTOS DE TRANSPORTE PERDIDA TOTAL">
 						 <div *ngIf = "row2.amparos.gtpt !=  false" >{{row2.amparos.gtpt | currency:'USD':true:'1.0-2'}}</div>
 						<button *ngIf = "row2.amparos.gtpt == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
 						  <i class="now-ui-icons ui-1_simple-remove"></i>
@@ -163,7 +163,7 @@
 						  <i class="now-ui-icons ui-1_check"></i>
 						</button>
 					  </td>
-					  <td *ngIf = "row2.status == true" class="td-actions text-center pp" data-label="VEHÍCULO REEMPLAZO (TOTALES / PARCIALES)">						
+					  <td *ngIf = "row2.plan_id" class="td-actions text-center pp" data-label="VEHÍCULO REEMPLAZO (TOTALES / PARCIALES)">						
 						<div class="row">
 							<div class="col">
 							<button *ngIf = "row2.asistencia.vehiculo_remplazo_pp == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
@@ -179,13 +179,13 @@
 							</div>	
 						</div>
 					  </td>
-					  <td *ngIf = "row2.status == true" class="td-actions text-center pp" data-label="ACCIDENTES PERSONALES">
+					  <td *ngIf = "row2.plan_id" class="td-actions text-center pp" data-label="ACCIDENTES PERSONALES">
 						<button *ngIf = "row2.amparos.accidentes_personales == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
 							<i class="now-ui-icons ui-1_simple-remove"></i>
 						</button>
 						<div *ngIf = "row2.amparos.accidentes_personales != false">{{row2.amparos.accidentes_personales | currency:'USD':true:'1.0-2'}}</div>
 					  </td >
-					  <td *ngIf = "row2.status == true" class="td-number text-center prima" data-label="PRIMA TOTAL">
+					  <td *ngIf = "row2.plan_id" class="td-number text-center prima" data-label="PRIMA TOTAL">
 					  <div class="row">
 							<div class="col">
 								{{row2.prima_total | currency:'USD':true:'1.0-2'}}								
