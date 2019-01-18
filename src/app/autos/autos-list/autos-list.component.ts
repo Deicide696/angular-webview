@@ -102,7 +102,8 @@ export class AutosListComponent implements OnInit {
 				this.data.insurances = this.response.data.insurances;	
 				this.response.data.insurances = this.response.data.insurances;
 				this.response.data.insurances.typeplan = this.response.data.insurances.typeplan;				
-
+				console.log("Respueta servicio: ");
+				console.log(this.response.data);
 			}			
 		);
 	}
