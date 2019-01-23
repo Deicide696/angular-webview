@@ -52,7 +52,9 @@ export class AutosListComponent implements OnInit {
   public tableData2: TableData2;
   public tableData3: TableData;
   public color:string;
-  public inputs:string;
+	public inputs:string;
+	public auth:string;
+	public partner:string;
 	public deploy:string;
 	public errores:any;
 
@@ -69,6 +71,11 @@ export class AutosListComponent implements OnInit {
 			for (let error_index in this.errores.params){				
 				mensaje_errores.push(this.errores.params[error_index])				
 			}
+
+			dataService.auth=this.errores.params.auth;	
+			this.auth = dataService.auth;			
+			dataService.partner=this.errores.params.partner_id;
+			this.partner = dataService.partner;
 			this.errores=mensaje_errores;			
 		});	  
   }  
@@ -91,8 +98,8 @@ export class AutosListComponent implements OnInit {
 	datarequest: DataRequest;	
 	cotizacionesArray = [];
 	
-	getResponseWeb(cotizacion): void {
-    this.dataService.getResponseWeb(cotizacion)
+	getResponseWeb(cotizacion, auth, partner): void {
+    this.dataService.getResponseWeb(cotizacion, auth, partner)
 		.subscribe(response => {
 				this.response = response;		
 				this.data = response.data;								
@@ -108,8 +115,8 @@ export class AutosListComponent implements OnInit {
 		);
 	}
 	
-	getResponsePdf(request): void{
-	this.dataService.postQuote(request)
+	getResponsePdf(request, auth, partner): void{
+	this.dataService.postQuote(request, auth, partner)
 			.subscribe(responsepdf => {
 				this.responsepdf = responsepdf;
 				console.log(this.responsepdf);
@@ -131,10 +138,10 @@ export class AutosListComponent implements OnInit {
   ngOnInit() {
 
 	this.buttonStatus = true;
-	this.loading = true;	
-	console.log("Precotizacion: " + this.inputs);	
-	
-	this.getResponseWeb(this.inputs);
+	this.loading = true;		
+	console.log("Partner: "+this.partner)
+	console.log("auth: "+this.auth)
+	this.getResponseWeb(this.inputs, this.auth, this.partner);
 	if(this.getResponseWeb){
 			this.loading = false;
 	}
@@ -179,7 +186,7 @@ export class AutosListComponent implements OnInit {
 	// Función para invocar el EndPoint de precotización-pdf
 	sendRequest() {
 			console.log(this.request);
-			this.getResponsePdf(this.request);
+			this.getResponsePdf(this.request, this.auth, this.partner);
 	}
   
   Select(selectedId, selectedPlan, element) {  	  

@@ -9,6 +9,9 @@ import { Request } from '../../../webview/src/app/request/request';
 @Injectable()
 export class DataService {
 	public url: string;
+	public auth:string;
+	public partner:string;
+
   constructor(private http: HttpClient){
 	  this.url = "vivoo-backend/api/web/v1/autos/";
   }
@@ -27,23 +30,23 @@ export class DataService {
         return this.http.get<Response>( '../assets/json/autos2.json' );    
 	}	
 	
-	getResponseWeb(cotizacion_id): Observable<Response> {
-		
+	getResponseWeb(cotizacion_id, auth, partner): Observable<Response> {
+		console.log(auth + " --- " + partner)
 		let headers: HttpHeaders = new HttpHeaders();
 		headers = headers.append('Content-Type','application/json');	
-		headers = headers.append('Authorization','Basic aG9sYUB2aXZvby5jbzoxMjM0NTY=');
-		headers = headers.append('partner_id','4');
+		headers = headers.append('Authorization','Basic '+auth);
+		headers = headers.append('partner_id',partner);
 		let params = JSON.stringify({cotizacion_id});		
-		
+		console.log(headers);
 		console.log(this.http.post<Response>(this.url+"precotizacion-autos", params, {headers: headers}));		
         return this.http.post<Response>(this.url+"precotizacion-autos", params, {headers: headers});    
 	}	
 	
-	postQuote(request): Observable<ResponsePdf> {		
+	postQuote(request, auth, partner): Observable<ResponsePdf> {		
 		let headers: HttpHeaders = new HttpHeaders();
 		headers = headers.append('Content-Type','application/json');	
-		headers = headers.append('Authorization','Basic aG9sYUB2aXZvby5jbzoxMjM0NTY=');
-		headers = headers.append('partner_id','4');
+		headers = headers.append('Authorization','Basic '+auth);
+		headers = headers.append('partner_id',partner);
 		let params = request;
 		//JSON.stringify({request});		
 		console.log(params);
