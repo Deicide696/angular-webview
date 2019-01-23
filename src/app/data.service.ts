@@ -35,8 +35,7 @@ export class DataService {
 		headers = headers.append('Content-Type','application/json');	
 		headers = headers.append('Authorization','Basic '+auth);
 		headers = headers.append('partner_id',partner);
-		let params = JSON.stringify({cotizacion_id});		
-		console.log(headers);
+		let params = JSON.stringify({cotizacion_id});				
 		console.log(this.http.post<Response>(this.url+"precotizacion-autos", params, {headers: headers}));		
         return this.http.post<Response>(this.url+"precotizacion-autos", params, {headers: headers});    
 	}	
@@ -47,8 +46,7 @@ export class DataService {
 		headers = headers.append('Authorization','Basic '+auth);
 		headers = headers.append('partner_id',partner);
 		let params = request;
-		//JSON.stringify({request});		
-		console.log(params);
+		//JSON.stringify({request});				
 		
 		console.log(this.http.post<ResponsePdf>(this.url+"precotizacion-pdf", params, {headers: headers}));		
         return this.http.post<ResponsePdf>(this.url+"precotizacion-pdf", params, {headers: headers});    

@@ -67,11 +67,18 @@ export class AutosListComponent implements OnInit {
 		
 		this.route.queryParamMap.subscribe(params=>{			
 			this.errores=params;						
+			
 			let mensaje_errores=[];
 			for (let error_index in this.errores.params){				
-				mensaje_errores.push(this.errores.params[error_index])				
+				if(error_index != 'auth'){
+					if(error_index != 'partner_id')
+					{
+						mensaje_errores.push(this.errores.params[error_index]);				
+					}					
+				}				
 			}
-
+			console.log(mensaje_errores);
+			
 			dataService.auth=this.errores.params.auth;	
 			this.auth = dataService.auth;			
 			dataService.partner=this.errores.params.partner_id;
@@ -108,9 +115,7 @@ export class AutosListComponent implements OnInit {
 				this.insurances = this.response.data.insurances;	
 				this.data.insurances = this.response.data.insurances;	
 				this.response.data.insurances = this.response.data.insurances;
-				this.response.data.insurances.typeplan = this.response.data.insurances.typeplan;				
-				console.log("Respueta servicio: ");
-				console.log(this.response.data);
+				this.response.data.insurances.typeplan = this.response.data.insurances.typeplan;
 			}			
 		);
 	}
@@ -118,15 +123,12 @@ export class AutosListComponent implements OnInit {
 	getResponsePdf(request, auth, partner): void{
 	this.dataService.postQuote(request, auth, partner)
 			.subscribe(responsepdf => {
-				this.responsepdf = responsepdf;
-				console.log(this.responsepdf);
-				this.responsepdf.data = responsepdf.data;
-				console.log(this.responsepdf.data.internal_message);
+				this.responsepdf = responsepdf;				
+				this.responsepdf.data = responsepdf.data;				
 				if(this.responsepdf.status){
 					window.location.href = this.responsepdf.data.internal_message;				
 				}	
-				else{
-					console.log(this.responsepdf.data.internal_message);
+				else{					
 					alert(this.responsepdf.data.internal_message);		
 				}
 			}
