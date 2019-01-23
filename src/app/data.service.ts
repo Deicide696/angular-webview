@@ -30,8 +30,7 @@ export class DataService {
         return this.http.get<Response>( '../assets/json/autos2.json' );    
 	}	
 	
-	getResponseWeb(cotizacion_id, auth, partner): Observable<Response> {
-		console.log(auth + " --- " + partner)
+	getResponseWeb(cotizacion_id, auth, partner): Observable<Response> {		
 		let headers: HttpHeaders = new HttpHeaders();
 		headers = headers.append('Content-Type','application/json');	
 		headers = headers.append('Authorization','Basic '+auth);

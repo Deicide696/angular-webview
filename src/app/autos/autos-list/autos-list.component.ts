@@ -139,8 +139,6 @@ export class AutosListComponent implements OnInit {
 
 	this.buttonStatus = true;
 	this.loading = true;		
-	console.log("Partner: "+this.partner)
-	console.log("auth: "+this.auth)
 	this.getResponseWeb(this.inputs, this.auth, this.partner);
 	if(this.getResponseWeb){
 			this.loading = false;
