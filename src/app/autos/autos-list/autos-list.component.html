@@ -1,266 +1,221 @@
 <div class="section">
   <div class="fluid-container">
     <h3 class="title">Webview Autos</h3>
-
-    <!--<div class="title">-->
-      <!--<h3>-->
-        <!--<small>Tables</small>-->
-      <!--</h3>-->
-    <!--</div>-->
-    <!--<div class="row">-->
-      <!--<div class="col-md-12">-->
-        <!--<h4>-->
-          <!--<small>Simple Table</small>-->
-        <!--</h4>-->
-      <!--</div>-->
-      <!--<div class="col-md-8 ml-auto mr-auto">-->
-        <!--<h6>Simple With Actions</h6>-->
-        <!--<div class="card card-plain">-->
-          <!--<div class="card-body">-->
-            <!--<div class="table-responsive">-->
-              <!--<table class="table">-->
-                <!--<thead>-->
-                <!--<tr>-->
-                  <!--<th class="text-center">{{ tableData1.headerRow[0] }}</th>-->
-                  <!--<th>{{ tableData1.headerRow[1] }}</th>-->
-                  <!--<th>{{ tableData1.headerRow[2] }}</th>-->
-                  <!--<th class="text-center">{{ tableData1.headerRow[3] }}</th>-->
-                  <!--<th class="text-right">{{ tableData1.headerRow[4] }}</th>-->
-                  <!--<th class="text-right">{{ tableData1.headerRow[5] }}</th>-->
-                <!--</tr>-->
-                <!--</thead>-->
-                <!--<tbody>-->
-                <!--<tr *ngFor="let row of tableData1.dataRows">-->
-                  <!--<td class="text-center">{{row[0]}}</td>-->
-                  <!--<td>{{row[1]}}</td>-->
-                  <!--<td>{{row[2]}}</td>-->
-                  <!--<td class="text-center">{{row[3]}}</td>-->
-                  <!--<td class="text-right">&euro; {{row[4]}}</td>-->
-                  <!--<td class="td-actions text-right">-->
-                    <!--<button type="button" ngbTooltip="View Profile" class="btn btn-info btn-icon btn-sm {{row[5]}}">-->
-                      <!--<i class="now-ui-icons users_single-02"></i>-->
-                    <!--</button>-->
-                    <!--<button type="button" ngbTooltip="Edit Profile" class="btn btn-success btn-icon btn-sm {{row[5]}}">-->
-                      <!--<i class="now-ui-icons ui-2_settings-90"></i>-->
-                    <!--</button>-->
-                    <!--<button type="button" ngbTooltip="Remove" class="btn btn-danger btn-icon btn-sm {{row[5]}}">-->
-                      <!--<i class="now-ui-icons ui-1_simple-remove"></i>-->
-                    <!--</button>-->
-                  <!--</td>-->
-                <!--</tr>-->
-                <!--</tbody>-->
-              <!--</table>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-        <!--<h6>Striped With Checkboxes</h6>-->
-        <!--<div class="card card-plain">-->
-          <!--<div class="card-body">-->
-            <!--<div class="table-responsive">-->
-              <!--<table class="table table-striped">-->
-                <!--<thead>-->
-                <!--<tr>-->
-                  <!--<th class="text-center">{{ tableData2.headerRow[0] }}</th>-->
-                  <!--<th></th>-->
-                  <!--<th>{{ tableData2.headerRow[1] }}</th>-->
-                  <!--<th>{{ tableData2.headerRow[2] }}</th>-->
-                  <!--<th>{{ tableData2.headerRow[3] }}</th>-->
-                  <!--<th class="text-right">{{ tableData2.headerRow[4] }}</th>-->
-                  <!--<th class="text-right">{{ tableData2.headerRow[5] }}</th>-->
-                <!--</tr>-->
-                <!--</thead>-->
-                <!--<tbody>-->
-                <!--<tr *ngFor="let row of tableData2.dataRows">-->
-                  <!--<td class="text-center">{{row.id}}</td>-->
-                  <!--<td>-->
-                    <!--<div [ngSwitch]="row.check">-->
-                      <!--<div *ngSwitchCase="true">-->
-                        <!--<div class="form-check">-->
-                          <!--<label class="form-check-label">-->
-                            <!--<input class="form-check-input" type="checkbox" value="" checked>-->
-                            <!--<span class="form-check-sign"></span>-->
-                          <!--</label>-->
-                        <!--</div>-->
-                      <!--</div>-->
-                      <!--<div *ngSwitchDefault>-->
-                        <!--<div class="form-check">-->
-                          <!--<label class="form-check-label">-->
-                            <!--<input class="form-check-input" type="checkbox" value="" >-->
-                            <!--<span class="form-check-sign"></span>-->
-                          <!--</label>-->
-                        <!--</div>-->
-                      <!--</div>-->
-                    <!--</div>-->
-                  <!--</td>-->
-                  <!--<td>{{row.product_name}}</td>-->
-                  <!--<td>{{row.type}}</td>-->
-                  <!--<td>{{row.qty}}</td>-->
-                  <!--<td class="text-right">&euro; {{row.price}}</td>-->
-                  <!--<td class="text-right">&euro; {{row.amount}}</td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-                  <!--<td colspan="5"></td>-->
-                  <!--<td class="td-total">-->
-                    <!--Total-->
-                  <!--</td>-->
-                  <!--<td class="td-price">-->
-                    <!--{{getTotal1()| currency:'EUR':true:'1.2-2'}}-->
-                  <!--</td>-->
-                <!--</tr>-->
-                <!--</tbody>-->
-              <!--</table>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-    <!--<div class="row">-->
-      <!--<div class="col-md-12">-->
-        <!--<h4>-->
-          <!--<small>Shopping Cart Table</small>-->
-        <!--</h4>-->
-      <!--</div>-->
-      <!--<div class="col-md-12">-->
-        <!--<div class="card card-plain">-->
-          <!--<div class="card-body">-->
-            <!--<div class="table-responsive">-->
-              <!--<table class="table table-shopping">-->
-                <!--<thead>-->
-                <!--<tr>-->
-                  <!--<th class="text-center"></th>-->
-                  <!--<th>{{ tableData3.headerRow[2] }}</th>-->
-                  <!--<th>{{ tableData3.headerRow[3] }}</th>-->
-                  <!--<th>{{ tableData3.headerRow[4] }}</th>-->
-                  <!--<th class="text-right">{{ tableData3.headerRow[5] }}</th>-->
-                  <!--<th class="text-right">{{ tableData3.headerRow[6] }}</th>-->
-                  <!--<th class="text-right">{{ tableData3.headerRow[7] }}</th>-->
-                <!--</tr>-->
-                <!--</thead>-->
-                <!--<tbody>-->
-                <!--<tr *ngFor="let row of tableData3.dataRows">-->
-                  <!--<td>-->
-                    <!--<div class="img-container">-->
-                      <!--<img src="assets/img/{{row[0]}}" alt="...">-->
-                    <!--</div>-->
-                  <!--</td>-->
-                  <!--<td class="td-name">-->
-                    <!--<a>{{row[1]}}</a>-->
-                    <!--<br />-->
-                    <!--<small>{{row[2]}}</small>-->
-                  <!--</td>-->
-                  <!--<td>{{row[3]}}</td>-->
-                  <!--<td>{{row[4]}}</td>-->
-                  <!--<td class="td-number"><small>€</small>{{row[5]}}</td>-->
-                  <!--<td class="td-number">-->
-                    <!--{{row[6]}}-->
-                    <!--<div class="btn-group">-->
-                      <!--<button class="btn btn-info btn-sm"> <i class="now-ui-icons ui-1_simple-delete"></i> </button>-->
-                      <!--<button class="btn btn-info btn-sm"> <i class="now-ui-icons ui-1_simple-add"></i> </button>-->
-                    <!--</div>-->
-                  <!--</td>-->
-                  <!--<td class="td-number">-->
-                    <!--<small>€</small>{{row[7]}}-->
-                  <!--</td>-->
-                  <!--<td class="td-actions">-->
-                    <!--<button type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">-->
-                      <!--<i class="now-ui-icons ui-1_simple-remove"></i>-->
-                    <!--</button>-->
-                  <!--</td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-                  <!--<td colspan="3">-->
-                  <!--</td>-->
-                  <!--<td class="td-total">-->
-                    <!--Total-->
-                  <!--</td>-->
-                  <!--<td class="td-price">-->
-                    <!--{{getTotal2()| currency:'EUR':true:'1.2-2'}}-->
-                  <!--</td>-->
-                  <!--<td colspan="3" class="text-right">-->
-                    <!--<button type="button" class="btn btn-info btn-round " (click)="showElements()">Complete Purchase <i class="now-ui-icons arrows-1_minimal-right"></i>-->
-                    <!--</button>-->
-                  <!--</td>-->
-                <!--</tr>-->
-                <!--</tbody>-->
-              <!--</table>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-
-    <!--  Pruebas de Webview Autos -->
-    <div class="row">
+		<ngb-alert type="custom" [dismissible]="false">
+			<strong>Atención! Algunas aseguradoras no pueden cotizar:</strong> 
+			<ul>
+				<li *ngFor="let error of errores">
+					{{ error }}
+				</li>
+			</ul>
+		</ngb-alert>
+	<div class="loading" *ngIf = "loading">
+		<img src="../../assets/img/loader2.gif">
+	</div>
+    <div class="row" *ngIf = "loading == false">
       <div class="col-md-12">
         <div class="card card-plain">
-          <div class="card-body">
+          <div class="card-body" style="width: 100%">
             <div class="table-responsive">
-              <table class="table table-shopping">
+              <table  class="table table-shopping" id="tabletest">			  
                 <thead>
                 <tr>
-                  <th class="text-center"></th>
-                  <th class="text-center">{{ tableData3.headerRow[0] }}</th>
-                  <th class="text-center">
+                  <th class="text-center" scope="col"></th>
+                  <th class="text-center" scope="col">{{ tableData3.headerRow[0] }}</th>
+                  <th class="text-center" scope="col">
                     {{ tableData3.headerRow[1] }}
                     <div class="row">
                       <div class="col">Daños</div>
                       <div class="col">Hurto</div>
                     </div>
                   </th>
-                  <th>
-                    {{ tableData3.headerRow[2] }}
+                  <th class="text-center" scope="col">
+                    {{ tableData3.headerRow[2]}}
                     <div class="row">
                       <div class="col">Daños</div>
                       <div class="col">Hurto</div>
                     </div>
                   </th>
-                  <th class="text-center">{{ tableData3.headerRow[3] }}</th>
-                  <th class="text-center">{{ tableData3.headerRow[4] }}</th>
-                  <th class="text-center">{{ tableData3.headerRow[5] }}</th>
-                  <th class="text-center">{{ tableData3.headerRow[6] }}</th>
-                  <th class="text-center">{{ tableData3.headerRow[7] }}</th>
-                  <th class="text-center">{{ tableData3.headerRow[8] }}</th>
-                  <th class="text-center">{{ tableData3.headerRow[9] }}</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let row of tableData3.dataRows">
-                  <td>
-                    <div class="img-container">
-                      <img src="assets/img/{{row[0]}}" alt="...">
+                  <th class="text-center" scope="col">{{ tableData3.headerRow[3] }}</th>
+                  <th class="text-center" scope="col">
+					<div class="row">
+                      <div class="col">CARRO TALLER</div>
+                      <div class="col"> GRUA </div>
                     </div>
-                    <br />
-                    <small>Plan Basico</small>
-                  </td>
-                  <td class="td-number rce">
-                    <small>Máximo</small>
-                    <br />
-                    <small>$</small>{{row[1]}}
-                    <br />
-                    <small>Millones</small>
-                    <br />
-                    <small>Sin deducible</small>
-                  </td>
-                  <td class="td-actions text-center pt">
-                    <button type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
-                      <i class="now-ui-icons ui-1_simple-remove"></i>
-                    </button>
-                  </td>
-                  <td class="td-actions text-center pp">
-                    <button type="button" placement="top" ngbTooltip="Check item" class="btn btn-neutral btn-check">
-                      <i class="now-ui-icons ui-1_check"></i>
-                    </button>
-                    <div class="col">10% | 1 SMMLV</div>
-                  </td>
-                  <td class="td-number text-center ce">{{row[4]}}</td>
-                  <td class="td-number text-center ct_g">{{row[5]}}</td>
-                  <td class="td-number text-center gtpt"><small>$</small>{{row[6]}}</td>
-                  <td class="td-number text-center vr"> 10 días / 15 días</td>
-                  <td class="td-number text-center ap"><small>$</small>{{row[6]}}</td>
-                  <td class="td-actions text-center prima"><small>$</small>{{row[6]}}</td>
+				  </th>
+                  <th class="text-center" scope="col"> {{ tableData3.headerRow[5] }}</th>
+                  <th class="text-center" scope="col">
+					VEHÍCULO DE REMPLAZO
+					<div class="row">
+                      <div class="col">total</div>
+                      <div class="col">parcial</div>
+                    </div>
+				  </th>
+                  <th class="text-center" scope="col">{{ tableData3.headerRow[7] }}</th>
+                  <th class="text-center" scope="col">{{ tableData3.headerRow[8] }}</th>                  			  
                 </tr>
-                </tbody>
+                </thead>				
+                <tbody *ngFor="let row of response.data.insurances">
+							
+					<tr *ngFor="let row2 of row.typeplan" [ngStyle]="{'background': color}" >				
+					  
+					  <td *ngIf = "row2.plan_id" data-label="">
+						<div class="img-container">
+						  <img src="{{row.logo}}" alt="{{row.name}}">
+						</div>
+						<br />
+						
+						<small>{{row2.plan_name}}</small>
+					  </td>
+					  <td *ngIf = "row2.plan_id" class="td-number rce" data-label="DAÑOS A TERCEROS">
+						<small>Máximo</small>
+						<br />						
+						<div *ngIf = "row.name !=  'SBS' " >{{row2.limitedbt/1000000  | currency:'USD':true:'1.0-2'}}</div>
+						<div *ngIf = "row.name == 'SBS' " >{{row2.limitedbt | currency:'USD':true:'1.0-2'}}</div>
+						<br />
+						<small>Millones</small>
+						<br />
+						<small>Sin deducible</small>
+					  </td>
+					  <td *ngIf = "row2.plan_id" class="td-actions  text-center pp" data-label="PERDIDAS TOTALES (DAÑOS / HURTO)">
+					  <div class="row">
+						<div class="col">
+						  <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'SURA'" >{{row2.amparos.ptd | currency:'USD':true:'1.0-2'}}</div>
+						  <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.ptd | currency:'USD':true:'1.0-2'}}</div>
+						  <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'SBS'" >{{row2.amparos.ptd}}</div>
+						  <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'MAPFRE'" >{{row2.amparos.ptd}}</div>
+						  <div *ngIf = "row2.amparos.ptd === '0' || row2.amparos.ptd === 0 || row2.amparos.ptd === '0.00'" >0</div>
+						  <button *ngIf = "row2.amparos.ptd === false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+							  <i class="now-ui-icons ui-1_simple-remove"></i>
+						  </button>
+						</div>
+						<div class="col">
+						  <div *ngIf = "row2.amparos.pth !=  false && row.name == 'SURA'" >{{row2.amparos.pth | currency:'USD':true:'1.0-2'}}</div>
+						  <div *ngIf = "row2.amparos.pth !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.pth | currency:'USD':true:'1.0-2'}}</div>
+						  <div *ngIf = "row2.amparos.pth !=  false && row.name == 'SBS'" >{{row2.amparos.pth}}</div>
+						  <div *ngIf = "row2.amparos.pth !=  false && row.name == 'MAPFRE'" >{{row2.amparos.pth}}</div>
+						  <div *ngIf = "row2.amparos.pth === '0' || row2.amparos.pth === 0 || row2.amparos.pth === '0.00'" >0</div>
+						  <button *ngIf = "row2.amparos.pth === false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+							  <i class="now-ui-icons ui-1_simple-remove"></i>
+							</button>
+						</div>	
+					  </div>	
+					  </td>
+					  <td *ngIf = "row2.plan_id" class="td-actions  text-center pp" data-label="PERDIDAS PARCIALES (DAÑOS / HURTO)">
+					  <div class="row">
+						<div class="col">
+						  <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'SURA'" >{{row2.amparos.ppd | currency:'USD':true:'1.0-2'}}</div>
+						  <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.ppd | currency:'USD':true:'1.0-2'}}</div>
+						  <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'SBS'" >{{row2.amparos.ppd}}</div>
+						  <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'MAPFRE'" >{{row2.amparos.ppd}}</div>
+						  <button *ngIf = "row2.amparos.ppd == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+							  <i class="now-ui-icons ui-1_simple-remove"></i>
+						  </button>
+						</div>
+						<div class="col">
+							<div *ngIf = "row2.amparos.pph !=  false && row.name == 'SURA'" >{{row2.amparos.pph | currency:'USD':true:'1.0-2'}}</div>
+							<div *ngIf = "row2.amparos.pph !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.pph | currency:'USD':true:'1.0-2'}}</div>
+						  <div *ngIf = "row2.amparos.pph !=  false && row.name == 'SBS'" >{{row2.amparos.pph}}</div>
+						  <div *ngIf = "row2.amparos.pph !=  false && row.name == 'MAPFRE'" >{{row2.amparos.pph}}</div>
+						  <button *ngIf = "row2.amparos.pph == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+							  <i class="now-ui-icons ui-1_simple-remove"></i>
+							</button>
+						</div>					  
+					  </div>
+					  </td>
+					  <td *ngIf = "row2.plan_id" class="td-actions text-center pp" data-label="CONDUCTOR ELEGIDO">
+						<div *ngIf = "row2.asistencia.conductor_elegido !=  false" >{{row2.asistencia.conductor_elegido}}</div>
+						<button *ngIf = "row2.asistencia.conductor_elegido == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+						  <i class="now-ui-icons ui-1_simple-remove"></i>
+						</button>						
+						<div>
+						
+						</div>
+					  </td>
+					  <td *ngIf = "row2.plan_id" class="td-actions text-center pp" data-label="CARRO TALLER / GRUA">
+						<div class="row">
+							<div class="col">
+								<button *ngIf = "row2.asistencia.carro_taller != false" type="button" placement="top" ngbTooltip="Check item" class="btn btn-neutral btn-check">
+								  <i class="now-ui-icons ui-1_check"></i>
+								</button>
+								<button *ngIf = "row2.asistencia.carro_taller == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+								  <i class="now-ui-icons ui-1_simple-remove"></i>
+								</button>
+							</div>
+							
+							<div class="col">
+								<button *ngIf = "row2.asistencia.grua != false" type="button" placement="top" ngbTooltip="Check item" class="btn btn-neutral btn-check">
+								  <i class="now-ui-icons ui-1_check"></i>
+								</button>
+								<button *ngIf = "row2.asistencia.grua == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+								  <i class="now-ui-icons ui-1_simple-remove"></i>
+								</button>
+							</div>	
+						</div>
+					  </td>					  
+					   
+					  <td *ngIf = "row2.plan_id" class="td-actions text-center pp" data-label="GASTOS DE TRANSPORTE PERDIDA TOTAL">
+						 <div *ngIf = "row2.amparos.gtpt !=  false" >{{row2.amparos.gtpt | currency:'USD':true:'1.0-2'}}</div>
+						<button *ngIf = "row2.amparos.gtpt == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+						  <i class="now-ui-icons ui-1_simple-remove"></i>
+						</button>
+						<button *ngIf = "row2.amparos.gtpt == true" type="button" placement="top" ngbTooltip="Check item" class="btn btn-neutral btn-check">
+						  <i class="now-ui-icons ui-1_check"></i>
+						</button>
+					  </td>
+					  <td *ngIf = "row2.plan_id" class="td-actions text-center pp" data-label="VEHÍCULO REEMPLAZO (TOTALES / PARCIALES)">						
+						<div class="row">
+							<div class="col">
+							<button *ngIf = "row2.asistencia.vehiculo_remplazo_pp == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+							  <i class="now-ui-icons ui-1_simple-remove"></i>
+							</button>  
+							<div *ngIf = "row2.asistencia.vehiculo_remplazo_pp !=  false" >{{row2.asistencia.vehiculo_remplazo_pp}}</div>						
+							</div>
+							<div class="col">
+								<button *ngIf = "row2.asistencia.vehiculo_remplazo_pt == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+								  <i class="now-ui-icons ui-1_simple-remove"></i>
+								</button> 
+								<div *ngIf = "row2.asistencia.vehiculo_remplazo_pt !=  false" >{{row2.asistencia.vehiculo_remplazo_pt}}</div>
+							</div>	
+						</div>
+					  </td>
+					  <td *ngIf = "row2.plan_id" class="td-actions text-center pp" data-label="ACCIDENTES PERSONALES">
+						<button *ngIf = "row2.amparos.accidentes_personales == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+							<i class="now-ui-icons ui-1_simple-remove"></i>
+						</button>
+						<div *ngIf = "row2.amparos.accidentes_personales != false">{{row2.amparos.accidentes_personales | currency:'USD':true:'1.0-2'}}</div>
+					  </td >
+					  <td *ngIf = "row2.plan_id" class="td-number text-center prima" data-label="PRIMA TOTAL">
+					  <div class="row">
+							<div class="col">
+								{{row2.prima_total | currency:'USD':true:'1.0-2'}}								
+							</div>
+							<div class="col">
+								<div class="form-check">
+									  <label class="form-check-label">
+										<input class="form-check-input" ng-model="check" type="checkbox" value="" (click)="Select(row.aseguradora_id, row2.plan_id, $event.target.checked, row.name, row2.plan_id)" onClick="HR(this);" ng-true-value="YES" ng-false-value="NO">
+										<span class="form-check-sign"></span>
+									  </label>
+							  </div>
+							</div>
+					  </div>				
+					  </td>
+					  
+					  
+					</tr>	
+				</tbody>				
               </table>
+			  <table  class="table">
+				<tbody>
+					<tr>
+					  <td colspan="3" class="text-right">
+						<button [disabled]="buttonStatus" id="cotizar" type="button" class="btn btn-info btn-round " (click)="sendRequest()">Cotizar<i class="now-ui-icons arrows-1_minimal-right"></i>
+						</button>
+                  
+						</td>
+					</tr>
+				</tbody>
+			  </table>
             </div>
           </div>
         </div>
