@@ -205,7 +205,7 @@ export class AutosListComponent implements OnInit {
 		  this.request.cotizaciones = this.cotizacionesArray;	  
 		  
 		  // Imprime la posición del elmento
-		  console.log(this.deepIndexOf(this.cotizacionesArray ,cotizacion));
+		  //console.log(this.deepIndexOf(this.cotizacionesArray ,cotizacion));
 	  }
 	  else { // Si se desactiva el checkbox	
 		  // Asigna el valor de las propiedades de DataRequest {Aseguradora, Plan}, con los parametros de esta función.	
