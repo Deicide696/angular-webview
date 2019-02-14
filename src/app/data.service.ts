@@ -13,7 +13,7 @@ export class DataService {
 	public partner:string;
 
   constructor(private http: HttpClient){
-	  this.url = "vivoo-backend/api/web/v1/autos/";
+	  this.url = "api/web/v1/autos/";
   }
 
     /**
