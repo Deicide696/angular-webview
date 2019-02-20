@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute} from '@angular/router';  
+import { ActivatedRoute} from '@angular/router';
 
 import { DataService } from '../../../../../webview/src/app/data.service';
 import { Response } from '../../../../../webview/src/app/response/response';
@@ -12,10 +12,11 @@ import { Amparo } from '../../../../../webview/src/app/amparo/amparo';
 import { Asistencia } from '../../../../../webview/src/app/asistencia/asistencia';
 import { Vehiculo } from '../../../../../webview/src/app/vehiculo/vehiculo';
 
-import { DataResponse } from '../../../../../webview/src/app/data-response/data-response';
 import { DataResponsePdf } from '../../../../../webview/src/app/data-response-pdf/data-response-pdf';
 import { DataRequest } from '../../../../../webview/src/app/data-request/data-request';
 
+
+// TODO: Revisar para eliminar ya que Valencia argumenta que son solo para el ejemplo
 declare interface Table_With_Checkboxes {
   id?: number;
   check: boolean;
@@ -65,9 +66,11 @@ export class AutosListComponent implements OnInit {
 		  cotizaciones : null
 		};
 		
-		this.route.queryParamMap.subscribe(params=>{			
+		this.route.queryParamMap.subscribe(params=>{
+		  // TODOD: Cambiarlo porque no solo trae los errores sino también la auth
 			this.errores=params;						
-			
+
+			// TODO: Optimizar esto!!!
 			let mensaje_errores=[];
 			for (let error_index in this.errores.params){				
 				if(error_index != 'auth'){
@@ -108,12 +111,12 @@ export class AutosListComponent implements OnInit {
 	getResponseWeb(cotizacion, auth, partner): void {
     this.dataService.getResponseWeb(cotizacion, auth, partner)
 		.subscribe(response => {
-				this.response = response;		
-				this.data = response.data;								
-				this.response.data = response.data;								
+				this.response = response;
+				this.data = response.data;
+				this.response.data = response.data;
 				this.response.data.vehiculo = this.response.data.vehiculo;
-				this.insurances = this.response.data.insurances;	
-				this.data.insurances = this.response.data.insurances;	
+				this.insurances = this.response.data.insurances;
+				this.data.insurances = this.response.data.insurances;
 				this.response.data.insurances = this.response.data.insurances;
 				this.response.data.insurances.typeplan = this.response.data.insurances.typeplan;
 			}			
@@ -139,12 +142,15 @@ export class AutosListComponent implements OnInit {
 
   ngOnInit() {
 
-	this.buttonStatus = true;
-	this.loading = true;		
-	this.getResponseWeb(this.inputs, this.auth, this.partner);
-	if(this.getResponseWeb){
-			this.loading = false;
-	}
+    this.buttonStatus = true;
+    this.loading = true;
+
+    // Llamado para poblar la tabla con las cotizaciones dado el id de cotización
+    this.getResponseWeb(this.inputs, this.auth, this.partner);
+
+    if(this.getResponseWeb){
+        this.loading = false;
+    }
 	
 
 	  this.tableData3 = {      

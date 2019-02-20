@@ -3,7 +3,7 @@ import { Aseguradora } from '../../../../webview/src/app/aseguradora/aseguradora
 
 
 export class Cotizacion {
-	id: number;
+	  id: number;
     name_user: string;
     email: string;
     identify: string;
@@ -12,7 +12,7 @@ export class Cotizacion {
     telephone: string;
     vehiculo: Vehiculo;
     insurances: Aseguradora;
-	internal_message: string;
-	status_code: number;
-	user_message: string; 
+	  internal_message: string;
+	  status_code: number;
+	  user_message: string;
 }
