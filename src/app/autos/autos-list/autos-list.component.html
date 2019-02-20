@@ -55,7 +55,7 @@
                   <th class="text-center" scope="col">{{ tableData3.headerRow[8] }}</th>                  			  
                 </tr>
                 </thead>				
-                <tbody *ngFor="let row of response.data.insurances">
+                <tbody *ngFor="let row of data.insurances">
 							
 					<tr *ngFor="let row2 of row.typeplan" [ngStyle]="{'background': color}" >				
 					  

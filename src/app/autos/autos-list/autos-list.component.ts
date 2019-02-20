@@ -112,13 +112,7 @@ export class AutosListComponent implements OnInit {
     this.dataService.getResponseWeb(cotizacion, auth, partner)
 		.subscribe(response => {
 				this.response = response;
-				this.data = response.data;
-				this.response.data = response.data;
-				this.response.data.vehiculo = this.response.data.vehiculo;
-				this.insurances = this.response.data.insurances;
-				this.data.insurances = this.response.data.insurances;
-				this.response.data.insurances = this.response.data.insurances;
-				this.response.data.insurances.typeplan = this.response.data.insurances.typeplan;
+				this.data = response.data;				
 			}			
 		);
 	}
