@@ -4,14 +4,13 @@ import { ActivatedRoute} from '@angular/router';
 import { DataService } from '../../../../../webview/src/app/data.service';
 import { Response } from '../../../../../webview/src/app/response/response';
 import { ResponsePdf } from '../../../../../webview/src/app/response-pdf/response-pdf';
-import { Request } from '../../../../../webview/src/app/request/request';
 import { Cotizacion } from '../../../../../webview/src/app/cotizacion/cotizacion';
 import { Plan } from '../../../../../webview/src/app/plan/plan';
 import { Amparo } from '../../../../../webview/src/app/amparo/amparo';
 import { Asistencia } from '../../../../../webview/src/app/asistencia/asistencia';
 
-import { DataRequest } from '../../../../../webview/src/app/data-request/data-request';
-import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { DataAutomaticRequest } from '../../data-automatic-request/data-automatic-request';
+import { FormBuilder, FormGroup} from '@angular/forms';
 
 
 // TODO: Revisar para eliminar ya que Valencia argumenta que son solo para el ejemplo
@@ -60,7 +59,7 @@ export class AutosListComponent implements OnInit {
   constructor(private dataService: DataService, private route: ActivatedRoute, private formBuilder: FormBuilder) {
 	this.cont_cot = 0;  
     this.inputs = this.route.snapshot.params['precotizacion'];
-    this.request = {
+    dataService.request = {
       cotizacion_id: +this.inputs,
       cotizaciones_automaticas: null,
       cotizaciones_manuales: null,
@@ -86,7 +85,6 @@ export class AutosListComponent implements OnInit {
     });
   }
 
-  counterManual: number = 0;
   showManualQuote: boolean;
 		
 	response: Response;
@@ -97,7 +95,6 @@ export class AutosListComponent implements OnInit {
 	asistencia: Asistencia;
 	buttonStatus: boolean;
 	loading: boolean;
-	request: Request;
 	cotizacionesArray = [];
 	
 	getResponseWeb(cotizacion): void {
@@ -160,8 +157,8 @@ export class AutosListComponent implements OnInit {
 	
 	// Función para invocar el EndPoint de precotización-pdf
 	sendRequest() {
-			console.log(this.request);
-			this.getResponsePdf(this.request);
+			console.log(this.dataService.request);
+			this.getResponsePdf(this.dataService.request);
 	}
 
   /**
@@ -171,46 +168,44 @@ export class AutosListComponent implements OnInit {
    * @param element: Cotización elegida
    * @constructor
    */
-  Select(selectedId, selectedPlan, element) {  	  
-	  // cotizacion: de tipo DataRequest (Modelo Solicitud Webservice)
-	  let cotizacion = {} as DataRequest;
-	  
+  Select(selectedId, selectedPlan, element) {
+
+    let automaticQuotesSelected = {} as DataAutomaticRequest;
+
 	  // Valida si el checkbox ha sido activado
 	  if(element == true){	
 		  // Asigna el valor de las propiedades de DataRequest {Aseguradora, Plan}, con los parametros de esta función.	
-		  cotizacion.aseguradora_id = selectedId;
-		  cotizacion.plan = selectedPlan;		  
+		  automaticQuotesSelected.aseguradora_id = selectedId;
+		  automaticQuotesSelected.plan = selectedPlan;
 		  
 		  // Inserta cotizacion seleccionada en el array de cotizaciones
-		  this.cotizacionesArray.push(cotizacion);
+		  this.cotizacionesArray.push(automaticQuotesSelected);
 		  // Actualiza la propiedad cotizaciones de la clase Request con la cotización seleccionada.	
-		  this.request.cotizaciones_automaticas = this.cotizacionesArray;
+      this.dataService.request.cotizaciones_automaticas = this.cotizacionesArray;
 		  // Contador aumenta
 		  this.cont_cot += 1;
 		  console.log("Cont: " + this.cont_cot); 
 	  }
 	  else { // Si se desactiva el checkbox	
 		  // Asigna el valor de las propiedades de DataRequest {Aseguradora, Plan}, con los parametros de esta función.	
-		  cotizacion.aseguradora_id = selectedId;
-		  cotizacion.plan = selectedPlan;
+      automaticQuotesSelected.aseguradora_id = selectedId;
+      automaticQuotesSelected.plan = selectedPlan;
 		  
 		  // Se elimina del array el elemento desactivado, se utiliza la función 
 		  // deepIndexOf para encontrar la posición del arreglo de este elemento
-		  this.cotizacionesArray.splice(this.deepIndexOf(this.cotizacionesArray ,cotizacion), 1);
+		  this.cotizacionesArray.splice(this.deepIndexOf(this.cotizacionesArray ,automaticQuotesSelected), 1);
 		  
 		  // Actualiza la propiedad cotizaciones de la clase Request
-		  this.request.cotizaciones_automaticas = this.cotizacionesArray;
+		  this.dataService.request.cotizaciones_automaticas = this.cotizacionesArray;
 		  // Contador disminuye
 		  this.cont_cot -= 1;
 		  console.log("Cont: " + this.cont_cot);
-	  }	  			  
+	  }
   }
 
   // Muestra la primera fila para agregar una cotización manual
   showManual(){
     this.showManualQuote = true;
-
-    this.counterManual ++;
   }
 
   ngOnInit() {

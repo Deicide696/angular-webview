@@ -200,7 +200,7 @@
 				        </tbody>
               </table>
               <!-- Cotización Manual -->
-              <app-autos-manual *ngIf="showManualQuote" [insurances]="data.list_all_insurances" [counterManual]="counterManual"></app-autos-manual>
+              <app-autos-manual *ngIf="showManualQuote" [insurances]="data.list_all_insurances" [counterManual]="9 - cont_cot" [selectedAutoQuotes]="automaticQuotesSelected"></app-autos-manual>
 			        <table  class="table">
 				        <tbody>
 					        <tr>

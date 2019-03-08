@@ -1,5 +1,5 @@
 <table class="table table-shopping">
-  <tbody *ngFor="let row of arrayFake(5); let i = index">
+  <tbody *ngFor="let row of arrayFake(counterManual); let i = index">
     <tr [ngStyle]="{'background': color}" >
       <td data-label="">
       <select class="form-control">
@@ -7,13 +7,10 @@
         </select>
       </td>
       <td class="td-number rce" data-label="DAÑOS A TERCEROS">
-        <small>{{counter}}Máximo{{i}}</small>
+        <small>Máximo{{i}}</small>
         <br />
-        <input id="rce{{counter}}" type="text" name="rce{{counter}}" class="form-control">
+        <input id="rce{{i}}" type="text" name="rce{{i}}" class="form-control">
         <br />
-        <div ng-repeat="n in [] | range:10">
-          do something number {{$index}}
-        </div>
         <small>Millones</small>
         <br />
         <small>Sin deducible</small>
@@ -21,20 +18,20 @@
       <td class="td-actions text-center pp" data-label="PERDIDAS TOTALES (DAÑOS / HURTO)">
         <div class="row">
           <div class="col">
-            <input id="ptd{{counter}}" type="text" name="ptd{{counter}}" class="form-control">
+            <input id="ptd{{i}}" type="text" name="ptd{{i}}" class="form-control">
           </div>
           <div class="col">
-            <input id="pth{{counter}}" type="text" name="pth{{counter}}" class="form-control">
+            <input id="pth{{i}}" type="text" name="pth{{i}}" class="form-control">
           </div>
         </div>
       </td>
       <td class="td-actions text-center pp" data-label="PERDIDAS PARCIALES (DAÑOS / HURTO)">
         <div class="row">
           <div class="col">
-            <input id="ppd{{counter}}" type="text" name="ppd{{counter}}" class="form-control">
+            <input id="ppd{{i}}" type="text" name="ppd{{i}}" class="form-control">
           </div>
           <div class="col">
-            <input id="pph{{counter}}" type="text" name="pph{{counter}}" class="form-control">
+            <input id="pph{{i}}" type="text" name="pph{{i}}" class="form-control">
           </div>
         </div>
       </td>
@@ -44,38 +41,38 @@
       <td class="td-actions text-center pp" data-label="CARRO TALLER / GRUA">
         <div class="row">
           <div class="col">
-            <input id="carroTaller{{counter}}" type="text" name="carroTaller{{counter}}" class="form-control">
+            <input id="carroTaller{{i}}" type="text" name="carroTaller{{i}}" class="form-control">
           </div>
           <div class="col">
-            <input id="grua{{counter}}" type="text" name="grua{{counter}}" class="form-control">
+            <input id="grua{{i}}" type="text" name="grua{{i}}" class="form-control">
           </div>
         </div>
       </td>
       <td class="td-actions text-center pp" data-label="GASTOS DE TRANSPORTE PERDIDA TOTAL">
-        <input id="gastosTransporte{{counter}}" type="text" name="gastosTransporte{{counter}}" class="form-control">
+        <input id="gastosTransporte{{i}}" type="text" name="gastosTransporte{{i}}" class="form-control">
       </td>
       <td class="td-actions text-center pp" data-label="VEHÍCULO REEMPLAZO (TOTALES / PARCIALES)">
         <div class="row">
           <div class="col">
-            <input id="vrpt{{counter}}" type="text" name="vrpt{{counter}}" class="form-control">
+            <input id="vrpt{{i}}" type="text" name="vrpt{{i}}" class="form-control">
           </div>
           <div class="col">
-            <input id="vrpp{{counter}}" type="text" name="vrpt{{counter}}" class="form-control">
+            <input id="vrpp{{i}}" type="text" name="vrpt{{i}}" class="form-control">
           </div>
         </div>
       </td>
       <td class="td-actions text-center pp" data-label="ACCIDENTES PERSONALES">
-        <input id="ap{{counter}}" type="text" name="ap{{counter}}" class="form-control">
+        <input id="ap{{i}}" type="text" name="ap{{i}}" class="form-control">
       </td>
       <td class="td-number text-center prima" data-label="PRIMA TOTAL">
         <div class="row">
           <div class="col">
-            <input id="prima{{counter}}" type="text" name="prima{{counter}}" class="form-control">
+            <input id="prima{{i}}" type="text" name="prima{{i}}" class="form-control">
           </div>
           <div class="col">
             <div class="form-check">
               <label class="form-check-label">
-                <input class="form-check-input" ng-model="check" type="checkbox" value="" (click)="selectManualQuote($event.target.checked, counter)" onClick="HR(this);" ng-true-value="YES" ng-false-value="NO">
+                <input class="form-check-input" ng-model="check" type="checkbox" value="" (click)="selectManualQuote($event.target.checked, i)" ng-true-value="YES" ng-false-value="NO">
                 <span class="form-check-sign"></span>
               </label>
             </div>

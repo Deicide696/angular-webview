@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Aseguradora} from '../../aseguradora/aseguradora';
+import {DataAutomaticRequest} from '../../data-automatic-request/data-automatic-request';
+import {DataService} from '../../data.service';
 
 @Component({
   selector: 'app-autos-manual',
@@ -10,10 +12,11 @@ export class AutosManualComponent implements OnInit {
 
   @Input() insurances: Aseguradora[];
   @Input() counterManual: number;
+  @Input() selectedAutoQuotes: DataAutomaticRequest;
 
-  constructor() { }
+  constructor(private dataService: DataService) {}
 
-  selectManualQuote(element, numberManualQuote){
+  selectManualQuote(element, indexManualQuote){
 
     // Si se selecciona la cotización manual
     if(element == true) {
@@ -31,7 +34,7 @@ export class AutosManualComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    console.log(this.dataService.request);
   }
 
 }
