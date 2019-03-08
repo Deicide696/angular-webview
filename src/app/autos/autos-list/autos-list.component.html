@@ -17,205 +17,200 @@
         <div class="card card-plain">
           <div class="card-body" style="width: 100%">
             <div class="table-responsive">
-              <table  class="table table-shopping" id="tabletest">			  
+              <table class="table table-shopping" id="tabletest">
                 <thead>
-                <tr>
-                  <th class="text-center" scope="col"></th>
-                  <th class="text-center" scope="col">{{ tableData3.headerRow[0] }}</th>
-                  <th class="text-center" scope="col">
-                    {{ tableData3.headerRow[1] }}
-                    <div class="row">
-                      <div class="col">Daños</div>
-                      <div class="col">Hurto</div>
-                    </div>
-                  </th>
-                  <th class="text-center" scope="col">
-                    {{ tableData3.headerRow[2]}}
-                    <div class="row">
-                      <div class="col">Daños</div>
-                      <div class="col">Hurto</div>
-                    </div>
-                  </th>
-                  <th class="text-center" scope="col">{{ tableData3.headerRow[3] }}</th>
-                  <th class="text-center" scope="col">
-					<div class="row">
-                      <div class="col">CARRO TALLER</div>
-                      <div class="col"> GRUA </div>
-                    </div>
-				  </th>
-                  <th class="text-center" scope="col"> {{ tableData3.headerRow[5] }}</th>
-                  <th class="text-center" scope="col">
-					VEHÍCULO DE REMPLAZO
-					<div class="row">
-                      <div class="col">total</div>
-                      <div class="col">parcial</div>
-                    </div>
-				  </th>
-                  <th class="text-center" scope="col">{{ tableData3.headerRow[7] }}</th>
-                  <th class="text-center" scope="col">{{ tableData3.headerRow[8] }}</th>                  			  
-                </tr>
-                </thead>				
+                  <tr>
+                    <th class="text-center" scope="col"></th>
+                    <th class="text-center" scope="col">{{ tableData3.headerRow[0] }}</th>
+                    <th class="text-center" scope="col">
+                      {{ tableData3.headerRow[1] }}
+                      <div class="row">
+                        <div class="col">Daños</div>
+                        <div class="col">Hurto</div>
+                      </div>
+                    </th>
+                    <th class="text-center" scope="col">
+                      {{ tableData3.headerRow[2]}}
+                      <div class="row">
+                        <div class="col">Daños</div>
+                        <div class="col">Hurto</div>
+                      </div>
+                    </th>
+                    <th class="text-center" scope="col">{{ tableData3.headerRow[3] }}</th>
+                    <th class="text-center" scope="col">
+                      <div class="row">
+                        <div class="col">CARRO TALLER</div>
+                        <div class="col"> GRUA </div>
+                      </div>
+                    </th>
+                    <th class="text-center" scope="col"> {{ tableData3.headerRow[5] }}</th>
+                    <th class="text-center" scope="col">
+                      VEHÍCULO DE REEMPLAZO
+                      <div class="row">
+                        <div class="col">total</div>
+                        <div class="col">parcial</div>
+                      </div>
+                    </th>
+                    <th class="text-center" scope="col">{{ tableData3.headerRow[7] }}</th>
+                    <th class="text-center" scope="col">{{ tableData3.headerRow[8] }}</th>
+                  </tr>
+                </thead>
                 <tbody *ngFor="let row of data.insurances">
-							
-					<tr *ngFor="let row2 of row.typeplan" [ngStyle]="{'background': color}" >				
-					  
-					  <td *ngIf = "row2.plan_id" data-label="">
-						<div class="img-container">
-						  <img src="{{row.logo}}" alt="{{row.name}}">
-						</div>
-						<br />
-						
-						<small>{{row2.plan_name}}</small>
-					  </td>
-					  <td *ngIf = "row2.plan_id" class="td-number rce" data-label="DAÑOS A TERCEROS">
-						<small>Máximo</small>
-						<br />						
-						<div *ngIf = "row.name !=  'SBS' " >{{row2.limitedbt/1000000  | currency:'USD':true:'1.0-2'}}</div>
-						<div *ngIf = "row.name == 'SBS' " >{{row2.limitedbt | currency:'USD':true:'1.0-2'}}</div>
-						<br />
-						<small>Millones</small>
-						<br />
-						<small>Sin deducible</small>
-					  </td>
-					  <td *ngIf = "row2.plan_id" class="td-actions  text-center pp" data-label="PERDIDAS TOTALES (DAÑOS / HURTO)">
-					  <div class="row">
-						<div class="col">
-						  <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'SURA'" >{{row2.amparos.ptd | currency:'USD':true:'1.0-2'}}</div>
-						  <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.ptd | currency:'USD':true:'1.0-2'}}</div>
-						  <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'SBS'" >{{row2.amparos.ptd}}</div>
-						  <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'MAPFRE'" >{{row2.amparos.ptd}}</div>
-						  <div *ngIf = "row2.amparos.ptd === '0' || row2.amparos.ptd === 0 || row2.amparos.ptd === '0.00'" >0</div>
-						  <button *ngIf = "row2.amparos.ptd === false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
-							  <i class="now-ui-icons ui-1_simple-remove"></i>
-						  </button>
-						</div>
-						<div class="col">
-						  <div *ngIf = "row2.amparos.pth !=  false && row.name == 'SURA'" >{{row2.amparos.pth | currency:'USD':true:'1.0-2'}}</div>
-						  <div *ngIf = "row2.amparos.pth !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.pth | currency:'USD':true:'1.0-2'}}</div>
-						  <div *ngIf = "row2.amparos.pth !=  false && row.name == 'SBS'" >{{row2.amparos.pth}}</div>
-						  <div *ngIf = "row2.amparos.pth !=  false && row.name == 'MAPFRE'" >{{row2.amparos.pth}}</div>
-						  <div *ngIf = "row2.amparos.pth === '0' || row2.amparos.pth === 0 || row2.amparos.pth === '0.00'" >0</div>
-						  <button *ngIf = "row2.amparos.pth === false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
-							  <i class="now-ui-icons ui-1_simple-remove"></i>
-							</button>
-						</div>	
-					  </div>	
-					  </td>
-					  <td *ngIf = "row2.plan_id" class="td-actions  text-center pp" data-label="PERDIDAS PARCIALES (DAÑOS / HURTO)">
-					  <div class="row">
-						<div class="col">
-						  <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'SURA'" >{{row2.amparos.ppd | currency:'USD':true:'1.0-2'}}</div>
-						  <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.ppd | currency:'USD':true:'1.0-2'}}</div>
-						  <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'SBS'" >{{row2.amparos.ppd}}</div>
-						  <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'MAPFRE'" >{{row2.amparos.ppd}}</div>
-						  <button *ngIf = "row2.amparos.ppd == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
-							  <i class="now-ui-icons ui-1_simple-remove"></i>
-						  </button>
-						</div>
-						<div class="col">
-							<div *ngIf = "row2.amparos.pph !=  false && row.name == 'SURA'" >{{row2.amparos.pph | currency:'USD':true:'1.0-2'}}</div>
-							<div *ngIf = "row2.amparos.pph !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.pph | currency:'USD':true:'1.0-2'}}</div>
-						  <div *ngIf = "row2.amparos.pph !=  false && row.name == 'SBS'" >{{row2.amparos.pph}}</div>
-						  <div *ngIf = "row2.amparos.pph !=  false && row.name == 'MAPFRE'" >{{row2.amparos.pph}}</div>
-						  <button *ngIf = "row2.amparos.pph == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
-							  <i class="now-ui-icons ui-1_simple-remove"></i>
-							</button>
-						</div>					  
-					  </div>
-					  </td>
-					  <td *ngIf = "row2.plan_id" class="td-actions text-center pp" data-label="CONDUCTOR ELEGIDO">
-						<div *ngIf = "row2.asistencia.conductor_elegido !=  false" >{{row2.asistencia.conductor_elegido}}</div>
-						<button *ngIf = "row2.asistencia.conductor_elegido == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
-						  <i class="now-ui-icons ui-1_simple-remove"></i>
-						</button>						
-						<div>
-						
-						</div>
-					  </td>
-					  <td *ngIf = "row2.plan_id" class="td-actions text-center pp" data-label="CARRO TALLER / GRUA">
-						<div class="row">
-							<div class="col">
-								<button *ngIf = "row2.asistencia.carro_taller != false" type="button" placement="top" ngbTooltip="Check item" class="btn btn-neutral btn-check">
-								  <i class="now-ui-icons ui-1_check"></i>
-								</button>
-								<button *ngIf = "row2.asistencia.carro_taller == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
-								  <i class="now-ui-icons ui-1_simple-remove"></i>
-								</button>
-							</div>
-							
-							<div class="col">
-								<button *ngIf = "row2.asistencia.grua != false" type="button" placement="top" ngbTooltip="Check item" class="btn btn-neutral btn-check">
-								  <i class="now-ui-icons ui-1_check"></i>
-								</button>
-								<button *ngIf = "row2.asistencia.grua == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
-								  <i class="now-ui-icons ui-1_simple-remove"></i>
-								</button>
-							</div>	
-						</div>
-					  </td>					  
-					   
-					  <td *ngIf = "row2.plan_id" class="td-actions text-center pp" data-label="GASTOS DE TRANSPORTE PERDIDA TOTAL">
-						 <div *ngIf = "row2.amparos.gtpt !=  false" >{{row2.amparos.gtpt | currency:'USD':true:'1.0-2'}}</div>
-						<button *ngIf = "row2.amparos.gtpt == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
-						  <i class="now-ui-icons ui-1_simple-remove"></i>
-						</button>
-						<button *ngIf = "row2.amparos.gtpt == true" type="button" placement="top" ngbTooltip="Check item" class="btn btn-neutral btn-check">
-						  <i class="now-ui-icons ui-1_check"></i>
-						</button>
-					  </td>
-					  <td *ngIf = "row2.plan_id" class="td-actions text-center pp" data-label="VEHÍCULO REEMPLAZO (TOTALES / PARCIALES)">						
-						<div class="row">
-							<div class="col">
-							<button *ngIf = "row2.asistencia.vehiculo_remplazo_pp == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
-							  <i class="now-ui-icons ui-1_simple-remove"></i>
-							</button>  
-							<div *ngIf = "row2.asistencia.vehiculo_remplazo_pp !=  false" >{{row2.asistencia.vehiculo_remplazo_pp}}</div>						
-							</div>
-							<div class="col">
-								<button *ngIf = "row2.asistencia.vehiculo_remplazo_pt == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
-								  <i class="now-ui-icons ui-1_simple-remove"></i>
-								</button> 
-								<div *ngIf = "row2.asistencia.vehiculo_remplazo_pt !=  false" >{{row2.asistencia.vehiculo_remplazo_pt}}</div>
-							</div>	
-						</div>
-					  </td>
-					  <td *ngIf = "row2.plan_id" class="td-actions text-center pp" data-label="ACCIDENTES PERSONALES">
-						<button *ngIf = "row2.amparos.accidentes_personales == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
-							<i class="now-ui-icons ui-1_simple-remove"></i>
-						</button>
-						<div *ngIf = "row2.amparos.accidentes_personales != false">{{row2.amparos.accidentes_personales | currency:'USD':true:'1.0-2'}}</div>
-					  </td >
-					  <td *ngIf = "row2.plan_id" class="td-number text-center prima" data-label="PRIMA TOTAL">
-					  <div class="row">
-							<div class="col">
-								{{row2.prima_total | currency:'USD':true:'1.0-2'}}								
-							</div>
-							<div class="col">
-								<div class="form-check">
-									  <label class="form-check-label">
-										<input class="form-check-input" ng-model="check" type="checkbox" value="" (click)="Select(row.aseguradora_id, row2.plan_id, $event.target.checked, row.name, row2.plan_id)" onClick="HR(this);" ng-true-value="YES" ng-false-value="NO">
-										<span class="form-check-sign"></span>
-									  </label>
-							  </div>
-							</div>
-					  </div>				
-					  </td>
-					  
-					  
-					</tr>	
-				</tbody>				
+							    <tr *ngFor="let row2 of row.typeplan" [ngStyle]="{'background': color}" >
+					          <td *ngIf = "row2.plan_id" data-label="">
+                      <div class="img-container">
+                        <img src="{{row.logo}}" alt="{{row.name}}">
+                      </div>
+						          <br />
+                      <small>{{row2.plan_name}}</small>
+					          </td>
+					          <td *ngIf = "row2.plan_id" class="td-number rce" data-label="DAÑOS A TERCEROS">
+						          <small>Máximo</small>
+						          <br />
+						          <div *ngIf = "row.name !=  'SBS' " >{{row2.limitedbt/1000000  | currency:'USD':true:'1.0-2'}}</div>
+						          <div *ngIf = "row.name == 'SBS' " >{{row2.limitedbt | currency:'USD':true:'1.0-2'}}</div>
+						          <br />
+						          <small>Millones</small>
+						          <br />
+						          <small>Sin deducible</small>
+					          </td>
+					          <td *ngIf = "row2.plan_id" class="td-actions  text-center pp" data-label="PERDIDAS TOTALES (DAÑOS / HURTO)">
+                      <div class="row">
+                        <div class="col">
+                          <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'SURA'" >{{row2.amparos.ptd | currency:'USD':true:'1.0-2'}}</div>
+                          <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.ptd | currency:'USD':true:'1.0-2'}}</div>
+                          <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'SBS'" >{{row2.amparos.ptd}}</div>
+                          <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'MAPFRE'" >{{row2.amparos.ptd}}</div>
+                          <div *ngIf = "row2.amparos.ptd === '0' || row2.amparos.ptd === 0 || row2.amparos.ptd === '0.00'" >0</div>
+                          <button *ngIf = "row2.amparos.ptd === false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+                            <i class="now-ui-icons ui-1_simple-remove"></i>
+                          </button>
+                        </div>
+                        <div class="col">
+                          <div *ngIf = "row2.amparos.pth !=  false && row.name == 'SURA'" >{{row2.amparos.pth | currency:'USD':true:'1.0-2'}}</div>
+                          <div *ngIf = "row2.amparos.pth !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.pth | currency:'USD':true:'1.0-2'}}</div>
+                          <div *ngIf = "row2.amparos.pth !=  false && row.name == 'SBS'" >{{row2.amparos.pth}}</div>
+                          <div *ngIf = "row2.amparos.pth !=  false && row.name == 'MAPFRE'" >{{row2.amparos.pth}}</div>
+                          <div *ngIf = "row2.amparos.pth === '0' || row2.amparos.pth === 0 || row2.amparos.pth === '0.00'" >0</div>
+                          <button *ngIf = "row2.amparos.pth === false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+                            <i class="now-ui-icons ui-1_simple-remove"></i>
+                          </button>
+                        </div>
+                      </div>
+					          </td>
+                    <td *ngIf = "row2.plan_id" class="td-actions  text-center pp" data-label="PERDIDAS PARCIALES (DAÑOS / HURTO)">
+                      <div class="row">
+                        <div class="col">
+                          <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'SURA'" >{{row2.amparos.ppd | currency:'USD':true:'1.0-2'}}</div>
+                          <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.ppd | currency:'USD':true:'1.0-2'}}</div>
+                          <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'SBS'" >{{row2.amparos.ppd}}</div>
+                          <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'MAPFRE'" >{{row2.amparos.ppd}}</div>
+                          <button *ngIf = "row2.amparos.ppd == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+                            <i class="now-ui-icons ui-1_simple-remove"></i>
+                          </button>
+                        </div>
+                        <div class="col">
+                          <div *ngIf = "row2.amparos.pph !=  false && row.name == 'SURA'" >{{row2.amparos.pph | currency:'USD':true:'1.0-2'}}</div>
+                          <div *ngIf = "row2.amparos.pph !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.pph | currency:'USD':true:'1.0-2'}}</div>
+                          <div *ngIf = "row2.amparos.pph !=  false && row.name == 'SBS'" >{{row2.amparos.pph}}</div>
+                          <div *ngIf = "row2.amparos.pph !=  false && row.name == 'MAPFRE'" >{{row2.amparos.pph}}</div>
+                          <button *ngIf = "row2.amparos.pph == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+                            <i class="now-ui-icons ui-1_simple-remove"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </td>
+                    <td *ngIf = "row2.plan_id" class="td-actions text-center pp" data-label="CONDUCTOR ELEGIDO">
+                      <div *ngIf = "row2.asistencia.conductor_elegido !=  false" >{{row2.asistencia.conductor_elegido}}</div>
+                      <button *ngIf = "row2.asistencia.conductor_elegido == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+                        <i class="now-ui-icons ui-1_simple-remove"></i>
+                      </button>
+                      <div>
+                      </div>
+                    </td>
+                    <td *ngIf = "row2.plan_id" class="td-actions text-center pp" data-label="CARRO TALLER / GRUA">
+                      <div class="row">
+                        <div class="col">
+                          <button *ngIf = "row2.asistencia.carro_taller != false" type="button" placement="top" ngbTooltip="Check item" class="btn btn-neutral btn-check">
+                            <i class="now-ui-icons ui-1_check"></i>
+                          </button>
+                          <button *ngIf = "row2.asistencia.carro_taller == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+                            <i class="now-ui-icons ui-1_simple-remove"></i>
+                          </button>
+                        </div>
+
+                        <div class="col">
+                          <button *ngIf = "row2.asistencia.grua != false" type="button" placement="top" ngbTooltip="Check item" class="btn btn-neutral btn-check">
+                            <i class="now-ui-icons ui-1_check"></i>
+                          </button>
+                          <button *ngIf = "row2.asistencia.grua == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+                            <i class="now-ui-icons ui-1_simple-remove"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </td>
+                    <td *ngIf = "row2.plan_id" class="td-actions text-center pp" data-label="GASTOS DE TRANSPORTE PERDIDA TOTAL">
+                      <div *ngIf = "row2.amparos.gtpt !=  false" >{{row2.amparos.gtpt | currency:'USD':true:'1.0-2'}}</div>
+                      <button *ngIf = "row2.amparos.gtpt == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+                        <i class="now-ui-icons ui-1_simple-remove"></i>
+                      </button>
+                      <button *ngIf = "row2.amparos.gtpt == true" type="button" placement="top" ngbTooltip="Check item" class="btn btn-neutral btn-check">
+                        <i class="now-ui-icons ui-1_check"></i>
+                      </button>
+                    </td>
+                    <td *ngIf = "row2.plan_id" class="td-actions text-center pp" data-label="VEHÍCULO REEMPLAZO (TOTALES / PARCIALES)">
+                      <div class="row">
+                        <div class="col">
+                          <button *ngIf = "row2.asistencia.vehiculo_remplazo_pp == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+                            <i class="now-ui-icons ui-1_simple-remove"></i>
+                          </button>
+                          <div *ngIf = "row2.asistencia.vehiculo_remplazo_pp !=  false" >{{row2.asistencia.vehiculo_remplazo_pp}}</div>
+                        </div>
+                        <div class="col">
+                          <button *ngIf = "row2.asistencia.vehiculo_remplazo_pt == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+                            <i class="now-ui-icons ui-1_simple-remove"></i>
+                          </button>
+                          <div *ngIf = "row2.asistencia.vehiculo_remplazo_pt !=  false" >{{row2.asistencia.vehiculo_remplazo_pt}}</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td *ngIf = "row2.plan_id" class="td-actions text-center pp" data-label="ACCIDENTES PERSONALES">
+                      <button *ngIf = "row2.amparos.accidentes_personales == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
+                        <i class="now-ui-icons ui-1_simple-remove"></i>
+                      </button>
+                      <div *ngIf = "row2.amparos.accidentes_personales != false">{{row2.amparos.accidentes_personales | currency:'USD':true:'1.0-2'}}</div>
+                    </td>
+                    <td *ngIf = "row2.plan_id" class="td-number text-center prima" data-label="PRIMA TOTAL">
+                      <div class="row">
+                        <div class="col">
+                          {{row2.prima_total | currency:'USD':true:'1.0-2'}}
+                        </div>
+                        <div class="col">
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" ng-model="check" type="checkbox" value="" (click)="Select(row.aseguradora_id, row2.plan_id, $event.target.checked)" onClick="HR(this);" ng-true-value="YES" ng-false-value="NO">
+                              <span class="form-check-sign"></span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+					        </tr>
+                  <!--<app-autos-manual [insurances]="data.list_all_insurances" [counterManual]="counterManual"></app-autos-manual>-->
+				        </tbody>
               </table>
-			  <table  class="table">
-				<tbody>
-					<tr>
-					  <td colspan="3" class="text-right">
-						<button [disabled]="buttonStatus" id="cotizar" type="button" class="btn btn-info btn-round " (click)="sendRequest()">Cotizar<i class="now-ui-icons arrows-1_minimal-right"></i>
-						</button>
-                  
-						</td>
-					</tr>
-				</tbody>
-			  </table>
+              <!-- Cotización Manual -->
+              <app-autos-manual *ngIf="showManualQuote" [insurances]="data.list_all_insurances" [counterManual]="counterManual"></app-autos-manual>
+			        <table  class="table">
+				        <tbody>
+					        <tr>
+					          <td colspan="3" class="text-right">
+                      <button class="btn btn-info btn-round" type="button" class="btn btn-info btn-round" (click)="showManual()">Agregar Manual</button>
+						          <button [disabled]="buttonStatus" id="cotizar" type="button" class="btn btn-info btn-round" (click)="sendRequest()">Cotizar<i class="now-ui-icons arrows-1_minimal-right"></i></button>
+						        </td>
+					        </tr>
+				        </tbody>
+			        </table>
             </div>
           </div>
         </div>

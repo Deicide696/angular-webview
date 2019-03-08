@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { DataService } from '../../../webview/src/app/data.service';
     BrowserModule,
     AppRoutingModule,
     AutosModule,
+    ReactiveFormsModule,
     NgbModule.forRoot()
   ],
   providers: [DataService],
