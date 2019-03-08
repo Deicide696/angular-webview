@@ -53,10 +53,12 @@ export class AutosListComponent implements OnInit {
 	public inputs:string;
 	public auth:string;
 	public errores:any;
+	public cont_cot:number;
 
 	manualQuoteForm: FormGroup;
 
   constructor(private dataService: DataService, private route: ActivatedRoute, private formBuilder: FormBuilder) {
+	this.cont_cot = 0;  
     this.inputs = this.route.snapshot.params['precotizacion'];
     this.request = {
       cotizacion_id: +this.inputs,
@@ -183,6 +185,9 @@ export class AutosListComponent implements OnInit {
 		  this.cotizacionesArray.push(cotizacion);
 		  // Actualiza la propiedad cotizaciones de la clase Request con la cotización seleccionada.	
 		  this.request.cotizaciones_automaticas = this.cotizacionesArray;
+		  // Contador aumenta
+		  this.cont_cot += 1;
+		  console.log("Cont: " + this.cont_cot); 
 	  }
 	  else { // Si se desactiva el checkbox	
 		  // Asigna el valor de las propiedades de DataRequest {Aseguradora, Plan}, con los parametros de esta función.	
@@ -195,6 +200,9 @@ export class AutosListComponent implements OnInit {
 		  
 		  // Actualiza la propiedad cotizaciones de la clase Request
 		  this.request.cotizaciones_automaticas = this.cotizacionesArray;
+		  // Contador disminuye
+		  this.cont_cot -= 1;
+		  console.log("Cont: " + this.cont_cot);
 	  }	  			  
   }
 
