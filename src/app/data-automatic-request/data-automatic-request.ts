@@ -1,4 +1,4 @@
 export class DataAutomaticRequest{
-  aseguradora_id: number;
+  id: number;
   plan: number;  
 }

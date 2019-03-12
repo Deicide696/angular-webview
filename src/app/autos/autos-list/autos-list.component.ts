@@ -175,7 +175,7 @@ export class AutosListComponent implements OnInit {
 	  // Valida si el checkbox ha sido activado
 	  if(element == true){	
 		  // Asigna el valor de las propiedades de DataRequest {Aseguradora, Plan}, con los parametros de esta función.	
-		  automaticQuotesSelected.aseguradora_id = selectedId;
+		  automaticQuotesSelected.id = selectedId;
 		  automaticQuotesSelected.plan = selectedPlan;
 		  
 		  // Inserta cotizacion seleccionada en el array de cotizaciones
@@ -188,7 +188,7 @@ export class AutosListComponent implements OnInit {
 	  }
 	  else { // Si se desactiva el checkbox	
 		  // Asigna el valor de las propiedades de DataRequest {Aseguradora, Plan}, con los parametros de esta función.	
-      automaticQuotesSelected.aseguradora_id = selectedId;
+      automaticQuotesSelected.id = selectedId;
       automaticQuotesSelected.plan = selectedPlan;
 		  
 		  // Se elimina del array el elemento desactivado, se utiliza la función 

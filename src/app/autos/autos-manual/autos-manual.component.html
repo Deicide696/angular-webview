@@ -2,77 +2,77 @@
   <tbody *ngFor="let row of arrayFake(counterManual); let i = index">
     <tr [ngStyle]="{'background': color}" >
       <td data-label="">
-      <select class="form-control">
-            <option [value]="insurance.aseguradora_id" *ngFor="let insurance of insurances" >{{insurance.name}}</option>
+      <select class="form-control" #insuranceSelected>
+            <option [value]="insurance.aseguradora_id" *ngFor="let insurance of insurances">{{insurance.name}}</option>
         </select>
       </td>
       <td class="td-number rce" data-label="DAÑOS A TERCEROS">
         <small>Máximo{{i}}</small>
         <br />
-        <input id="rce{{i}}" type="text" name="rce{{i}}" class="form-control">
+        <input id="rce" placeholder="Valor RCE" type="text" name="rce" class="form-control" #rceValue>
         <br />
         <small>Millones</small>
         <br />
-        <small>Sin deducible</small>
+        <small><input id="deducibleRce" placeholder="Deducible RCE" type="text" name="deducibleRce" class="form-control" #rceDeductible></small>
       </td>
       <td class="td-actions text-center pp" data-label="PERDIDAS TOTALES (DAÑOS / HURTO)">
         <div class="row">
           <div class="col">
-            <input id="ptd{{i}}" type="text" name="ptd{{i}}" class="form-control">
+            <input id="ptd" placeholder="PTD" type="text" name="ptd" class="form-control" #ptd>
           </div>
           <div class="col">
-            <input id="pth{{i}}" type="text" name="pth{{i}}" class="form-control">
+            <input id="pth" placeholder="PTH" type="text" name="pth" class="form-control" #pth>
           </div>
         </div>
       </td>
       <td class="td-actions text-center pp" data-label="PERDIDAS PARCIALES (DAÑOS / HURTO)">
         <div class="row">
           <div class="col">
-            <input id="ppd{{i}}" type="text" name="ppd{{i}}" class="form-control">
+            <input id="ppd" placeholder="PPD" type="text" name="ppd" class="form-control" #ppd>
           </div>
           <div class="col">
-            <input id="pph{{i}}" type="text" name="pph{{i}}" class="form-control">
+            <input id="pph" placeholder="PPH" type="text" name="pph" class="form-control" #pph>
           </div>
         </div>
       </td>
       <td class="td-actions text-center pp" data-label="CONDUCTOR ELEGIDO">
-        <input id="conductor" type="text" name="conductor" class="form-control">
+        <input id="conductor" placeholder="Conductor" type="text" name="conductor" class="form-control" #conductor>
       </td>
       <td class="td-actions text-center pp" data-label="CARRO TALLER / GRUA">
         <div class="row">
           <div class="col">
-            <input id="carroTaller{{i}}" type="text" name="carroTaller{{i}}" class="form-control">
+            <input id="carroTaller" placeholder="Carro Taller" type="text" name="carroTaller" class="form-control" #carroTaller>
           </div>
           <div class="col">
-            <input id="grua{{i}}" type="text" name="grua{{i}}" class="form-control">
+            <input id="grua" placeholder="Grúa" type="text" name="grua" class="form-control" #grua>
           </div>
         </div>
       </td>
       <td class="td-actions text-center pp" data-label="GASTOS DE TRANSPORTE PERDIDA TOTAL">
-        <input id="gastosTransporte{{i}}" type="text" name="gastosTransporte{{i}}" class="form-control">
+        <input id="gastosTransporte" placeholder="Gastos T" type="text" name="gastosTransporte" class="form-control" #gastosTransporte>
       </td>
       <td class="td-actions text-center pp" data-label="VEHÍCULO REEMPLAZO (TOTALES / PARCIALES)">
         <div class="row">
           <div class="col">
-            <input id="vrpt{{i}}" type="text" name="vrpt{{i}}" class="form-control">
+            <input id="vrpt" placeholder="VRPT" type="text" name="vrpt" class="form-control" #vrpt>
           </div>
           <div class="col">
-            <input id="vrpp{{i}}" type="text" name="vrpt{{i}}" class="form-control">
+            <input id="vrpp" placeholder="VRPP" type="text" name="vrpp" class="form-control" #vrpp>
           </div>
         </div>
       </td>
       <td class="td-actions text-center pp" data-label="ACCIDENTES PERSONALES">
-        <input id="ap{{i}}" type="text" name="ap{{i}}" class="form-control">
+        <input id="ap" placeholder="AP" type="text" name="ap" class="form-control" #ap>
       </td>
       <td class="td-number text-center prima" data-label="PRIMA TOTAL">
         <div class="row">
           <div class="col">
-            <input id="prima{{i}}" type="text" name="prima{{i}}" class="form-control">
+            <input id="prima" placeholder="PRIMA" type="text" name="prima" class="form-control" #prima>
           </div>
           <div class="col">
             <div class="form-check">
               <label class="form-check-label">
-                <input class="form-check-input" ng-model="check" type="checkbox" value="" (click)="selectManualQuote($event.target.checked, i)" ng-true-value="YES" ng-false-value="NO">
+                <input class="form-check-input" ng-model="check" [checked]="chequeado" type="checkbox" value="" (click)='selectManualQuote($event.target, insuranceSelected.value, rceValue.value, rceDeductible.value, ptd.value, pth.value, ppd.value, pph.value, conductor.value, carroTaller.value, grua.value, gastosTransporte.value, vrpt.value, vrpp.value, ap.value, prima.value)' ng-true-value="YES" ng-false-value="NO">
                 <span class="form-check-sign"></span>
               </label>
             </div>

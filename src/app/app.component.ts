@@ -4,7 +4,7 @@ import { DataService } from '../../../webview/src/app/data.service';
 import { Response } from '../../../webview/src/app/response/response';
 import { Request } from '../../../webview/src/app/request/request';
 import { DataResponse } from '../../../webview/src/app/data-response/data-response';
-import { DataRequest } from './data-automatic-request/data-automatic-request';
+import { DataAutomaticRequest } from './data-automatic-request/data-automatic-request';
 
 @Component({
   selector: 'app-root',
