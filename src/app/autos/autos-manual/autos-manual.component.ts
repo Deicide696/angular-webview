@@ -23,7 +23,9 @@ export class AutosManualComponent implements OnInit {
 
   selectManualQuote(element, insuranceSelected, rceValue, rceDeductible, ptd, pth, ppd, pph, conductor, carroTaller, grua, gastosTransporte, vrpt, vrpp, ap, prima){
 
-    console.log('Aseguradora seleccionada', rceValue);
+    // Agregar la cotización al JSON global
+    let manualQuoteSelected = {} as DataManualRequest;
+
     // Si se selecciona la cotización manual
     if(element.checked == true) {
 
@@ -104,10 +106,6 @@ export class AutosManualComponent implements OnInit {
 
         // TODO: Validación del formato de la prima
 
-
-        // Agregar la cotización al JSON global
-        let manualQuoteSelected = {} as DataManualRequest;
-
         // Id de la aseguradora
         manualQuoteSelected.id = parseInt(insuranceSelected,10);
 
@@ -170,10 +168,76 @@ export class AutosManualComponent implements OnInit {
         console.log(this.dataService.request);
       }
     }
+
+    else {
+      // Id de la aseguradora
+      manualQuoteSelected.id = parseInt(insuranceSelected,10);
+
+      // RCE
+      let rceObject = {} as RceObject;
+
+      let arrayRce = [];
+
+      rceObject.value = rceValue;
+
+      arrayRce.push(rceObject);
+
+      manualQuoteSelected.rce = arrayRce;
+
+      // Deducible RCE
+      manualQuoteSelected.deducible_rce = rceDeductible;
+
+      // PTD
+      manualQuoteSelected.ptd = ptd;
+
+      // PTH
+      manualQuoteSelected.pth = pth;
+
+      // PPD
+      manualQuoteSelected.ppd = ppd;
+
+      // PPH
+      manualQuoteSelected.pph = pph;
+
+      // Conductor
+      manualQuoteSelected.conductor = conductor;
+
+      // Carro Taller
+      manualQuoteSelected.carro_taller = carroTaller;
+
+      // Grua
+      manualQuoteSelected.grua = grua;
+
+      // Gastos Transporte
+      manualQuoteSelected.gastos_transporte = gastosTransporte;
+
+      // VRPT
+      manualQuoteSelected.vrpt = vrpt;
+
+      // VRPP
+      manualQuoteSelected.vrpp = vrpp;
+
+      // AP
+      manualQuoteSelected.ap = ap;
+
+      // Prima
+      manualQuoteSelected.prima = parseInt(prima,10);
+
+      this.cotizacionesArray.splice(this.deepIndexOf(this.cotizacionesArray ,manualQuoteSelected), 1);
+    }
   }
 
   arrayFake(n: number): any[] {
     return Array(n);
+  }
+
+  // Función para encontrar la posición del objeto buscado dentro de un array.
+  deepIndexOf(arr, obj) {
+    return arr.findIndex(function (cur) {
+      return Object.keys(obj).every(function (key) {
+        return obj[key] === cur[key];
+      });
+    });
   }
 
   ngOnInit() {
