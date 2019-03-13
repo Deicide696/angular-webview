@@ -251,7 +251,6 @@ export class AutosManualComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.dataService.request);
   }
 
 }

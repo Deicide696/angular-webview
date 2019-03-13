@@ -23,8 +23,10 @@ export class DataService {
    */
   public partner: string;
 
+  /**
+   *
+   */
   public request: Request;
-
 
   /**
    * Inicializa la URL a la que se va apuntar, esto esta relacionado con el proxy (proxy.conf.json)

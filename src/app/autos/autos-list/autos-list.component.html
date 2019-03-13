@@ -205,7 +205,7 @@
 				        <tbody>
 					        <tr>
 					          <td colspan="3" class="text-right">
-                      <button class="btn btn-info btn-round" type="button" class="btn btn-info btn-round" (click)="showManual()">Agregar Manual</button>
+                      <button *ngIf="manualEnable" class="btn btn-info btn-round" type="button" class="btn btn-info btn-round" (click)="showManual()">Agregar Manual</button>
 						          <button [disabled]="buttonStatus" id="cotizar" type="button" class="btn btn-info btn-round" (click)="sendRequest()">Cotizar<i class="now-ui-icons arrows-1_minimal-right"></i></button>
 						        </td>
 					        </tr>

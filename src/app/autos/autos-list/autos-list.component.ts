@@ -53,6 +53,7 @@ export class AutosListComponent implements OnInit {
 	public auth:string;
 	public errores:any;
 	public cont_cot:number;
+	public manualEnable: boolean;
 
 	manualQuoteForm: FormGroup;
 
@@ -81,6 +82,12 @@ export class AutosListComponent implements OnInit {
       dataService.auth = this.errores.params.auth;
       dataService.partner = this.errores.params.partner_id;
 
+      if(this.errores.params.manual_quote == 1){
+        this.manualEnable = true;
+      }
+      else {
+        this.manualEnable = false;
+      }
       this.errores = mensaje_errores;
     });
   }
