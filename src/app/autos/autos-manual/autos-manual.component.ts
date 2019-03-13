@@ -23,7 +23,7 @@ export class AutosManualComponent implements OnInit {
 
   selectManualQuote(element, insuranceSelected, rceValue, rceDeductible, ptd, pth, ppd, pph, conductor, carroTaller, grua, gastosTransporte, vrpt, vrpp, ap, prima){
 
-	console.log("aseguradora: "+insuranceSelected);
+    console.log('Aseguradora seleccionada', rceValue);
     // Si se selecciona la cotización manual
     if(element.checked == true) {
 
@@ -173,7 +173,6 @@ export class AutosManualComponent implements OnInit {
   }
 
   arrayFake(n: number): any[] {
-    console.log("Cotizaciones manuales permitidas:" + n);
     return Array(n);
   }
 
