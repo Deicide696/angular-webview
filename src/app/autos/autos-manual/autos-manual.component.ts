@@ -56,6 +56,15 @@ export class AutosManualComponent implements OnInit {
           pth = false;
         }
 
+        // Conductor elegido
+        if(conductor == 'S') {
+          conductor = true;
+        }
+
+        else if(conductor == 'N') {
+          conductor = false;
+        }
+
         // Carro Taller
         if(carroTaller == 'S') {
           carroTaller = true;
