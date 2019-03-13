@@ -47,10 +47,6 @@ export class AutosManualComponent implements OnInit {
           ptd = false;
         }
 
-        else {
-          // Modal informando el error
-        }
-
         // PTH
         if(pth == 'S') {
           pth = true;
@@ -58,10 +54,6 @@ export class AutosManualComponent implements OnInit {
 
         else if(pth == 'N') {
           pth = false;
-        }
-
-        else {
-          // Modal informando el error
         }
 
         // Carro Taller
@@ -88,6 +80,24 @@ export class AutosManualComponent implements OnInit {
 
         else {
           // Modal informando el error
+        }
+
+        // VRPT
+        if(vrpt == 'S') {
+          vrpt = true;
+        }
+
+        else if(vrpt == 'N') {
+          vrpt = false;
+        }
+
+        // VRPP
+        if(vrpp == 'S') {
+          vrpp = true;
+        }
+
+        else if(vrpp == 'N') {
+          vrpp = false;
         }
 
         // AP
