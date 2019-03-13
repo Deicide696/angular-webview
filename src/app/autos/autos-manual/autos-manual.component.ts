@@ -100,6 +100,15 @@ export class AutosManualComponent implements OnInit {
           vrpp = false;
         }
 
+        // Gastos de Transporte
+        if(gastosTransporte == 'S') {
+          gastosTransporte = true;
+        }
+
+        else if(gastosTransporte == 'N') {
+          gastosTransporte = false;
+        }
+
         // AP
         if(ap == 'S') {
           ap = true;
