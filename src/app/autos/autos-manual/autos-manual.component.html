@@ -3,7 +3,7 @@
     <tr [ngStyle]="{'background': color}" >
       <td data-label="">
       <select class="form-control" #insuranceSelected>
-            <option [value]="insurance.aseguradora_id" *ngFor="let insurance of insurances">{{insurance.name}}</option>
+            <option [value]="insurance.id" *ngFor="let insurance of insurances">{{insurance.name}}</option>
         </select>
       </td>
       <td class="td-number rce" data-label="DAÑOS A TERCEROS">

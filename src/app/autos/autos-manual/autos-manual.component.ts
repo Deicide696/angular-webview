@@ -23,6 +23,7 @@ export class AutosManualComponent implements OnInit {
 
   selectManualQuote(element, insuranceSelected, rceValue, rceDeductible, ptd, pth, ppd, pph, conductor, carroTaller, grua, gastosTransporte, vrpt, vrpp, ap, prima){
 
+	console.log("aseguradora: "+insuranceSelected);
     // Si se selecciona la cotización manual
     if(element.checked == true) {
 
@@ -108,7 +109,7 @@ export class AutosManualComponent implements OnInit {
         let manualQuoteSelected = {} as DataManualRequest;
 
         // Id de la aseguradora
-        manualQuoteSelected.id = insuranceSelected;
+        manualQuoteSelected.id = parseInt(insuranceSelected,10);
 
         // RCE
         let rceObject = {} as RceObject;
@@ -158,7 +159,7 @@ export class AutosManualComponent implements OnInit {
         manualQuoteSelected.ap = ap;
 
         // Prima
-        manualQuoteSelected.prima = prima;
+        manualQuoteSelected.prima = parseInt(prima,10);
 
         // Agregar el objeto DataManualRequest a un array para luego ser agregado a las cotizaciones manuales
         this.cotizacionesArray.push(manualQuoteSelected);
