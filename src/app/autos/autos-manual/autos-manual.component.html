@@ -1,0 +1,84 @@
+<table class="table table-shopping" id="tabletest">
+  <tbody *ngFor="let row of arrayFake(counterManual); let i = index">
+    <tr [ngStyle]="{'background': color}" >
+      <td data-label="" style="min-width: 100px;">
+      <select class="form-control" #insuranceSelected>
+            <option [value]="insurance.id" *ngFor="let insurance of insurances">{{insurance.name}}</option>
+        </select>
+      </td>
+      <td class="td-number rce" data-label="DAÑOS A TERCEROS">
+        <small>Máximo</small>
+        <br />
+        <input id="rce" placeholder="Valor RCE" type="text" name="rce" class="form-control" #rceValue>
+        <br />
+        <small>Millones</small>
+        <br />
+        <small><input id="deducibleRce" placeholder="Deducible RCE" type="text" name="deducibleRce" class="form-control" #rceDeductible></small>
+      </td>
+      <td class="td-actions text-center pp" data-label="PERDIDAS TOTALES (DAÑOS / HURTO)" style="width: 150px;">
+        <div class="row">
+          <div class="col">
+            <input id="ptd" placeholder="PTD" type="text" name="ptd" class="form-control" style="min-width: 150px;" #ptd>
+          </div>
+          <div class="col">
+            <input id="pth" placeholder="PTH" type="text" name="pth" class="form-control" #pth>
+          </div>
+        </div>
+      </td>
+      <td class="td-actions text-center pp" data-label="PERDIDAS PARCIALES (DAÑOS / HURTO)" style="width: 150px;">
+        <div class="row">
+          <div class="col">
+            <input id="ppd" placeholder="PPD" type="text" name="ppd" class="form-control" style="min-width: 150px;" #ppd>
+          </div>
+          <div class="col">
+            <input id="pph" placeholder="PPH" type="text" name="pph" class="form-control" #pph>
+          </div>
+        </div>
+      </td>
+      <td class="td-actions text-center pp" data-label="CONDUCTOR ELEGIDO">
+        <input id="conductor" placeholder="Conductor" type="text" name="conductor" class="form-control" style="width: 100px;" #conductor>
+      </td>
+      <td class="td-actions text-center pp" data-label="CARRO TALLER / GRUA" style="width: 100px;">
+        <div class="row">
+          <div class="col">
+            <input id="carroTaller" placeholder="Carro Taller" type="text" name="carroTaller" class="form-control" style="min-width: 100px;" #carroTaller>
+          </div>
+          <div class="col">
+            <input id="grua" placeholder="Grúa" type="text" name="grua" class="form-control" #grua>
+          </div>
+        </div>
+      </td>
+      <td class="td-actions text-center pp" data-label="GASTOS DE TRANSPORTE PERDIDA TOTAL">
+        <input id="gastosTransporte" placeholder="Gastos Trans" type="text" name="gastosTransporte" class="form-control" style="width: 112px;" #gastosTransporte>
+      </td>
+      <td class="td-actions text-center pp" data-label="VEHÍCULO REEMPLAZO (TOTALES / PARCIALES)" style="width: 150px;">
+        <div class="row">
+          <div class="col">
+            <input id="vrpt" placeholder="VRPT" type="text" name="vrpt" class="form-control" style="min-width: 150px;" #vrpt>
+          </div>
+          <div class="col">
+            <input id="vrpp" placeholder="VRPP" type="text" name="vrpp" class="form-control" #vrpp>
+          </div>
+        </div>
+      </td>
+      <td class="td-actions text-center pp" data-label="ACCIDENTES PERSONALES">
+        <input id="ap" placeholder="Accidentes" type="text" name="ap" class="form-control" style="width: 100px;" #ap>
+      </td>
+      <td class="td-number text-center prima" data-label="PRIMA TOTAL" style="min-width: 150px;">
+        <div class="row">
+          <div class="col">
+            <input id="prima" placeholder="PRIMA" type="text" name="prima" class="form-control" style="min-width: 150px;"#prima>
+          </div>
+          <div class="col">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" ng-model="check" type="checkbox" value="" (click)='selectManualQuote($event.target, insuranceSelected.value, rceValue.value, rceDeductible.value, ptd.value, pth.value, ppd.value, pph.value, conductor.value, carroTaller.value, grua.value, gastosTransporte.value, vrpt.value, vrpp.value, ap.value, prima.value)' ng-true-value="YES" ng-false-value="NO">
+                <span class="form-check-sign"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

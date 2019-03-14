@@ -23,6 +23,10 @@ export class DataService {
    */
   public partner: string;
 
+  /**
+   *
+   */
+  public request: Request;
 
   /**
    * Inicializa la URL a la que se va apuntar, esto esta relacionado con el proxy (proxy.conf.json)
@@ -37,11 +41,11 @@ export class DataService {
    * @param auth: Autenticacíon basica del usuario que esta cotizando
    * @param partner: Id del partner al que pertenece el usuario
    */
-  getResponseWeb(cotizacion_id, auth, partner): Observable<Response> {
+  getResponseWeb(cotizacion_id): Observable<Response> {
     let headers: HttpHeaders = new HttpHeaders();
     headers = headers.append('Content-Type', 'application/json');
-    headers = headers.append('Authorization', 'Basic ' + auth);
-    headers = headers.append('partner_id', partner);
+    headers = headers.append('Authorization', 'Basic ' + this.auth);
+    headers = headers.append('partner_id', this.partner);
 
     const params = JSON.stringify({cotizacion_id});
 
@@ -55,11 +59,11 @@ export class DataService {
    * @param auth: Autenticacíon basica del usuario que esta cotizando
    * @param partner: Id del partner al que pertenece el usuario
    */
-  postQuote(request, auth, partner): Observable<ResponsePdf> {
+  postQuote(request): Observable<ResponsePdf> {
     let headers: HttpHeaders = new HttpHeaders();
     headers = headers.append('Content-Type', 'application/json');
-    headers = headers.append('Authorization', 'Basic ' + auth);
-    headers = headers.append('partner_id', partner);
+    headers = headers.append('Authorization', 'Basic ' + this.auth);
+    headers = headers.append('partner_id', this.partner);
     const params = request;
 
     console.log(this.http.post<ResponsePdf>(this.url + 'precotizacion-pdf', params, {headers: headers}));
