@@ -56,6 +56,20 @@ export class AutosManualComponent implements OnInit {
           pth = false;
         }
 
+        // PPD
+        if(ppd == 'S') {
+          ppd = true;
+        }
+
+        else if(ppd == 'N') {
+          ppd = false;
+        }
+
+        // PPH
+        if(pph == 'S') {
+          pph = true;
+        }
+
         // Conductor elegido
         if(conductor == 'S') {
           conductor = true;
