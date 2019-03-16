@@ -1,5 +1,5 @@
-import {Vehiculo} from '../../../../webview/src/app/vehiculo/vehiculo';
-import {Aseguradora} from '../../../../webview/src/app/aseguradora/aseguradora';
+import {Vehiculo} from './vehiculo';
+import {Aseguradora} from './aseguradora';
 
 
 export class CotizacionDetail {

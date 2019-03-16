@@ -1,5 +1,5 @@
-import {Amparo} from '../../../../webview/src/app/amparo/amparo';
-import {Asistencia} from '../../../../webview/src/app/asistencia/asistencia';
+import {Amparo} from './amparo';
+import {Asistencia} from './asistencia';
 
 export class Plan {
 	plan_name: string;

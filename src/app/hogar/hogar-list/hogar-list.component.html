@@ -1,0 +1,88 @@
+<div class="section">
+  <div class="fluid-container">
+    <h3 class="title">Webview Hogar</h3>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-plain">
+          <div class="card-body" style="width: 100%">
+            <div class="table-responsive">
+              <table class="table table-shopping" id="tabletest">
+                <thead>
+                <tr>
+                  <th class="text-center" scope="col"></th>
+                  <th class="text-center" scope="col">{{ tableDataHeaders.headerRow[0] }}</th> <!-- Tipo Aseguramiento -->
+                  <th class="text-center" scope="col">{{ tableDataHeaders.headerRow[1] }}</th> <!-- Daños a terceros -->
+                  <th class="text-center" scope="col">{{ tableDataHeaders.headerRow[2]}}</th> <!-- Deducible Terremoto -->
+                  <th class="text-center" scope="col">{{ tableDataHeaders.headerRow[3] }}</th> <!-- Contenidos especiales -->
+                  <th class="text-center" scope="col">{{ tableDataHeaders.headerRow[4] }}</th> <!-- Asistencia -->
+                  <th class="text-center" scope="col">{{ tableDataHeaders.headerRow[5] }}</th> <!-- Prima -->
+                </tr>
+                </thead>
+                <tbody *ngFor="let row of data.insurances">
+                <tr [ngStyle]="{'background': color}" >
+                  <td data-label="">
+                    <div class="img-container">
+                      <img src="{{row.logo}}">
+                    </div>
+                  </td>
+                  <td class="td-actions text-center pp" data-label="TIPO DE ASEGURAMIENTO">
+                    <div>{{data.bien.tipo_aseguramiento}}</div>
+                    <div></div>
+                  </td>
+                  <td class="td-actions text-center pp" data-label="DAÑOS A TERCEROS">
+                    <div>{{row.danio_tercero | currency:'USD':true:'1.0-2'}}</div>
+                    <div></div>
+                  </td>
+                  <td class="td-actions text-center pp" data-label="DEDUCIBLE TERREMOTO">
+                    <div>{{row.deducible_terremoto}}</div>
+                    <div></div>
+                  </td>
+                  <td class="td-actions text-center pp" data-label="CONTENIDOS ESPECIALES">
+                    <button *ngIf = "row.contenidos_especiales == false" type="button" placement="top" ngbTooltip="No aplica" class="btn btn-neutral">
+                      <i class="now-ui-icons ui-1_simple-remove"></i>
+                    </button>
+                    <button *ngIf = "row.contenidos_especiales == true" type="button" placement="top" ngbTooltip="Aplica" class="btn btn-neutral btn-check">
+                      <i class="now-ui-icons ui-1_check"></i>
+                    </button>
+                  </td>
+                  <td class="td-actions text-center pp" data-label="ASISTENCIA">
+                    <button *ngIf = "row.asistencia == false" type="button" placement="top" ngbTooltip="No aplica" class="btn btn-neutral">
+                      <i class="now-ui-icons ui-1_simple-remove"></i>
+                    </button>
+                    <button *ngIf = "row.asistencia == true" type="button" placement="top" ngbTooltip="Aplica" class="btn btn-neutral btn-check">
+                      <i class="now-ui-icons ui-1_check"></i>
+                    </button>
+                  </td>
+                  <td class="td-number text-center prima" data-label="PRIMA TOTAL">
+                    <div class="row">
+                      <div class="col">
+                        {{row.prima_total | currency:'USD':true:'1.0-2'}}
+                      </div>
+                      <div class="col">
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" ng-model="check" type="checkbox" value="" (click)="select(row.id, $event.target.checked)" ng-true-value="YES" ng-false-value="NO">
+                            <span class="form-check-sign"></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tbody>
+              </table>
+              <table  class="table">
+                <tbody>
+                <tr>
+                  <td colspan="3" class="text-right">
+                    <button [disabled]="buttonStatus" id="cotizar" type="button" class="btn btn-info btn-round" (click)="sendRequest()">Cotizar<i class="now-ui-icons arrows-1_minimal-right"></i></button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

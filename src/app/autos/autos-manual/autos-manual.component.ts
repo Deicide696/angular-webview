@@ -1,10 +1,10 @@
 import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
-import {Aseguradora} from '../../aseguradora/aseguradora';
-import {DataAutomaticRequest} from '../../data-automatic-request/data-automatic-request';
+import {Aseguradora} from '../autos-classes/aseguradora';
+import {DataAutomaticRequest} from '../autos-classes/data-automatic-request';
 import {DataService} from '../../data.service';
 import {isNumber} from 'util';
-import {DataManualRequest} from '../../classes/data-manual-request';
-import {RceObject} from '../../classes/rce-object';
+import {DataManualRequest} from '../autos-classes/data-manual-request';
+import {RceObject} from '../autos-classes/rce-object';
 
 @Component({
   selector: 'app-autos-manual',

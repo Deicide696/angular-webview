@@ -1,4 +1,4 @@
-import { Plan } from '../../../../webview/src/app/plan/plan';
+import { Plan } from './plan';
 
 export class Aseguradora {
   aseguradora_id: number;

@@ -1,4 +1,4 @@
-import { Cotizacion } from '../../../../webview/src/app/cotizacion/cotizacion';
+import { Cotizacion } from './cotizacion';
 
 export class DataResponse{
   internal_message: Cotizacion;

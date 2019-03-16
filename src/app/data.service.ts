@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Response } from '../../../webview/src/app/response/response';
-import { ResponsePdf } from '../../../webview/src/app/response-pdf/response-pdf';
-import { Request } from '../../../webview/src/app/request/request';
+import { Request } from './autos/autos-classes/request';
 
 @Injectable()
 export class DataService {
@@ -24,7 +22,7 @@ export class DataService {
   public partner: string;
 
   /**
-   *
+   * JSON raiz del request para generar el PDF
    */
   public request: Request;
 
@@ -32,7 +30,7 @@ export class DataService {
    * Inicializa la URL a la que se va apuntar, esto esta relacionado con el proxy (proxy.conf.json)
    */
   constructor(private http: HttpClient) {
-    this.url = 'api/web/v1/autos/';
+    this.url = 'api/web/v1/';
   }
 
   /**
@@ -41,7 +39,7 @@ export class DataService {
    * @param auth: Autenticacíon basica del usuario que esta cotizando
    * @param partner: Id del partner al que pertenece el usuario
    */
-  getResponseWeb(cotizacion_id): Observable<Response> {
+  getResponseWeb(cotizacion_id, productName): Observable<any> {
     let headers: HttpHeaders = new HttpHeaders();
     headers = headers.append('Content-Type', 'application/json');
     headers = headers.append('Authorization', 'Basic ' + this.auth);
@@ -49,8 +47,7 @@ export class DataService {
 
     const params = JSON.stringify({cotizacion_id});
 
-    console.log(this.http.post<Response>(this.url + 'precotizacion-autos', params, {headers: headers}));
-        return this.http.post<Response>(this.url + 'precotizacion-autos', params, {headers: headers});
+    return this.http.post(this.url + productName + '/precotizacion-' + productName, params, {headers: headers});
   }
 
   /**
@@ -59,14 +56,15 @@ export class DataService {
    * @param auth: Autenticacíon basica del usuario que esta cotizando
    * @param partner: Id del partner al que pertenece el usuario
    */
-  postQuote(request): Observable<ResponsePdf> {
+  postQuote(request, productName): Observable<any> {
+
     let headers: HttpHeaders = new HttpHeaders();
     headers = headers.append('Content-Type', 'application/json');
     headers = headers.append('Authorization', 'Basic ' + this.auth);
     headers = headers.append('partner_id', this.partner);
+
     const params = request;
 
-    console.log(this.http.post<ResponsePdf>(this.url + 'precotizacion-pdf', params, {headers: headers}));
-        return this.http.post<ResponsePdf>(this.url + 'precotizacion-pdf', params, {headers: headers});
+    return this.http.post(this.url + productName + '/precotizacion-' + productName + '-pdf', params, {headers: headers});
   }
 }

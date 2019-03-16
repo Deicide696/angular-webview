@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
 
 import { DataService } from '../../../../../webview/src/app/data.service';
-import { Response } from '../../../../../webview/src/app/response/response';
-import { ResponsePdf } from '../../../../../webview/src/app/response-pdf/response-pdf';
-import { Cotizacion } from '../../../../../webview/src/app/cotizacion/cotizacion';
-import { Plan } from '../../../../../webview/src/app/plan/plan';
-import { Amparo } from '../../../../../webview/src/app/amparo/amparo';
-import { Asistencia } from '../../../../../webview/src/app/asistencia/asistencia';
+import { Response } from '../autos-classes/response';
+import { ResponsePdf } from '../autos-classes/response-pdf';
+import { Cotizacion } from '../autos-classes/cotizacion';
+import { Plan } from '../autos-classes/plan';
+import { Amparo } from '../autos-classes/amparo';
+import { Asistencia } from '../autos-classes/asistencia';
 
-import { DataAutomaticRequest } from '../../data-automatic-request/data-automatic-request';
+import { DataAutomaticRequest } from '../autos-classes/data-automatic-request';
 import { FormBuilder, FormGroup} from '@angular/forms';
 
 
@@ -23,10 +23,12 @@ declare interface Table_With_Checkboxes {
   price: string;
   amount?: string;
 }
+
 declare interface TableData {
   headerRow: string[];
   dataRows: string[][];
 }
+
 declare interface TableData2 {
   headerRow: string[];
   dataRows: Table_With_Checkboxes[];
@@ -46,7 +48,6 @@ declare interface TableData2 {
 })
 export class AutosListComponent implements OnInit {
 
-  public tableData2: TableData2;
   public tableData3: TableData;
   public color:string;
 	public inputs:string;
@@ -55,9 +56,9 @@ export class AutosListComponent implements OnInit {
 	public cont_cot:number;
 	public manualEnable: boolean;
 
-	manualQuoteForm: FormGroup;
+	public productName = 'autos';
 
-  constructor(private dataService: DataService, private route: ActivatedRoute, private formBuilder: FormBuilder) {
+  constructor(private dataService: DataService, private route: ActivatedRoute) {
 	this.cont_cot = 0;  
     this.inputs = this.route.snapshot.params['precotizacion'];
     dataService.request = {
@@ -67,7 +68,7 @@ export class AutosListComponent implements OnInit {
     };
 
     this.route.queryParamMap.subscribe(params => {
-      // TODOD: Cambiarlo porque no solo trae los errores sino también la auth
+      // TODO: Cambiarlo porque no solo trae los errores sino también la auth
       this.errores = params;
 
       // TODO: Optimizar esto!!!
@@ -105,16 +106,17 @@ export class AutosListComponent implements OnInit {
 	cotizacionesArray = [];
 	
 	getResponseWeb(cotizacion): void {
-    this.dataService.getResponseWeb(cotizacion)
+    this.dataService.getResponseWeb(cotizacion, this.productName)
 		.subscribe(response => {
 				this.response = response;
-				this.data = response.data;				
+				this.data = response.data;
+				console.log(this.response.data);
 			}			
 		);
 	}
 	
 	getResponsePdf(request): void{
-	this.dataService.postQuote(request)
+	this.dataService.postQuote(request, this.productName)
 			.subscribe(responsepdf => {
 				this.responsepdf = responsepdf;				
 				this.responsepdf.data = responsepdf.data;				
@@ -124,41 +126,15 @@ export class AutosListComponent implements OnInit {
 				else{					
 					alert(this.responsepdf.data.internal_message);		
 				}
-			}
-			);			
+			});
 	}
 
-	// Submit del formulario de cotizaciones manuales
-  onSubmit() {
-    // stop here if form is invalid
-    if (this.manualQuoteForm.invalid) {
-      return;
-    }
-  }
-
-  getTotal1() {
-    var total = 0;
-    for( var i = 0; i < this.tableData2.dataRows.length; i++ ){
-      var integer = parseInt(this.tableData2.dataRows[i].amount)
-      total += integer;
-    }
-    return total;
-  };
-  getTotal2() {
-    var total = 0;
-    for( var i = 0; i < this.tableData3.dataRows.length; i++ ){
-      var integer = parseInt(this.tableData3.dataRows[i][7])
-      total += integer;
-    }
-    return total;
-  };
-  
 	// Función para encontrar la posición del objeto buscado dentro de un array.
 	deepIndexOf(arr, obj) {
 	  return arr.findIndex(function (cur) {
 		return Object.keys(obj).every(function (key) {
 		  return obj[key] === cur[key];
-		});
+		  });
 	  });
 	}
 	
