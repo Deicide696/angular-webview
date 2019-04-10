@@ -14,8 +14,9 @@ import {RceObject} from '../autos-classes/rce-object';
 export class AutosManualComponent implements OnInit {
 
   @Input() insurances: Aseguradora[];
-  @Input() counterManual: number;
+  @Input() counterManual: number;  
   @Input() selectedAutoQuotes: DataAutomaticRequest;
+  @Input() cont_cot: number; 
 
   cotizacionesArray = [];
 
@@ -206,6 +207,9 @@ export class AutosManualComponent implements OnInit {
 
         // Actualiza la propiedad cotizaciones de la clase Request con la cotización seleccionada.
         this.dataService.request.cotizaciones_manuales = this.cotizacionesArray;
+        // Contador aumenta
+		    this.cont_cot += 1;
+		    console.log("Cont: " + this.cont_cot); 
 
         console.log(this.dataService.request);
       }
@@ -266,6 +270,10 @@ export class AutosManualComponent implements OnInit {
       manualQuoteSelected.prima = parseInt(prima,10);
 
       this.cotizacionesArray.splice(this.deepIndexOf(this.cotizacionesArray ,manualQuoteSelected), 1);
+
+      // Contador aumenta
+		  this.cont_cot -= 1;
+		  console.log("Cont: " + this.cont_cot); 
     }
   }
 

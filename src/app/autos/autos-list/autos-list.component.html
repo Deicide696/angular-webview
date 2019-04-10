@@ -81,6 +81,8 @@
                           <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.ptd | currency:'USD':true:'1.0-2'}}</div>
                           <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'SBS'" >{{row2.amparos.ptd}}</div>
                           <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'MAPFRE'" >{{row2.amparos.ptd}}</div>
+                          <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'HDI'" >{{row2.amparos.ptd}}</div>
+                          <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'AXA COLPATRIA'" >{{row2.amparos.ptd}}</div>
                           <div *ngIf = "row2.amparos.ptd === '0' || row2.amparos.ptd === 0 || row2.amparos.ptd === '0.00'" >0</div>
                           <button *ngIf = "row2.amparos.ptd === false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
                             <i class="now-ui-icons ui-1_simple-remove"></i>
@@ -91,6 +93,8 @@
                           <div *ngIf = "row2.amparos.pth !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.pth | currency:'USD':true:'1.0-2'}}</div>
                           <div *ngIf = "row2.amparos.pth !=  false && row.name == 'SBS'" >{{row2.amparos.pth}}</div>
                           <div *ngIf = "row2.amparos.pth !=  false && row.name == 'MAPFRE'" >{{row2.amparos.pth}}</div>
+                          <div *ngIf = "row2.amparos.pth !=  false && row.name == 'HDI'" >{{row2.amparos.pth}}</div>
+                          <div *ngIf = "row2.amparos.pth !=  false && row.name == 'AXA COLPATRIA'" >{{row2.amparos.pth}}</div>
                           <div *ngIf = "row2.amparos.pth === '0' || row2.amparos.pth === 0 || row2.amparos.pth === '0.00'" >0</div>
                           <button *ngIf = "row2.amparos.pth === false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
                             <i class="now-ui-icons ui-1_simple-remove"></i>
@@ -105,6 +109,8 @@
                           <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.ppd | currency:'USD':true:'1.0-2'}}</div>
                           <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'SBS'" >{{row2.amparos.ppd}}</div>
                           <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'MAPFRE'" >{{row2.amparos.ppd}}</div>
+                          <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'HDI'" >{{row2.amparos.ppd}}</div>
+                          <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'AXA COLPATRIA'" >{{row2.amparos.ppd}}</div>
                           <button *ngIf = "row2.amparos.ppd == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
                             <i class="now-ui-icons ui-1_simple-remove"></i>
                           </button>
@@ -114,6 +120,8 @@
                           <div *ngIf = "row2.amparos.pph !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.pph | currency:'USD':true:'1.0-2'}}</div>
                           <div *ngIf = "row2.amparos.pph !=  false && row.name == 'SBS'" >{{row2.amparos.pph}}</div>
                           <div *ngIf = "row2.amparos.pph !=  false && row.name == 'MAPFRE'" >{{row2.amparos.pph}}</div>
+                          <div *ngIf = "row2.amparos.pph !=  false && row.name == 'HDI'" >{{row2.amparos.pph}}</div>
+                          <div *ngIf = "row2.amparos.pph !=  false && row.name == 'AXA COLPATRIA'" >{{row2.amparos.pph}}</div>
                           <button *ngIf = "row2.amparos.pph == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
                             <i class="now-ui-icons ui-1_simple-remove"></i>
                           </button>
@@ -199,13 +207,13 @@
 				        </tbody>
               </table>
               <!-- Cotización Manual -->
-              <app-autos-manual *ngIf="showManualQuote" [insurances]="data.list_all_insurances" [counterManual]="9 - cont_cot" [selectedAutoQuotes]="automaticQuotesSelected"></app-autos-manual>
+              <app-autos-manual *ngIf="showManualQuote" [insurances]="data.list_all_insurances" [cont_cot]="cont_cot" [counterManual]="9 - cont_cot" [selectedAutoQuotes]="automaticQuotesSelected"></app-autos-manual>
 			        <table  class="table">
 				        <tbody>
 					        <tr>
 					          <td colspan="3" class="text-right">
                       <button *ngIf="manualEnable" class="btn btn-info btn-round" type="button" class="btn btn-info btn-round" (click)="showManual()">Agregar Manual</button>
-						          <button [disabled]="buttonStatus" id="cotizar" type="button" class="btn btn-info btn-round" (click)="sendRequest()">Cotizar<i class="now-ui-icons arrows-1_minimal-right"></i></button>
+						          <button [disabled]="disablebutton(cont_cot)" id="cotizar" type="button" class="btn btn-info btn-round" (click)="sendRequest()">Cotizar<i class="now-ui-icons arrows-1_minimal-right"></i></button>
 						        </td>
 					        </tr>
 				        </tbody>
