@@ -152,17 +152,23 @@ export class AutosManualComponent implements OnInit {
         // Id de la aseguradora
         manualQuoteSelected.id = parseInt(insuranceSelected,10);
 
-        // RCE
-        let rceObject = {} as RceObject;
-
         let arrayRce = [];
 
-        rceObject.value = rceValue;
-
+        //split rce
+        let arrayRceSplit = rceValue.split(",");
+        
+        //recorre split
+        for(let rceItem of arrayRceSplit)
+        {        
+        //Instancia objeto por cada rce , asigna valor a la propiedad value y adiciona al arreglo de rce's 
+        let rceObject = {} as RceObject;        
+        rceObject.value = rceItem;        
         arrayRce.push(rceObject);
+        }
 
+        
         manualQuoteSelected.rce = arrayRce;
-
+        
         // Deducible RCE
         manualQuoteSelected.deducible_rce = rceDeductible;
 
