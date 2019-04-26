@@ -159,7 +159,12 @@ export class AutosManualComponent implements OnInit {
         
         //recorre split
         for(let rceItem of arrayRceSplit)
-        {        
+        {  
+		
+		
+		//completa formato valor en millones
+		rceItem=rceItem+'000000'
+		
         //Instancia objeto por cada rce , asigna valor a la propiedad value y adiciona al arreglo de rce's 
         let rceObject = {} as RceObject;        
         rceObject.value = rceItem;        
