@@ -14,7 +14,14 @@ declare interface TableData {
 @Component({
   selector: 'app-hogar-list',
   templateUrl: './hogar-list.component.html',
-  styleUrls: ['./hogar-list.component.scss']
+  styleUrls: ['./hogar-list.component.scss'],
+  styles: [`
+    :host >>> .alert-custom {
+      color: #99004d;
+      background-color: #f169b470;
+      border-color: #800040;
+    }
+  `]
 })
 
 export class HogarListComponent implements OnInit {
@@ -58,14 +65,14 @@ export class HogarListComponent implements OnInit {
       for (let error_index in this.errores.params) {
         if (error_index != 'auth') {
           if (error_index != 'partner_id') {
-            mensaje_errores.push(this.errores.params[error_index]);
+            mensaje_errores.push(this.errores.params[error_index]);            
           }
         }
       }
       dataService.auth = this.errores.params.auth;
       dataService.partner = this.errores.params.partner_id;
 
-      this.errores = mensaje_errores;
+      this.errores = mensaje_errores;      
     });
   }
 

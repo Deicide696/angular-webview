@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
 
 import { DataService } from '../../../../../webview/src/app/data.service';
@@ -53,13 +53,16 @@ export class AutosListComponent implements OnInit {
 	public inputs:string;
 	public auth:string;
 	public errores:any;
-	public cont_cot:number;
+	@Input() cont_cot: number;
 	public manualEnable: boolean;
 
-	public productName = 'autos';
+  public productName = 'autos';
+  
+  
 
   constructor(private dataService: DataService, private route: ActivatedRoute) {
-	this.cont_cot = 0;  
+    this.cont_cot = 0;
+	 
     this.inputs = this.route.snapshot.params['precotizacion'];
     dataService.request = {
       cotizacion_id: +this.inputs,

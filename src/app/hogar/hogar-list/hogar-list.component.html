@@ -1,6 +1,16 @@
 <div class="section">
   <div class="fluid-container">
     <h3 class="title">Webview Hogar</h3>
+    <div class="row" *ngIf="errores.length > 0">
+    <ngb-alert type="custom" [dismissible]="false">
+			<strong>Atención! Algunas aseguradoras no pueden cotizar:</strong> 
+			<ul>
+				<li *ngFor="let error of errores">
+					{{ error }}
+				</li>
+			</ul>
+    </ngb-alert>
+  </div>
     <div class="row">
       <div class="col-md-12">
         <div class="card card-plain">
