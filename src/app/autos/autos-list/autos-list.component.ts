@@ -43,7 +43,7 @@ declare interface TableData2 {
       color: #99004d;
       background-color: #f169b470;
       border-color: #800040;
-    }
+    }   
   `]
 })
 export class AutosListComponent implements OnInit {
@@ -55,13 +55,23 @@ export class AutosListComponent implements OnInit {
 	public errores:any;
 	@Input() cont_cot: number;
 	public manualEnable: boolean;
-
   public productName = 'autos';
+  showManualQuote: boolean;		
+	response: Response;
+	responsepdf: ResponsePdf;
+	data: Cotizacion;
+	typeplan: Plan;
+	amparos: Amparo;
+	asistencia: Asistencia;
+	buttonStatus: boolean;
+	loading: boolean;
+	cotizacionesArray = [];
   
   
 
   constructor(private dataService: DataService, private route: ActivatedRoute) {
-    this.cont_cot = 0;
+  
+   this.cont_cot = 0;
 	 
     this.inputs = this.route.snapshot.params['precotizacion'];
     dataService.request = {
@@ -70,10 +80,8 @@ export class AutosListComponent implements OnInit {
       cotizaciones_manuales: null,
     };
 
-    this.route.queryParamMap.subscribe(params => {
-      // TODO: Cambiarlo porque no solo trae los errores sino también la auth
+    this.route.queryParamMap.subscribe(params => {      
       this.errores = params;
-
       // TODO: Optimizar esto!!!
       let mensaje_errores = [];
       for (let error_index in this.errores.params) {
@@ -96,40 +104,36 @@ export class AutosListComponent implements OnInit {
     });
   }
 
-  showManualQuote: boolean;
-		
-	response: Response;
-	responsepdf: ResponsePdf;
-	data: Cotizacion;
-	typeplan: Plan;
-	amparos: Amparo;
-	asistencia: Asistencia;
-	buttonStatus: boolean;
-	loading: boolean;
-	cotizacionesArray = [];
+ 
 	
 	getResponseWeb(cotizacion): void {
     this.dataService.getResponseWeb(cotizacion, this.productName)
 		.subscribe(response => {
 				this.response = response;
-				this.data = response.data;
+        this.data = response.data;
+        this.loading=false;
 				console.log(this.response.data);
 			}			
 		);
 	}
 	
 	getResponsePdf(request): void{
+    
+    
 	this.dataService.postQuote(request, this.productName)
 			.subscribe(responsepdf => {
 				this.responsepdf = responsepdf;				
 				this.responsepdf.data = responsepdf.data;				
 				if(this.responsepdf.status){
+          this.loading=false;
 					window.location.href = this.responsepdf.data.internal_message;				
 				}	
 				else{					
 					alert(this.responsepdf.data.internal_message);		
 				}
-			});
+      });
+      
+     
 	}
 
 	// Función para encontrar la posición del objeto buscado dentro de un array.
@@ -143,8 +147,9 @@ export class AutosListComponent implements OnInit {
 	
 	// Función para invocar el EndPoint de precotización-pdf
 	sendRequest() {
+    this.loading=true;
 			console.log(this.dataService.request);
-			this.getResponsePdf(this.dataService.request);
+		this.getResponsePdf(this.dataService.request);
 	}
 
   /**
@@ -195,22 +200,16 @@ export class AutosListComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.loading=true;
+    
     // No muestra la cotización manual por defecto
     this.showManualQuote = false;
 
     this.buttonStatus = true;
 
-    // TODO: Parece que esto no se esta usando bien. CP
-    this.loading = true;
-
     // Llamado para poblar la tabla con las cotizaciones dado el id de cotización
-    this.getResponseWeb(this.inputs);
-
-    if(this.getResponseWeb){
-      // TODO: Parece que esto no se esta usando bien. CP
-      this.loading = false;
-    }
+    this.getResponseWeb(this.inputs);   
+   
 
     this.tableData3 = {
       headerRow: [ 'Daños a Terceros', 'Pérdidas Totales', 'Pérdidas Parciales', 'Conductor Elegido',

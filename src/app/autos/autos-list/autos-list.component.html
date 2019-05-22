@@ -1,7 +1,10 @@
 <div class="section">
   <div class="fluid-container">
     <h3 class="title">Webview Autos</h3>
-		<ngb-alert type="custom" [dismissible]="false">
+    <div class="preloading" *ngIf = "loading">
+      <img src="../../assets/img/loader2.gif">
+    </div>
+		<ngb-alert *ngIf = "!loading" type="custom" [dismissible]="false">
 			<strong>Atención! Algunas aseguradoras no pueden cotizar:</strong> 
 			<ul>
 				<li *ngFor="let error of errores">
@@ -9,9 +12,7 @@
 				</li>
 			</ul>
 		</ngb-alert>
-	<div class="loading" *ngIf = "loading">
-		<img src="../../assets/img/loader2.gif">
-	</div>
+	
     <div class="row" *ngIf = "loading == false">
       <div class="col-md-12">
         <div class="card card-plain">
