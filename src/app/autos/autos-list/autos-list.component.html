@@ -2,7 +2,8 @@
   <div class="fluid-container">
     <h3 class="title">Webview Autos</h3>
     <div class="preloading" *ngIf = "loading">
-      <img src="../../assets/img/loader2.gif">
+      <p class="title">Cargando...</p>
+      <img class="preloading_img" src="../../assets/img/loader2.gif">
     </div>
 		<ngb-alert *ngIf = "!loading" type="custom" [dismissible]="false">
 			<strong>Atención! Algunas aseguradoras no pueden cotizar:</strong> 

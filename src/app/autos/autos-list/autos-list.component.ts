@@ -124,8 +124,7 @@ export class AutosListComponent implements OnInit {
 			.subscribe(responsepdf => {
 				this.responsepdf = responsepdf;				
 				this.responsepdf.data = responsepdf.data;				
-				if(this.responsepdf.status){
-          this.loading=false;
+				if(this.responsepdf.status){      
 					window.location.href = this.responsepdf.data.internal_message;				
 				}	
 				else{					
