@@ -47,7 +47,7 @@ declare interface TableData2 {
   `]
 })
 export class AutosListComponent implements OnInit {
-
+  
   public tableData3: TableData;
   public color:string;
 	public inputs:string;
@@ -65,9 +65,9 @@ export class AutosListComponent implements OnInit {
 	asistencia: Asistencia;
 	buttonStatus: boolean;
 	loading: boolean;
-	cotizacionesArray = [];
+	cotizacionesArray = [];  
   
-  
+
 
   constructor(private dataService: DataService, private route: ActivatedRoute) {
   
@@ -158,12 +158,17 @@ export class AutosListComponent implements OnInit {
    * @param element: Cotización elegida
    * @constructor
    */
-  Select(selectedId, selectedPlan, element) {
+  Selected(selectedId, selectedPlan, element) {
 
     let automaticQuotesSelected = {} as DataAutomaticRequest;
-
+    //obtiene el id del check seleccionado
+    let row_id=element.attributes.id.nodeValue
+    //obtiene la cotizacion seleccionada
+    let row= document.getElementById("row_"+row_id);  
 	  // Valida si el checkbox ha sido activado
-	  if(element == true){	
+	  if(element.checked == true){	     
+      //Aplica estilo fila seleccionada
+      row.className="selected_row";
 		  // Asigna el valor de las propiedades de DataRequest {Aseguradora, Plan}, con los parametros de esta función.	
 		  automaticQuotesSelected.id = selectedId;
 		  automaticQuotesSelected.plan = selectedPlan;
@@ -173,11 +178,13 @@ export class AutosListComponent implements OnInit {
 		  // Actualiza la propiedad cotizaciones de la clase Request con la cotización seleccionada.	
       this.dataService.request.cotizaciones_automaticas = this.cotizacionesArray;
 		  // Contador aumenta
-		  this.cont_cot += 1;
-		  console.log("Cont: " + this.cont_cot); 
+		  this.cont_cot += 1;		  
 	  }
-	  else { // Si se desactiva el checkbox	
-		  // Asigna el valor de las propiedades de DataRequest {Aseguradora, Plan}, con los parametros de esta función.	
+    else { // Si se desactiva el checkbox	
+      //Aplica estilo fila desseleccionada
+      row.className="unselect_row";
+      // Asigna el valor de las propiedades de DataRequest {Aseguradora, Plan}, con los parametros de esta función.	
+      
       automaticQuotesSelected.id = selectedId;
       automaticQuotesSelected.plan = selectedPlan;
 		  
@@ -188,9 +195,16 @@ export class AutosListComponent implements OnInit {
 		  // Actualiza la propiedad cotizaciones de la clase Request
 		  this.dataService.request.cotizaciones_automaticas = this.cotizacionesArray;
 		  // Contador disminuye
-		  this.cont_cot -= 1;
-		  console.log("Cont: " + this.cont_cot);
-	  }
+		  this.cont_cot -= 1;		  
+    }
+    console.log("Cont final: " + this.cont_cot); 
+    if(this.cont_cot>=10){
+    alert("Ha alcanzado el limite de cotizaciones");
+    element.checked=false;
+    row.className="unselect_row";
+    this.cont_cot -= 1;	
+    }
+    
   }
 
   // Muestra la primera fila para agregar una cotización manual
