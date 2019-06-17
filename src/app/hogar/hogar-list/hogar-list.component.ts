@@ -33,6 +33,7 @@ export class HogarListComponent implements OnInit {
   public errores:any;
   public quoteCounter:number;
   public manualEnable: boolean;
+  loading: boolean;
 
   public productName = 'hogar';
   response: Response;
@@ -81,6 +82,7 @@ export class HogarListComponent implements OnInit {
       .subscribe(response => {
           this.response = response;
           this.data = response.data;
+          this.loading=false;
         }
       );
   }
@@ -110,6 +112,7 @@ export class HogarListComponent implements OnInit {
 
   // Función para invocar el EndPoint de precotización-pdf
   sendRequest() {
+    this.loading=true;
     console.log(this.dataService.request);
     this.getResponsePdf(this.dataService.request);
   }
@@ -143,7 +146,7 @@ export class HogarListComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.loading=true;
     this.buttonQuoteEnabled = true;
 
     // Llamado para poblar la tabla con las cotizaciones dado el id de cotización

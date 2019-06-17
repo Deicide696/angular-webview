@@ -1,7 +1,11 @@
 <div class="section">
   <div class="fluid-container">
     <h3 class="title">Webview Autos</h3>
-		<ngb-alert type="custom" [dismissible]="false">
+    <div class="preloading" *ngIf = "loading">
+      <p class="title">Cargando...</p>
+      <img class="preloading_img" src="../../assets/img/loader2.gif">
+    </div>
+		<ngb-alert *ngIf = "!loading" type="custom" [dismissible]="false">
 			<strong>Atención! Algunas aseguradoras no pueden cotizar:</strong> 
 			<ul>
 				<li *ngFor="let error of errores">
@@ -9,9 +13,7 @@
 				</li>
 			</ul>
 		</ngb-alert>
-	<div class="loading" *ngIf = "loading">
-		<img src="../../assets/img/loader2.gif">
-	</div>
+	
     <div class="row" *ngIf = "loading == false">
       <div class="col-md-12">
         <div class="card card-plain">
@@ -56,7 +58,7 @@
                   </tr>
                 </thead>
                 <tbody *ngFor="let row of data.insurances">
-							    <tr *ngFor="let row2 of row.typeplan" [ngStyle]="{'background': color}" >
+							    <tr *ngFor="let row2 of row.typeplan" [ngStyle]="{'background': color}" id="row_{{row.id}}_{{row2.plan_id}}" >
 					          <td *ngIf = "row2.plan_id" data-label="">
                       <div class="img-container">
                         <img src="{{row.logo}}" alt="{{row.name}}">
@@ -67,8 +69,8 @@
 					          <td *ngIf = "row2.plan_id" class="td-number rce" data-label="DAÑOS A TERCEROS">
 						          <small>Máximo</small>
 						          <br />
-						          <div *ngIf = "row.name !=  'SBS' " >{{row2.limitedbt/1000000  | currency:'USD':true:'1.0-2'}}</div>
-						          <div *ngIf = "row.name == 'SBS' " >{{row2.limitedbt | currency:'USD':true:'1.0-2'}}</div>
+						          <div *ngIf = "row.name !=  'SBS' " >{{row2.limitedbt/1000000  | currency:'USD':symbol:'1.0-2'}}</div>
+						          <div *ngIf = "row.name == 'SBS' " >{{row2.limitedbt | currency:'USD':symbol:'1.0-2'}}</div>
 						          <br />
 						          <small>Millones</small>
 						          <br />
@@ -77,8 +79,8 @@
 					          <td *ngIf = "row2.plan_id" class="td-actions  text-center pp" data-label="PERDIDAS TOTALES (DAÑOS / HURTO)">
                       <div class="row">
                         <div class="col">
-                          <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'SURA'" >{{row2.amparos.ptd | currency:'USD':true:'1.0-2'}}</div>
-                          <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.ptd | currency:'USD':true:'1.0-2'}}</div>
+                          <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'SURA'" >{{row2.amparos.ptd | currency:'USD':symbol:'1.0-2'}}</div>
+                          <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.ptd | currency:'USD':symbol:'1.0-2'}}</div>
                           <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'SBS'" >{{row2.amparos.ptd}}</div>
                           <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'MAPFRE'" >{{row2.amparos.ptd}}</div>
                           <div *ngIf = "row2.amparos.ptd !=  false && row.name == 'HDI'" >{{row2.amparos.ptd}}</div>
@@ -89,8 +91,8 @@
                           </button>
                         </div>
                         <div class="col">
-                          <div *ngIf = "row2.amparos.pth !=  false && row.name == 'SURA'" >{{row2.amparos.pth | currency:'USD':true:'1.0-2'}}</div>
-                          <div *ngIf = "row2.amparos.pth !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.pth | currency:'USD':true:'1.0-2'}}</div>
+                          <div *ngIf = "row2.amparos.pth !=  false && row.name == 'SURA'" >{{row2.amparos.pth | currency:'USD':symbol:'1.0-2'}}</div>
+                          <div *ngIf = "row2.amparos.pth !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.pth | currency:'USD':symbol:'1.0-2'}}</div>
                           <div *ngIf = "row2.amparos.pth !=  false && row.name == 'SBS'" >{{row2.amparos.pth}}</div>
                           <div *ngIf = "row2.amparos.pth !=  false && row.name == 'MAPFRE'" >{{row2.amparos.pth}}</div>
                           <div *ngIf = "row2.amparos.pth !=  false && row.name == 'HDI'" >{{row2.amparos.pth}}</div>
@@ -105,8 +107,8 @@
                     <td *ngIf = "row2.plan_id" class="td-actions  text-center pp" data-label="PERDIDAS PARCIALES (DAÑOS / HURTO)">
                       <div class="row">
                         <div class="col">
-                          <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'SURA'" >{{row2.amparos.ppd | currency:'USD':true:'1.0-2'}}</div>
-                          <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.ppd | currency:'USD':true:'1.0-2'}}</div>
+                          <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'SURA'" >{{row2.amparos.ppd | currency:'USD':symbol:'1.0-2'}}</div>
+                          <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.ppd | currency:'USD':symbol:'1.0-2'}}</div>
                           <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'SBS'" >{{row2.amparos.ppd}}</div>
                           <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'MAPFRE'" >{{row2.amparos.ppd}}</div>
                           <div *ngIf = "row2.amparos.ppd !=  false && row.name == 'HDI'" >{{row2.amparos.ppd}}</div>
@@ -116,8 +118,8 @@
                           </button>
                         </div>
                         <div class="col">
-                          <div *ngIf = "row2.amparos.pph !=  false && row.name == 'SURA'" >{{row2.amparos.pph | currency:'USD':true:'1.0-2'}}</div>
-                          <div *ngIf = "row2.amparos.pph !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.pph | currency:'USD':true:'1.0-2'}}</div>
+                          <div *ngIf = "row2.amparos.pph !=  false && row.name == 'SURA'" >{{row2.amparos.pph | currency:'USD':symbol:'1.0-2'}}</div>
+                          <div *ngIf = "row2.amparos.pph !=  false && row.name == 'ALLIANZ'" >{{row2.amparos.pph | currency:'USD':symbol:'1.0-2'}}</div>
                           <div *ngIf = "row2.amparos.pph !=  false && row.name == 'SBS'" >{{row2.amparos.pph}}</div>
                           <div *ngIf = "row2.amparos.pph !=  false && row.name == 'MAPFRE'" >{{row2.amparos.pph}}</div>
                           <div *ngIf = "row2.amparos.pph !=  false && row.name == 'HDI'" >{{row2.amparos.pph}}</div>
@@ -158,7 +160,7 @@
                       </div>
                     </td>
                     <td *ngIf = "row2.plan_id" class="td-actions text-center pp" data-label="GASTOS DE TRANSPORTE PERDIDA TOTAL">
-                      <div *ngIf = "row2.amparos.gtpt !=  false" >{{row2.amparos.gtpt | currency:'USD':true:'1.0-2'}}</div>
+                      <div *ngIf = "row2.amparos.gtpt !=  false" >{{row2.amparos.gtpt | currency:'USD':symbol:'1.0-2'}}</div>
                       <button *ngIf = "row2.amparos.gtpt == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
                         <i class="now-ui-icons ui-1_simple-remove"></i>
                       </button>
@@ -186,17 +188,17 @@
                       <button *ngIf = "row2.amparos.accidentes_personales == false" type="button" placement="top" ngbTooltip="Remove item" class="btn btn-neutral">
                         <i class="now-ui-icons ui-1_simple-remove"></i>
                       </button>
-                      <div *ngIf = "row2.amparos.accidentes_personales != false">{{row2.amparos.accidentes_personales | currency:'USD':true:'1.0-2'}}</div>
+                      <div *ngIf = "row2.amparos.accidentes_personales != false">{{row2.amparos.accidentes_personales | currency:'USD':symbol:'1.0-2'}}</div>
                     </td>
                     <td *ngIf = "row2.plan_id" class="td-number text-center prima" data-label="PRIMA TOTAL">
                       <div class="row">
                         <div class="col">
-                          {{row2.prima_total | currency:'USD':true:'1.0-2'}}
+                          {{row2.prima_total | currency:'USD':symbol:'1.0-2'}}
                         </div>
                         <div class="col">
                           <div class="form-check">
                             <label class="form-check-label">
-                              <input class="form-check-input" ng-model="check" type="checkbox" value="" (click)="Select(row.id, row2.plan_id, $event.target.checked)" onClick="HR(this);" ng-true-value="YES" ng-false-value="NO">
+                              <input class="form-check-input" ng-model="check" type="checkbox" value="" id="{{row.id}}_{{row2.plan_id}}" (click)="Selected(row.id, row2.plan_id, $event.currentTarget)" ng-true-value="YES" ng-false-value="NO">
                               <span class="form-check-sign"></span>
                             </label>
                           </div>
@@ -213,7 +215,7 @@
 					        <tr>
 					          <td colspan="3" class="text-right">
                       <button *ngIf="manualEnable" class="btn btn-info btn-round" type="button" class="btn btn-info btn-round" (click)="showManual()">Agregar Manual</button>
-						          <button [disabled]="disablebutton(cont_cot)" id="cotizar" type="button" class="btn btn-info btn-round" (click)="sendRequest()">Cotizar<i class="now-ui-icons arrows-1_minimal-right"></i></button>
+						          <button [disabled]="cont_cot==0" type="button" class="btn btn-info btn-round" (click)="sendRequest()">Cotizar<i class="now-ui-icons arrows-1_minimal-right"></i></button>
 						        </td>
 					        </tr>
 				        </tbody>

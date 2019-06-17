@@ -1,2 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/scss/bootstrap.scss";
+
+.preloading{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    /* background-color: #000; */
+    opacity: .75;
+    p{
+        margin-top: 19%;
+        margin-left: 42%;
+        position: absolute;
+        font-size: 26px;
+    }
+  }   
+  .preloading_img{
+    width: 25%;
+      margin-top: 10%;
+      margin-left: 35%;
+  }
+
+  .selected_row{
+    background-color: rgb(233, 242, 251);
+  }
+
+  .unselect_row{
+    background-color: rgb(255, 255, 255);
+  }

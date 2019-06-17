@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import {Aseguradora} from '../autos-classes/aseguradora';
 import {DataAutomaticRequest} from '../autos-classes/data-automatic-request';
 import {DataService} from '../../data.service';
@@ -26,17 +26,22 @@ export class AutosManualComponent implements OnInit {
 
     // Agregar la cotización al JSON global
     let manualQuoteSelected = {} as DataManualRequest;
-
+    //obtiene el id del check seleccionado
+    let row_id=element.attributes.id.nodeValue
+    //obtiene la cotizacion seleccionada
+    let row= document.getElementById("manual_row_"+row_id); 
     // Si se selecciona la cotización manual
     if(element.checked == true) {
-
+    
       if(rceValue == '' || rceDeductible == '' || ptd == '' || pth == '' || ppd == '' || pph == '' || conductor == '' || carroTaller == ''
         || grua == '' || gastosTransporte == '' || vrpt == '' || vrpp == '' || ap == '' || prima == ''){
         // Modal informando el error y deselecciono el check
         element.checked = false;
+        alert("todos los campos son obligatorios");
       }
       else{
-
+        //aplica estilo "seleccionado" a la fila
+        row.className="selected_row";
         // Validación de los campos que son booleanos
 
         // PTD
@@ -227,6 +232,8 @@ export class AutosManualComponent implements OnInit {
     }
 
     else {
+      //aplica estilo "desseleccionado" a la fila
+      row.className="unselect_row";
       // Id de la aseguradora
       manualQuoteSelected.id = parseInt(insuranceSelected,10);
 

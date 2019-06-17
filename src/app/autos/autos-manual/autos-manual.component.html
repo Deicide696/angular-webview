@@ -1,6 +1,6 @@
 <table class="table table-shopping" id="tabletest">
   <tbody *ngFor="let row of arrayFake(counterManual); let i = index">
-    <tr [ngStyle]="{'background': color}" >
+    <tr [ngStyle]="{'background': color}" id="manual_row_{{i}}">
       <td data-label="" style="min-width: 100px;">
       <select class="form-control" #insuranceSelected>
             <option [value]="insurance.id" *ngFor="let insurance of insurances">{{insurance.name}}</option>
@@ -72,7 +72,7 @@
           <div class="col">
             <div class="form-check">
               <label class="form-check-label">
-                <input class="form-check-input" ng-model="check" type="checkbox" value="" (click)='selectManualQuote($event.target, insuranceSelected.value, rceValue.value, rceDeductible.value, ptd.value, pth.value, ppd.value, pph.value, conductor.value, carroTaller.value, grua.value, gastosTransporte.value, vrpt.value, vrpp.value, ap.value, prima.value)' ng-true-value="YES" ng-false-value="NO">
+                <input class="form-check-input" ng-model="check" id="{{i}}"type="checkbox" value="" (click)='selectManualQuote($event.currentTarget, insuranceSelected.value, rceValue.value, rceDeductible.value, ptd.value, pth.value, ppd.value, pph.value, conductor.value, carroTaller.value, grua.value, gastosTransporte.value, vrpt.value, vrpp.value, ap.value, prima.value)' ng-true-value="YES" ng-false-value="NO">
                 <span class="form-check-sign"></span>
               </label>
             </div>

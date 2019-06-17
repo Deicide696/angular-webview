@@ -43,7 +43,7 @@ export class DataService {
     let headers: HttpHeaders = new HttpHeaders();
     headers = headers.append('Content-Type', 'application/json');
     headers = headers.append('Authorization', 'Basic ' + this.auth);
-    headers = headers.append('partner_id', this.partner);
+    headers = headers.append('partner', this.partner);
 
     const params = JSON.stringify({cotizacion_id});
 
@@ -61,7 +61,7 @@ export class DataService {
     let headers: HttpHeaders = new HttpHeaders();
     headers = headers.append('Content-Type', 'application/json');
     headers = headers.append('Authorization', 'Basic ' + this.auth);
-    headers = headers.append('partner_id', this.partner);
+    headers = headers.append('partner', this.partner);
 
     const params = request;
 
