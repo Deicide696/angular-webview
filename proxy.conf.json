@@ -1,6 +1,6 @@
 {
 	 "/api/*":{
-	   "target":"http://54.173.24.54/vivoo-backend",
+	   "target":"http://acceso.vivoo.co",
 	   "secure": false,
 	   "changeOrigin":true
 	 }
