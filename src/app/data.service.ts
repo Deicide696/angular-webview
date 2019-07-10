@@ -47,7 +47,7 @@ export class DataService {
 
     const params = JSON.stringify({cotizacion_id});
 
-    return this.http.post(this.url + productName + '/precotizacion-' + productName, params, {headers: headers});
+    return this.http.post(this.url + productName + '/precotizacion-webview', params, {headers: headers});
   }
 
   /**
@@ -65,6 +65,6 @@ export class DataService {
 
     const params = request;
 
-    return this.http.post(this.url + productName + '/precotizacion-' + productName + '-pdf', params, {headers: headers});
+    return this.http.post(this.url + productName + '/precotizacion-cotizaciones-seleccionadas', params, {headers: headers});
   }
 }
