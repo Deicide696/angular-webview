@@ -153,7 +153,7 @@ export class HogarListComponent implements OnInit {
     this.getResponseWeb(this.inputs);
 
     this.tableDataHeaders = {
-      headerRow: [ 'Tipo Aseguramiento', 'Daños a terceros', 'Deducible Terremoto', 'Contenidos especiales', 'Asistencia', 'Prima']
+      headerRow: [ 'Tipo Aseguramiento', 'Daños a terceros', 'Deducible Terremoto', 'Asistencia', 'Prima']
     };
   }
 

@@ -28,9 +28,8 @@
                   <th class="text-center" scope="col">{{ tableDataHeaders.headerRow[0] }}</th> <!-- Tipo Aseguramiento -->
                   <th class="text-center" scope="col">{{ tableDataHeaders.headerRow[1] }}</th> <!-- Daños a terceros -->
                   <th class="text-center" scope="col">{{ tableDataHeaders.headerRow[2]}}</th> <!-- Deducible Terremoto -->
-                  <th class="text-center" scope="col">{{ tableDataHeaders.headerRow[3] }}</th> <!-- Contenidos especiales -->
-                  <th class="text-center" scope="col">{{ tableDataHeaders.headerRow[4] }}</th> <!-- Asistencia -->
-                  <th class="text-center" scope="col">{{ tableDataHeaders.headerRow[5] }}</th> <!-- Prima -->
+                  <th class="text-center" scope="col">{{ tableDataHeaders.headerRow[3] }}</th> <!-- Asistencia -->
+                  <th class="text-center" scope="col">{{ tableDataHeaders.headerRow[4] }}</th> <!-- Prima -->
                 </tr>
                 </thead>
                 <tbody *ngFor="let row of data.insurances">
@@ -51,14 +50,6 @@
                   <td class="td-actions text-center pp" data-label="DEDUCIBLE TERREMOTO">
                     <div>{{row.deducible_terremoto}}</div>
                     <div></div>
-                  </td>
-                  <td class="td-actions text-center pp" data-label="CONTENIDOS ESPECIALES">
-                    <button *ngIf = "row.contenidos_especiales == false" type="button" placement="top" ngbTooltip="No aplica" class="btn btn-neutral">
-                      <i class="now-ui-icons ui-1_simple-remove"></i>
-                    </button>
-                    <button *ngIf = "row.contenidos_especiales == true" type="button" placement="top" ngbTooltip="Aplica" class="btn btn-neutral btn-check">
-                      <i class="now-ui-icons ui-1_check"></i>
-                    </button>
                   </td>
                   <td class="td-actions text-center pp" data-label="ASISTENCIA">
                     <button *ngIf = "row.asistencia == false" type="button" placement="top" ngbTooltip="No aplica" class="btn btn-neutral">
