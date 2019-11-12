@@ -1,0 +1,65 @@
+<div class="container" *ngIf = "loading">
+    <div class="row">
+        <div id="loader">
+            <h3>Cotizando</h3>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="loading"></div>
+        </div>
+    </div>
+</div>
+<div class="table-users" [style.display]="display">
+    <div class="header">Cotizaciones Autos</div>
+    <table cellspacing="0" style="text-align: center">
+        <tr>
+            <th style="padding-bottom: 0px"></th>
+            <th style="padding-bottom: 0px"></th>
+            <th style="padding-bottom: 0px" colspan="2">Pérdidas totales</th>
+            <th style="padding-bottom: 0px" colspan="2">Pérdidas parciales</th>
+            <th style="padding-bottom: 0px"></th>
+            <th style="padding-bottom: 0px"></th>
+            <th style="padding-bottom: 0px"></th>
+            <th style="padding-bottom: 0px"></th>
+            <th style="padding-bottom: 0px" colspan="2">V. de reemplazo</th>
+            <th style="padding-bottom: 0px"></th>
+            <th style="padding-bottom: 0px"></th>
+            <th style="padding-bottom: 0px"></th>
+        </tr>
+        <tr>
+            <th></th>
+            <th style="min-width: 120px">Daños a terceros</th>
+            <th style="min-width: 80px">Daños</th>
+            <th style="min-width: 80px">Hurto</th>
+            <th style="min-width: 80px">Daños</th>
+            <th style="min-width: 80px">Hurto</th>
+            <th style="min-width: 50px">Conductor elegido</th>
+            <th style="min-width: 50px">Carro taller</th>
+            <th style="min-width: 50px">Grua</th>
+            <th style="min-width: 80px">Gastos Trans</th>
+            <th style="min-width: 60px">Total</th>
+            <th style="min-width: 60px">Parcial</th>
+            <th style="min-width: 80px">Accidentes Personales</th>
+            <th style="min-width: 80px">Prima</th>
+            <th style="padding-bottom: 0px; min-width: 40px"></th>
+        </tr>
+
+        <ng-template appQuote></ng-template>
+    </table>
+</div>
+
+<table class="table" [style.display]="displayButton">
+    <tbody>
+    <tr>
+        <td colspan="3" class="text-right" style="background-color:white !important;">
+            <button class="btn btn-info btn-round" type="button" class="btn btn-info btn-round" (click)="sendRequest()">Agregar Manual</button>
+            <button type="button" class="btn btn-success btn-round" (click)="sendRequest()">Cotizar<i class="now-ui-icons arrows-1_minimal-right"></i></button>
+        </td>
+    </tr>
+    </tbody>
+</table>
