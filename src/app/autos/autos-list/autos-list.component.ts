@@ -47,7 +47,7 @@ declare interface TableData2 {
       color: #99004d;
       background-color: #f169b470;
       border-color: #800040;
-    }   
+    }
   `]
 })
 
@@ -83,7 +83,7 @@ export class AutosListComponent implements OnInit, AfterViewInit {
             });
         });
     }
-    private url = 'http://localhost:3000/';
+    private url = 'http://54.173.12.255:8201/';
     private socket;
 
     constructor(private dataService: DataService, private route: ActivatedRoute, private cfr: ComponentFactoryResolver) {

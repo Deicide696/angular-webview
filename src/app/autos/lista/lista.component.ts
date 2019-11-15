@@ -39,7 +39,7 @@ export class ListaComponent implements OnInit {
         });
     }
     private socket;
-    private url = 'http://localhost:3000/';
+    private url = 'http://54.173.12.255:8201/';
     private loading: boolean = true;
 
     constructor(private route: ActivatedRoute, private cfr: ComponentFactoryResolver,
