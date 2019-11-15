@@ -80,6 +80,6 @@ export class DataService {
 
         console.log(headers);
 
-        return this.http.post('http://staging.vivoo.co/api/web/v1/autos/precotizacion-cotizaciones-seleccionadas', params, {headers: headers});
+        return this.http.post('http://54.173.12.255:8201/acceso.vivoo.co/api/web/v1/autos/precotizacion-cotizaciones-seleccionadas', params, {headers: headers});
     }
 }
