@@ -10,18 +10,18 @@ import { DataService } from '../../../webview/src/app/data.service';
 import { HogarModule } from './hogar/hogar.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    AutosModule,
-    HogarModule,
-    ReactiveFormsModule,
-    NgbModule.forRoot()
-  ],
-  providers: [DataService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        AutosModule,
+        HogarModule,
+        ReactiveFormsModule,
+        NgbModule.forRoot()
+    ],
+    providers: [DataService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

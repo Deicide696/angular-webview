@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AutosListComponent } from './autos/autos-list/autos-list.component';
 import {HogarListComponent} from './hogar/hogar-list/hogar-list.component';
+import {ListaComponent} from './autos/lista/lista.component';
 
 const routes: Routes = [
-  { path: 'precotizacion/:precotizacion',  component: AutosListComponent },
+  { path: 'precotizacion/:precotizacion',  component: ListaComponent },
   { path: 'hogar/:precotizacion',  component: HogarListComponent },
   /** router error */
   { path: '**', redirectTo: '/', pathMatch: 'full' },

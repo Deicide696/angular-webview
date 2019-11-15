@@ -47,7 +47,7 @@ export class DataService {
 
     const params = JSON.stringify({cotizacion_id});
 
-    return this.http.post(this.url + productName + '/precotizacion-' + productName, params, {headers: headers});
+    return this.http.post(this.url + productName + '/precotizacion-webview', params, {headers: headers});
   }
 
   /**
@@ -65,6 +65,21 @@ export class DataService {
 
     const params = request;
 
-    return this.http.post(this.url + productName + '/precotizacion-' + productName + '-pdf', params, {headers: headers});
+    return this.http.post(this.url + productName + '/precotizacion-cotizaciones-seleccionadas', params, {headers: headers});
   }
+
+    newPostQuote(request): Observable<any> {
+
+        let headers: HttpHeaders = new HttpHeaders();
+        headers = headers.append('Content-Type', 'application/json');
+        // headers = headers.append('Authorization', 'Bearer hdsbfjhsbdfjhbsdhjafjhasfv');
+        headers = headers.append('Authorization', 'Basic cHJ1ZWJhc2FkbWluQHZpdm9vLmNvOjEyMzQ1Njc=');
+        headers = headers.append('partner', '17');
+
+        const params = request;
+
+        console.log(headers);
+
+        return this.http.post('http://localhost/acceso.vivoo.co/api/web/v1/autos/precotizacion-cotizaciones-seleccionadas', params, {headers: headers});
+    }
 }
