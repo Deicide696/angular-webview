@@ -44,9 +44,9 @@ declare interface TableData2 {
   styleUrls: ['./autos-list.component.scss'],
   styles: [`
     :host >>> .alert-custom {
-      color: #99004d;
-      background-color: #f169b470;
-      border-color: #800040;
+      color: #004085;
+      background-color: #cce5ff;
+      border-color: #b8daff;
     }
   `]
 })
