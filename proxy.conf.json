@@ -1,6 +1,6 @@
 {
 	 "/api/*":{
-	   "target":"http://staging.vivoo.co",
+	   "target":"http://acceso.vivoo.co",
 	   "secure": false,
 	   "changeOrigin":true
 	 }

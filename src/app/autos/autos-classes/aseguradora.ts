@@ -5,5 +5,5 @@ export class Aseguradora {
   logo: string;
   name: string;
   statusinsurance: boolean;
-  typeplan: Plan[] = [];
+  typeplan: Plan;
 }
