@@ -1,23 +1,19 @@
-import {Rce} from './rce';
+import { Vehiculo } from './vehiculo';
+import { Aseguradora } from './aseguradora';
+
 
 export class Cotizacion {
-    placa: string;
-    marca: string;
-    modelo: string;
-    fasecolda: number;
-    valor_vehiculo: number;
-    logo: string;
-    rce: Rce;
-    ptd: string;
-    pth: string;
-    ppd: string;
-    pph: string;
-    conductor_elegido: string;
-    carro_taller: boolean;
-    grua: boolean;
-    gtpt: number;
-    vrpt: string;
-    vrpp: string;
-    accidentes_personales: number;
-    prima_total: number;
+	  id: number;
+    name_user: string;
+    last_name: string;
+    email: string;
+    identify: string;
+    gender: string;
+    telephone: string;
+    vehiculo: Vehiculo;
+    insurances: Aseguradora;
+    list_all_insurances: Aseguradora[];
+	  internal_message: string;
+	  status_code: number;
+	  user_message: string;
 }
