@@ -67,4 +67,19 @@ export class DataService {
 
     return this.http.post(this.url + productName + '/precotizacion-cotizaciones-seleccionadas', params, {headers: headers});
   }
+
+    newPostQuote(request): Observable<any> {
+
+        let headers: HttpHeaders = new HttpHeaders();
+        headers = headers.append('Content-Type', 'application/json');
+        // headers = headers.append('Authorization', 'Bearer hdsbfjhsbdfjhbsdhjafjhasfv');
+        headers = headers.append('Authorization', 'Basic cHJ1ZWJhc2FkbWluQHZpdm9vLmNvOjEyMzQ1Njc=');
+        headers = headers.append('partner', '17');
+
+        const params = request;
+
+        console.log(headers);
+
+        return this.http.post('http://staging.vivoo.co/api/web/v1/autos/precotizacion-cotizaciones-seleccionadas', params, {headers: headers});
+    }
 }
